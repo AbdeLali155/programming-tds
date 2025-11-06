@@ -1,108 +1,108 @@
-# import sympy as sp
+import sympy as sp
 
-# x,y=sp.symbols('x,y')
+x,y=sp.symbols('x,y')
 
 # # exercice 1
 # # 1
-# f=x**3-6*x**2+5*x+12
-# Fprime=sp.diff(f,x)
-# print(Fprime)
-# valeurFprime=sp.solveset(Fprime,x)
-# print(valeurFprime)
+f=x**3-6*x**2+5*x+12
+Fprime=sp.diff(f,x)
+print(Fprime)
+valeurFprime=sp.solveset(Fprime,x)
+print(valeurFprime)
 # # 2
-# exp=sp.sin(x)*sp.cos(x)+sp.cos(x)*sp.sin(y)
-# exp_sim=sp.simplify(exp)
-# print(exp_sim)
-# exp=(2*x+3)**4
-# exp_dev=sp.expand(exp)
-# print(exp_dev)
+exp=sp.sin(x)*sp.cos(x)+sp.cos(x)*sp.sin(y)
+exp_sim=sp.simplify(exp)
+print(exp_sim)
+exp=(2*x+3)**4
+exp_dev=sp.expand(exp)
+print(exp_dev)
 
 # # 3  
-# intgrale_calculer=sp.integrate(sp.sin(x)*sp.cos(x),(x,0,sp.pi/2))
+intgrale_calculer=sp.integrate(sp.sin(x)*sp.cos(x),(x,0,sp.pi/2))
 
-# print(intgrale_calculer)
+print(intgrale_calculer)
 
 #4
-# equation=4*x+7-3*(x-1)
-# equation_reso=sp.solveset(equation)
-# print(equation_reso)
+equation=4*x+7-3*(x-1)
+equation_reso=sp.solveset(equation)
+print(equation_reso)
 
 #5 
-# equ=(sp.exp(2*x)-1)/x
-# lim=sp.limit(equ,x,0)
-# print(lim)
+equ=(sp.exp(2*x)-1)/x
+lim=sp.limit(equ,x,0)
+print(lim)
 
 # #6 
-# equ1=2*x-3*y-5
-# equ2=-x+2*y+3
+equ1=2*x-3*y-5
+equ2=-x+2*y+3
 
-# resolv=sp.solve((equ1,equ2),(x,y))
-# print(resolv)
+resolv=sp.solve((equ1,equ2),(x,y))
+print(resolv)
 
 #7 
-# f=sp.Function('f')
-# equ=sp.Eq(sp.diff(f(x),x)-f(x),x**2)
-# equ_solve=sp.dsolve(equ,f(x))
-# print(equ_solve.lhs)
+f=sp.Function('f')
+equ=sp.Eq(sp.diff(f(x),x)-f(x),x**2)
+equ_solve=sp.dsolve(equ,f(x))
+print(equ_solve.lhs)
 
 # exercie 2
 # Ce code simule un seule lancer de pièce avec une probabilité de 1/3 d'obtenir PILE
-# import numpy as np
-# def simul_x():
-#     x=0
-#     for i in range(3):
-#         if(np.random.random()<(1/3)):
-#             x+=1
-#     return x
+import numpy as np
+def simul_x():
+    x=0
+    for i in range(3):
+        if(np.random.random()<(1/3)):
+            x+=1
+    return x
 
-# result=[simul_x() for i in range(1000)]
-# import matplotlib.pyplot as plt
-# plt.figure(figsize=(10, 6))
-# plt.hist(result, bins=4,
-#          edgecolor='black', color='blue')
-# plt.xlabel('Nombre de PILE (X)')
-# plt.ylabel('Fréquence')
-# plt.title('Histogramme de X sur 10000 simulations')
-# plt.xticks([0, 1, 2, 3])
-# plt.grid(axis='y', alpha=0.3)
-# plt.show()
+result=[simul_x() for i in range(1000)]
+import matplotlib.pyplot as plt
+plt.figure(figsize=(10, 6))
+plt.hist(result, bins=4,
+         edgecolor='black', color='blue')
+plt.xlabel('Nombre de PILE (X)')
+plt.ylabel('Fréquence')
+plt.title('Histogramme de X sur 10000 simulations')
+plt.xticks([0, 1, 2, 3])
+plt.grid(axis='y', alpha=0.3)
+plt.show()
 
 # exercice 3
 #Étoile
-# import matplotlib.pyplot as plt
-# import numpy as np
+import matplotlib.pyplot as plt
+import numpy as np
 
-# n = 5
-# angles = np.linspace(0, 2 * np.pi, n, endpoint=False) + np.pi / 2
-# x = np.cos(angles)
-# y = np.sin(angles)
-
-
-# order = [0, 2, 4, 1, 3, 0]
-# x_star = x[order]
-# y_star = y[order]
-
-# plt.plot(x_star, y_star)
-# plt.title("Étoile à 5 branches")
-# plt.axis("equal")
-# plt.grid(True)
-# plt.show()
-# #
-# #Pentagone
-# n = 5
-# angles = np.linspace(0, 2 * np.pi, n, endpoint=False) + np.pi / 2
-# x = np.cos(angles)
-# y = np.sin(angles)
+n = 5
+angles = np.linspace(0, 2 * np.pi, n, endpoint=False) + np.pi / 2
+x = np.cos(angles)
+y = np.sin(angles)
 
 
-# x_pent = np.append(x, x[0])
-# y_pent = np.append(y, y[0])
+order = [0, 2, 4, 1, 3, 0]
+x_star = x[order]
+y_star = y[order]
 
-# plt.plot(x_pent, y_pent)
-# plt.title("Pentagone régulier")
-# plt.axis("equal")
-# plt.grid(True)
-# plt.show()
+plt.plot(x_star, y_star)
+plt.title("Étoile à 5 branches")
+plt.axis("equal")
+plt.grid(True)
+plt.show()
+#
+#Pentagone
+n = 5
+angles = np.linspace(0, 2 * np.pi, n, endpoint=False) + np.pi / 2
+x = np.cos(angles)
+y = np.sin(angles)
+
+
+x_pent = np.append(x, x[0])
+y_pent = np.append(y, y[0])
+
+plt.plot(x_pent, y_pent)
+plt.title("Pentagone régulier")
+plt.axis("equal")
+plt.grid(True)
+plt.show()
 
 #2
 import numpy as np
