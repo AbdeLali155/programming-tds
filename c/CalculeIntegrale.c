@@ -1,14 +1,10 @@
 #include <stdio.h>
 #include <math.h>
 
-// Définir la fonction à intégrer f(x)
-// Vous pouvez changer cette fonction selon vos besoins
+
 double f(double x) {
-    return 2*x ; // Exemple: f(x) = x²
-    // Autres exemples:
-    // return sin(x);
-    // return exp(x);
-    // return 1/x;
+    return 2*x ; 
+
 }
 
 // Fonction pour calculer l'intégrale avec la méthode des trapèzes

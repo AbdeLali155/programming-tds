@@ -1,0 +1,1707 @@
+"id";"title";"slug";"acronym";"url";"organization";"organization_id";"owner";"owner_id";"description";"frequency";"license";"temporal_coverage.start";"temporal_coverage.end";"spatial.granularity";"spatial.zones";"featured";"created_at";"last_modified";"tags";"archived";"resources_count";"main_resources_count";"resources_formats";"downloads";"harvest.backend";"harvest.domain";"harvest.created_at";"harvest.modified_at";"harvest.remote_url";"quality_score";"metric.discussions";"metric.reuses";"metric.followers";"metric.views";"metric.resources_downloads"
+"652e5b0405f4d5c2edbe6484";"Recours aux soins d’urgence pour infection respiratoire aigüe (OSCOUR® et SOS Médecins).";"recours-aux-soins-durgence-pour-infection-respiratoire-aigue-oscour-r-et-sos-medecins";"SurSaUD®";"https://www.data.gouv.fr/fr/datasets/recours-aux-soins-durgence-pour-infection-respiratoire-aigue-oscour-r-et-sos-medecins/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"
+### SurSaUD® - Surveillance Sanitaire des Urgences et des Décès
+
+Ce système a été mis en place afin de détecter précocement un événement sanitaire inattendu ou un événement sanitaire prédéfini, tel qu’une épidémie saisonnière, et de mesurer l’impact de ces événements d’origine environnementale, infectieuse ou sociétale sur la population.
+Ce système est composé de 4 sources, dont les services d’urgence du réseau OSCOUR® et les associations SOS Médecins.
+
+[Le dossier complet](https://www.santepubliquefrance.fr/surveillance-syndromique-sursaud-R)
+
+### Indicateurs de fréquentation des urgences - OSCOUR®
+
+Le nombre de structures d’urgence participant au réseau OSCOUR® évolue au cours du temps. En 2023, le réseau compte environ 700 structures d’urgences, enregistrant 95% des passages aux urgences nationaux. Cette couverture varie selon les régions et les départements. Tous les départements sont couverts par le réseau OSCOUR®.
+Les données du réseau OSCOUR® sont collectées en routine, à partir du format RPU (Résumé de passages aux urgences), par les structures d’urgence pour leurs propres besoins. Elles sont transmises à Santé publique France dès le lendemain et peuvent être actualisées dans les sept jours qui suivent.
+
+Les diagnostics médicaux sont des diagnostics cliniques, ils ne font pas l’objet d’une validation, mais ils peuvent s’appuyer sur les résultats de tests biologiques rapides, notamment pour la Covid-19, la grippe et la bronchiolite. Ils sont envoyés au fil de l’eau et ne sont en principe pas modifiés au cours du temps. 
+
+La zone géographique correspond au département ou à la région de recours aux urgences et non à la zone géographique de domicile des patients.
+
+> Surveillance des infections respiratoire aigüe (IRA) aux urgences : Les diagnostics médicaux d’infection aigüe des voies respiratoires inférieures (code CIM10 : J22) ou de suspicion de COVID-19 (codes CIM10 : U07.1, U07.10, U07.11, U07.12, U07.14, U07.15, U04.9, B34.2, B97.2), ou de grippe/syndrome grippal (codes CIM10 : J09, J10, J11) ou de bronchite aigüe (codes CIM10 : J20) ou de pneumopathie (code CIM10 : J12 à J18) ou de bronchiolite (codes CIM10 : J21)
+
+### Indicateurs en part d'activité de SOS Médecins
+
+Les données sont issues de 62 associations SOS Médecins réparties sur 46 départements, dont une association en Martinique. Au moins une association est présente dans chaque région métropolitaine. La position des associations peut être visualisée sur la carte en sélectionnant « Ajouter une couche » dans le menu « Action » à droite de la carte, puis en sélectionnant la couche d’habillage « Associations SOS Médecins ».
+
+Les données sont collectées en routine par les associations Médecins pour leurs besoins métiers. Elles sont transmises à Santé publique France dès le lendemain et peuvent être actualisées dans les trois jours qui suivent . 
+
+Les actes médicaux analysés regroupent les visites à domicile effectuées par les médecins des associations et les consultations dans les centres médicaux SOS Médecins.
+
+Les diagnostics médicaux sont des diagnostics cliniques, ils ne font pas l’objet d’une validation, mais ils peuvent s’appuyer sur les résultats de tests biologiques rapides, notamment pour la Covid-19, la grippe et la bronchiolite. Les diagnostics cliniques de grippe répondent à une définition de cas établie communément entre Santé publique France et SOS Médecins France.
+
+La zone géographique correspond au département ou à la région de l’association SOS Médecins qui a reçu l’appel (siège du standard téléphonique ou du centre de consultations) et non au département ou à la région de domicile des patients.
+
+### Descriptions du fichier `sursaud_ira_hebdo.csv`
+
+**dep** = Numéro du département de rattachement du signalement
+**semaine** = Semaine calendaire ISO 8601
+**sursaud_cl_age_ira** = Classe d'âge du patient
+> 0 = Tous âges
+> 1 = 0-4 ans
+> 2 = 5-14 ans
+> 3 = 15-64 ans
+> 4 = 65 ans et plus
+
+**Nbre_pass_ira** = Nombre de passages aux urgences pour IRA
+**Nbre_pass_tot** = Nombre de passages aux urgences toutes causes
+**Nbre_hospit_ira** = Nombre d'hospitalisation après passage aux urgences pour IRA
+
+**Nbre_acte_ira** = Nombre d'actes SOS Médecin avec un diagnostic d'IRA
+**Nbre_acte_tot** = Nombre d'actes SOS Médecin toutes causes
+
+### Calcul des indicateurs
+- Taux de passages aux urgences pour infection respiratoire aigüe pour 10 000 passages = `10000*nbre_pass_ira/ nbre_pass_tot`
+- Taux d'hospitalisation après passages aux urgences infection respiratoire aigüe pour 10 000 passages = `10000*nbre_hospit_ira/ nbre_pass_ira`
+- Taux d'actes médicaux SOS Médecins pour infection respiratoire aigüe  pour 10 000 actes = `10000*nbre_acte_ira/ nbre_acte_tot`
+
+
+
+
+
+";"weekly";"Licence Ouverte / Open Licence version 2.0";"";"";"fr:departement";"France";False;"2023-10-17T09:59:32.765000";"2024-11-06T17:00:13.869000";"infections-respiratoires-aigues,ira,sos-medecins,urgences-hospitalieres";False;1;1;"csv";260;"";"";"";"";"";"0.89";0;0;0;1852;263
+"651e77882c463ebf7aca9a53";"Données de surveillance des épisodes de cas groupés d'infections respiratoires aiguës (IRA) dans les Établissements Médico-Sociaux (EMS)";"donnees-de-surveillance-des-episodes-de-cas-groupes-dinfections-respiratoires-aigues-ira-dans-les-etablissements-medico-sociaux-ems";"SI-EMS";"https://www.data.gouv.fr/fr/datasets/donnees-de-surveillance-des-episodes-de-cas-groupes-dinfections-respiratoires-aigues-ira-dans-les-etablissements-medico-sociaux-ems/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"Un dispositif de surveillance des épisodes de cas groupés d'infections respiratoires aiguës (IRA) dans les établissements médico-sociaux (EMS) a été mis en place en juin 2023. Ce dispositif repose sur un circuit de déclaration unique via le [Portail de Signalement des Événements Sanitaires Indésirables](https://signalement.social-sante.gouv.fr/psig_ihm_utilisateurs/index.html).
+
+Ce nouvel instrument s'inscrit dans une approche plus vaste visant à alerter, à faciliter la gestion et à surveiller l'épidémiologie des cas groupés d’IRA dans l’EMS. Pour obtenir davantage d'informations sur ce dispositif, [veuillez consulter cette page](https://www.santepubliquefrance.fr/maladies-et-traumatismes/maladies-et-infections-respiratoires/grippe/articles/surveillance-des-episodes-de-cas-groupes-d-infections-respiratoires-aigues-ira-dans-les-etablissements-medico-sociaux).
+
+**Les établissements médico-sociaux participant à cette surveillance** : les Établissements d'Hébergement pour Personnes Âgées (EHPA) et les Établissements d'Hébergement pour Personnes en Situation de Handicap (HPH)
+
+**Définition d’un épisode de cas groupé d’IRA dans EMS**: survenue d’au moins trois cas d’IRA parmi les résidents en quatre jours
+
+**Définition d’un cas d’IRA** : toute personne chez qui a été constatée la survenue récente d’au moins un signe général (Fièvre, Frissons, Sueurs, Arthralgies, Myalgies, Céphalées, Fatigue) évocateur d’infection et d’au moins un signe fonctionnel ou physique d’atteinte respiratoire basse (Mal de gorge, Rhinorrhée, Toux, Douleur thoracique Dyspnée, Sifflement, Signes auscultatoires) ou d’une infection respiratoire biologiquement confirmée.
+
+**Fichiers disponibles** :
+•	`ems-episode-hebdo-fra.csv` = Données Nationales
+•	`ems-episode-hebdo-reg.csv` = Données Régionales
+
+**Description d’indicateur** : Données relatives aux nouveaux épisodes hebdomadaires de cas groupés d'IRA, classées par type d'étiologie retenue.
+•	`Semaine` = Semaine où le premier cas résident dans l'épisode de cas groupé est apparu
+•	`nb_episode_ira` = Nombre de nouveaux épisodes de cas groupés d'IRA
+•	`nb_episode_ira_avec_covid` = Nombre de nouveaux épisodes de cas groupés d'IRA avec recherche étiologique où la COVID-19 a été retenue comme cause de l'épisode, soit seul ou en combinaison avec d'autres étiologies.
+•	`nb_episode_ira_avec_grippe` = Nombre de nouveaux épisodes de cas groupés d'IRA avec recherche étiologique où la grippe a été retenue comme cause de l'épisode, soit seul ou en combinaison avec d'autres étiologies.
+•	`nb_episode_ira_avec_vrs` = Nombre de nouveaux épisodes de cas groupés d'IRA avec recherche étiologique où le VRS a été retenue comme cause de l'épisode, soit seul ou en combinaison avec d'autres étiologies.
+•	`nb_episode_ira_avec_autre_etio` = Nombre de nouveaux épisodes de cas groupés d'IRA avec recherche étiologique dans lesquels une étiologie autre que la COVID-19, le VRS ou la grippe a été identifiée (infectieuse bactérienne, autre virus, inconnue), que ce soit seule ou en combinaison avec d'autres étiologies.
+•	`nb_episode_ira_sans_precision` = Nombre de nouveaux épisodes de cas groupés d'IRA sans recherche étiologique.
+
+
+
+
+> ⚠️ **Important** : un épisode pouvant être attribué à plusieurs étiologies par le déclarant (en cas de co-circulation), la somme des épisodes liés aux différentes étiologies au cours d'une semaine donnée peut être supérieure au nombre total d'épisodes d'IRA.
+
+> ⚠️ **Limite** : En raison de déclarations tardives d’épisodes, les données des deux dernières semaines ne sont pas consolidées. De plus, le type d'étiologie d'un épisode pouvant être déterminé à la fin de l'épisode, les données peuvent évoluer au cours de temps.
+";"weekly";"Licence Ouverte / Open Licence version 2.0";"2023-06-19";"2023-10-05";"fr:region";"France";False;"2023-10-05T08:44:56.856000";"2024-11-06T17:00:25.657000";"ems,etablissements-medico-sociaux,infections-respiratoires-aigues,ira";False;2;2;"csv";567;"";"";"";"";"";"1.00";0;0;0;1995;566
+"651a82516edc589b4f6a0354";"Surveillance du Sars-Cov-2 dans les eaux usées (SUM'Eau)";"surveillance-du-sars-cov-2-dans-les-eaux-usees-sumeau";"SUM'eau";"https://www.data.gouv.fr/fr/datasets/surveillance-du-sars-cov-2-dans-les-eaux-usees-sumeau/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"🔨 **23/10/2024 : Incident technique **
+Suite à un incident technique, les données du surveillance du **Sars-Cov-2 dans les eaux usées** n'ont pu être poussées sur data.gouv ces deux dernières semaines. La publication reprends ce jour et à la fréquence habituelle. Veuillez nous excuser pour la gêne occasionnée.
+
+Un dispositif national de surveillance des eaux usées (**SUM’Eau**) a été initié sous l’impulsion de la direction générale de la santé (Ministère chargé de la Santé) et de la direction de l’eau et de la biodiversité (Ministère chargé de l’écologie) avec l’appui technique et scientifique des agences sanitaires (Santé publique France, Agence nationale de sécurité sanitaire de l’alimentation, de l’environnement et du travail). La surveillance des eaux usées poursuit deux objectifs, qui sont (1) détecter précocement la présence du génome du SARS-CoV-2 en population générale et (2) suivre les tendances de la circulation virale au sein de la population.
+
+Les données proposées permettent d’estimer la tendance de circulation du virus SARS-CoV-2 dans les eaux usées au sein de 54 collectivités. **Les indicateurs de suivi du SARS-CoV-2 dans les eaux usées sont calculés à partir du ratio entre la concentration virale de SARS-CoV-2 (exprimée en cg/L et quantification réalisée à partir du gène E) et la concentration en azote ammoniacal (exprimée en mg de N/L).** Les données obtenues sont ensuite lissées selon la méthode de régression LOESS. Ce lissage peut expliquer une variation des précédentes mesures lors d’une nouvelle livraison.
+
+Ces données sont actualisées à fréquence **hebdomadaire**.
+
+>[23/09/2024]. Le réseau de surveillance a évolué et ce sont désormais 54 stations de traitement des eaux usées qui sont suivies à fréquence hebdomadaire depuis la semaine 17 de l’année 2024. Des colonnes ont ainsi été ajoutées pour intégrer ces nouveaux points de collecte. Le fichier relatif aux stations a également été actualisé en conséquence.
+
+>[06/03/2024]. Le réseau de surveillance a évolué à partir de la semaine 08 de l’année 2024. Ainsi, c’est désormais la station de Lille-Marquette-Lez-Lille - et non plus la station de Roubaix-Wattrelos – qui est désormais suivie au niveau de l’agglomération lilloise. Une colonne a ainsi été ajoutée au fichier relatif aux indicateurs. Le fichier relatif aux stations a également été actualisé en conséquence.
+
+>[17/01/2024]. Un correctif a été apporté au script de traitement des données de SUM’EAU. 
+Ce correctif permet de corriger une erreur survenue dans le calcul du lissage lors du changement d’année.
+
+>[20/12/2023]. Un correctif a été apporté aux valeurs de l’indicateur national à la suite d’une confusion sur l’identification de la station suivie au sein de la métropole de Lille. C’est en effet la station de Roubaix-Wattrelos qui est suivie depuis la semaine 30 de l’année 2022 et non la station de Lille-Marquette-Lez-Lille. Cette confusion ne modifie pas les valeurs de l’indicateur de la station elle-même (la taille de population n’est pas utilisée dans ce cadre) mais a un impact sur les valeurs de l’indicateur national qui utilise une moyenne pondérée par la taille de population de chaque station. L’impact sur le suivi des tendances est cependant négligeable étant donné que les tailles de population sont du même ordre de grandeur. L’ensemble des valeurs de l’indicateur national ont ainsi été recalculées.
+
+**Deux fichiers** sont disponibles et la correspondance entre ces deux fichiers est assurée par le nom de la STEU.
+
+- `sumeau_stations.csv` : Ce fichier  est un référentiel d’informations sur les stations de traitement des eaux usées (**STEU**) suivies dans le cadre de SUM’Eau. Les données proposées (nom de la STEU, nom de la commune principale, géolocalisation de la STEU selon Système géodésique mondial de 1984) sont principalement issues de la base de Données sur les Eaux Résiduaires Urbaines (BDD ERU), millésime 2021, gérée par [le ministère en charge de l’écologie](https://www.assainissement.developpement-durable.gouv.fr/PortailAC/). Le code unique attribué à chacune des STEU fait en particulier référence au référentiel élaboré par le Service d'administration nationale des données et référentiels sur l'eau (Sandre). La taille de population, utilisée pour la construction de l’indicateur global (cf. infra), est une estimation réalisée en lien avec les exploitants de STEU.
+
+`nom` = nom de la STEU ;
+`commune` = commune principale couverte par la STEU ;
+`sandre` = code de la STEU selon le référentiel Sandre ;
+`population` = estimation de la taille de population du bassin raccordé à la station de traitement des eaux usées où le prélèvement a été réalisé ;
+`longitude` = longitude de la STEU.
+`latitude` = latitude de la STEU ;
+
+- `sumeau_indicateurs.csv` : Ce second fichier est le fichier de restitution des indicateurs de suivi du SARS-CoV-2 dans les eaux usées. La première colonne correspond à la semaine de prélèvement. Les colonnes suivantes correspondent aux différentes STEU suivies. Ainsi, chaque ligne correspond aux valeurs de l’indicateur de suivi du SARS-CoV-2 dans les eaux usées obtenue pour chacune des stations suivies pour la semaine considérée. Une valeur manquante (NA) traduit l’absence de données pour une station et une semaine données. La dernière colonne (National) correspond à l’indicateur global national ; celui-ci est calculé comme la moyenne des indicateurs des différentes STEU suivies, pondérée par la taille de population raccordée aux différents sites surveillés.
+";"weekly";"Licence Ouverte / Open Licence version 2.0";"2022-03-28";"2023-10-02";"other";"";False;"2023-10-02T08:41:53.721000";"2024-11-06T17:00:25.681000";"covid-19,eau,reseau,sars-cov-2,sumeau";False;2;2;"csv";62956;"";"";"";"";"";"1.00";12;3;3;32866;63244
+"65153df6b419bfbdec1a3ccd";"Données des laboratoires pour le dépistage (A COMPTER DU 23/08/2023) - SI-DEP";"donnees-de-laboratoires-pour-le-depistage-a-compter-du-28-09-2023-si-dep";"";"https://www.data.gouv.fr/fr/datasets/donnees-de-laboratoires-pour-le-depistage-a-compter-du-28-09-2023-si-dep/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"⚠️ **La loi n°2022-1089 du 30 Juillet 2022 mettant fin aux régimes d’exception pour lutter contre l’épidémie de COVID-19 prévoit l’arrêt du traitement des données personnelles issues du système d’information du dépistage (SI-DEP) basé sur les résultats de tests RT-PCR et tests antigéniques. Les indicateurs issus de cette source (nombres de cas quotidiens, taux de dépistage, taux de positivité, R effectif) ne pourront plus être produits. Ces évolutions s’inscrivent in fine dans une démarche de normalisation de la surveillance de la COVID-19 et de son intégration progressive parmi les épidémies respiratoires suivies en routine.**
+
+**Suite à la publication du décret n°2023-700 31 juillet 2023 et de l'Arrêté du 7 août 2023 relatif au système d’information « LABO-SI », un dispositif transitoire appelé « Néo-SIDEP » assure la continuité du suivi épidémiologique de SARS-COV-2 et permet d’avoir une remontée des résultats de tests RT-PCR positifs et négatifs effectués en laboratoires uniquement.**
+
+Les taux d'incidence doivent être interprétés avec prudence, car cet indicateur ne reflète que les cas confirmés biologiquement en laboratoire et non la situation réelle (moins de tests dans l'ensemble et un recours aux tests pouvant varier dans le temps et selon les territoires ; non prise en compte des autotests et tests réalisés hors laboratoires de biologie médicale). De même, les données sur les tests positifs et négatifs étant disponibles à partir de la S35, le taux de positivité et le taux de dépistage doivent être interprétés avec beaucoup de prudence. Ces données permettent toutefois d’apprécier les tendances d’évolution du taux d’incidence.
+
+L’historique des indicateurs issus de SI-DEP resteront accessibles sur notre plateforme Géodes et sur data.gouv.fr, de même que les nouveaux indicateurs à une fréquence hebdomadaire.
+
+----
+Les fichiers contiennent dans l’ordre suivant :
+
+- Une colonne pour l’échelon géographique :
+
+``Fra = France``
+``Reg = code de la région``
+``Dep = code du département``
+
+- Une colonne pour le pas de temps :
+
+``Sg = semaine glissante`` ou
+``Semaine = semaine calendaire``
+
+- Une colonne pour les variables d’agrégations :
+
+``Cage10= [00-10), [10-20), [20-30), [30-40), [40-50), [50-60), [60-70), [70-80),
+[80-90), [90-Inf)``
+
+- Une colonne pour chaque effectif :
+
+``Pop = population``
+``P = patients testés positifs``
+``T = nombre de patients testés``
+
+- Une colonne pour chaque indicateur :
+
+``Ti = taux d’incidence``
+``Tp = taux de positivité``
+``Td = taux de dépistage``";"weekly";"Licence Ouverte / Open Licence version 2.0";"";"";"fr:departement";"";False;"2023-09-28T08:48:54";"2024-06-26T16:00:11.957000";"covid,laboratoire,sidep";False;9;9;"csv";2727;"";"";"";"";"";"0.67";0;0;0;2336;2726
+"64a935e7f5ddd207829205e8";"Historique des codes IRIS";"historique-des-codes-iris";"HISTORIRIS";"https://www.data.gouv.fr/fr/datasets/historique-des-codes-iris/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"Les IRIS (Îlots Regroupés pour l’Information Statistique) sont des découpages géographiques utilisés par l’Insee pour la diffusion de données statistiques en France. Ils correspondent à des quartiers ou portions de communes et sont utilisés pour produire des statistiques locales. Leurs contours administratifs évoluent au fil des années.
+
+Dans le cadre du [Challenge GD4H](https://challenge.gd4h.ecologie.gouv.fr/), une équipe de bénévoles a travaillé sur la constitution d'une table de passage des codes IRIS de 1999 à 2022. Ce référentiel n'était en effet pas disponible.
+
+Le code et les données sont disponibles sur [la forge du projet](https://gitlab.com/data-challenge-gd4h/historiris).
+
+[La méthode de constitution du référentiel est documentée ici](https://gitlab.com/data-challenge-gd4h/historiris/-/blob/main/docs/regles-gestions.md).
+
+> Attention : ce référentiel est jeune et peut présenter des erreurs. Nous vous invitons à l'utiliser avec précaution et à faire part de vos [retours pour son amélioration le cas échéant](https://gitlab.com/data-challenge-gd4h/historiris#contributions).";"annual";"Licence Ouverte / Open Licence version 2.0";"1999-01-01";"2022-12-31";"fr:iris";"France";False;"2023-07-08T10:09:43.799000";"2023-08-24T09:21:22.464000";"decoupage-administratif,gd4h,insee,iris";False;18;1;"markdown,pdf,csv";3221;"";"";"";"";"";"0.89";0;0;0;2745;3218
+"63a0368afe0e9c47c3bbde9d";"Données de vaccination relatives aux professionnels de santé exerçant dans un établissement de santé";"donnees-de-vaccination-relatives-aux-professionnels-de-sante-exercant-dans-un-etablissement-de-sante";"VAC-SI";"https://www.data.gouv.fr/fr/datasets/donnees-de-vaccination-relatives-aux-professionnels-de-sante-exercant-dans-un-etablissement-de-sante/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"### **Vaccination contre la COVID-19**
+
+Dès le lancement de la campagne de vaccination, les autorités sanitaires ont disposé d’informations permettant un suivi quotidien de l’avancée et du déploiement de la campagne sur le territoire. Celles-ci, recueillies auprès des établissements pour personnes âgées et des centres de vaccination, étaient transmises par les Agences régionales de santé.
+
+Parallèlement, l’Assurance maladie a élaboré le système d’information Vaccin Covid (VAC-SI), qui est aujourd’hui pleinement opérationnel après un travail d’analyse de l’exhaustivité et de la complétude des données.
+
+Le système d’information Vaccin Covid est alimenté par les professionnels de santé réalisant les vaccinations.
+
+Sur la base de l’exploitation de ces données, Santé Publique France publie en open data les indicateurs de couverture vaccinale.
+
+### **Quelles données ?**
+
+**Couvertures vaccinales des professionnels soignants exerçant dans un établissement de santé**  vaccinées contre la COVID-19 par au moins une dose ou complètement vaccinés par date d’injection.
+
+Les couvertures vaccinales sont estimées pour des professionnels de santé exerçant en établissement de santé identifiés par la Cnam en septembre 2021 grâce aux répertoires RPPS (Répertoire Partagé des Professionnels intervenant dans le système de Santé) et Adeli (Automatisation DEs Listes) puis appariés avec la base Vaccin COVID. Parmi les professionnels de santé, seuls les médecins, pharmaciens, sages-femmes, kinésithérapeutes, dentistes et infirmier(e)s sont identifiés au sein de ces répertoires.
+
+Cette méthode d’estimation a été mise en place à compter du 17 juin 2021. 
+
+L’identification des professionnels via ces répertoires datant de septembre 2021, les estimations peuvent inclure des professionnels n’exerçant plus en établissement de santé et ne pas inclure des professionnels ayant débuté leur exercice depuis cette date.
+
+### Liste des ressources
+Professionnels de santé libéraux :
+
+
+- vacsi-pss-fra-YYYY-MM-DD-HHhmm.csv 	=> Niveau national
+- vacsi-pss-a-fra-YYYY-MM-DD-HHhmm.csv 	=> Niveau national par âge
+- vacsi-pss-s-fra-YYYY-MM-DD-HHhmm.csv 	=> Niveau national par sexe
+- vacsi-pss-reg-YYYY-MM-DD-HHhmm.csv 	=> Niveau Régional
+- vacsi-pss-dep-YYYY-MM-DD-HHhmm.csv 	=> Niveau Départemental
+
+
+Variables :
+- Territoire d'intérêt = dep ou reg ou fra
+- Date d'injection = jour
+- Couverture vaccinale 1 dose = pss_couv_dose1
+- Couverture vaccinale complète = pss_couv_complet
+- Couverture vaccinale au moins 1 dose de rappel = pss_couv_rappel
+- Couverture vaccinale au moins 2 dose de rappel = pss_couv_2_rappel
+- Couverture vaccinale au moins 3 dose de rappel = pss_couv_3_rappel
+- Couverture vaccinale adapté au variant Omicron des professionnels = pss_couv_biv
+- Classe d'âge d'intérêt = clage_vacsi
+- Sexe d'intérêt = sexe
+   
+
+### Nomenclatures
+Les classes d'âge utilisées sont les suivantes : 
+* 0 : Tous âges
+* 09 : 0-9
+* 17 : 10-17
+* 24 : 18-24
+* 29 : 25-29
+* 39 : 30-39
+* 49 : 40-49
+* 59 : 50-59
+* 69 : 60-69
+* 74 : 70-74
+* 79 : 75-79
+* 80 : 80 et +
+
+Le sexe est codifié de la façon suivante : 
+* 0 : hommes + femmes + Non renseigné
+* 1 : homme
+* 2 : femme
+
+La région (colonne « reg ») suit la codification du [Code Officiel Géographique de l’INSEE](https://www.insee.fr/fr/information/4316069), elle est codifiée de la manière suivante : 
+* 01 : Guadeloupe
+* 02 : Martinique
+* 03 : Guyane
+* 04 : La Réunion
+* 11 : Ile-de-France
+* 24 : Centre-Val de Loire
+* 27 : Bourgogne-Franche-Comté
+* 28 : Normandie
+* 32 : Hauts-de-France
+* 44 : Grand Est
+* 52 : Pays de la Loire
+* 53 : Bretagne
+* 75 : Nouvelle-Aquitaine
+* 76 : Occitanie
+* 84 : Auvergne-Rhône-Alpes
+* 93 : Provence-Alpes-Côte d’Azur
+* 94 : Corse
+
+";"daily";"Licence Ouverte / Open Licence version 2.0";"";"";"fr:departement";"France";False;"2022-12-19T11:01:46.781000";"2023-07-13T13:52:01.891000";"coronavius,covid19,vac-si,vaccin,vaccination";False;5;5;"csv";130;"";"";"";"";"";"0.67";1;0;0;2490;125
+"633fe67cc6f25582590a338e";"Données sur la variole du singe - Virus MonkeyPox";"donnees-sur-la-variole-du-singe-virus-monkeypox";"MKP";"https://www.data.gouv.fr/fr/datasets/donnees-sur-la-variole-du-singe-virus-monkeypox/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"### **INFORMATION**
+
+Les indicateurs sont issus des données de la surveillance de la variole du singe (infection à virus Monkeypox) via les déclarations obligatoires (DO) des « orthopoxviroses dont la variole », transmises aux ARS puis centralisées par Santé publique France. Ces déclarations obligatoires sont remplies par les cliniciens et/ou biologistes à partir d’un formulaire dédié. Les informations concernant certains cas déclarés, notamment au début de l’épidémie, peuvent être partielles car directement transmises par les laboratoires aux ARS.
+**Les cas sont présentés par semaine de signalement.**
+
+Un cas confirmé de variole du singe est une personne avec un résultat positif de qPCR ou RT-PCR spécifique du virus Monkeypox, ou un résultat positif en qPCR générique du genre Orthopoxvirus associé ou non à un résultat de séquençage partiel spécifique du virus Monkeypox.
+
+- Seuls les cas confirmés pour lesquels la région de résidence du patient (ou à défaut la région de signalement) est connue sont indiqués. Les personnes domiciliées à l’étranger ne sont pas comptabilisées. De ce fait la somme des cas indiqués dans les régions peut être inférieure au nombre total de cas recensé en France.
+- Le délai de déclaration des cas peut dépasser 15 jours dans certaines situations. **Les indicateurs sont mis à jour chaque semaine.**
+
+Codage des classes d'âge :
+`0 = tous âges`
+`14 = moins de 15 ans`
+`44 = 15-44 ans`
+`64 = 45-64 ans`
+`65 = 65 ans ou plus`
+
+Codage du sexe :
+`0 = hommes et femmes`
+`1 = hommes`
+`2 = femmes`
+
+**Compte-tenu des effectifs et afin de garantir l'anonymat des personnes, la restitution au niveau départemental ou par âge _et_ sexe n'est actuellement pas possible.**";"weekly";"Licence Ouverte / Open Licence version 2.0";"";"";"fr:region";"France,Saint-Barthélemy,Saint-Pierre-et-Miquelon,Saint-Martin";True;"2022-10-07T10:42:36.458000";"2022-10-07T15:29:17.318000";"infections,monkeypox";False;4;4;"csv";1237;"";"";"";"";"";"0.78";0;0;1;4288;1232
+"627bb8f730b66f355009d069";"Données de laboratoires pour le dépistage  (A COMPTER DU 18/05/2022) - SI-DEP";"donnees-de-laboratoires-pour-le-depistage-a-compter-du-18-05-2022-si-dep";"";"https://www.data.gouv.fr/fr/datasets/donnees-de-laboratoires-pour-le-depistage-a-compter-du-18-05-2022-si-dep/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"**Dans un contexte d’épidémie favorable, à compter du 1er juillet 2023, le cadre juridique actuellement en cours prévoit l’arrêt du traitement des données personnelles issues de SI-DEP. Par conséquent, après une période transitoire d’ajustement de deux semaines, les nouveaux indicateurs de surveillance virologique seront publiés aux niveaux national, régional et départemental) à une fréquence hebdomadaire. 
+Les consignes de saisie spécifiques dans SI-VIC seront levées à partir de cette date, les indicateurs hospitaliers ne seront plus disponibles. 
+Santé publique France maintient la surveillance de l’épidémie à travers son dispositif multi-sources. Les indicateurs relatifs à la surveillance génomique, aux recours aux associations SOS Médecins, aux urgences hospitalières et aux décès resteront disponibles.**
+
+
+🆕 **AJOUT 06/09/2022**
+Mise à disposition de l'historique des données pour la couche IRIS.
+Un fichier par mois de données.
+
+⚠️ **MAJ 09/08/2022**
+Santé publique France met à jour les référentiels géographiques et de population, utilisés pour la production et la diffusion des indicateurs de suivi de l’épidémie de COVID-19. Cette actualisation sera effective le **7 juillet 2022** . Elle est amenée à être renouvelée chaque année.
+De ce fait, certains intitulés de champs seront corrigés à compter du **10 août 2022** :
+- Pour les fichiers `sp_metro_*` : `epci2020` devient **`epci`** 
+- Pour les fichiers `sp_iris_*` : `iris2019` devient **`iris`**
+
+**08/06/2022** Compte tenu de la tendance actuelle favorable et la baisse des principaux indicateurs, à partir du 11 juin 2022, les indicateurs COVID-19 produits par Santé publique France seront actualisés sur [Geodes](https://geodes.santepubliquefrance.fr/#c=home) et data.gouv.fr tous les jours **à l’exception** des week-end et des jours fériés. 
+
+🆕 **A COMPTER DU 18/05/2022**, le format des ressources issus des données de laboratoires pour le dépistage (SI-DEP) évolue.
+
+***Quelles données ? :***
+Les indicateurs de surveillance virologique sont issus du système d’information de dépistage (SI-DEP), dont l’objectif est de remonter les données de tests (RT-PCR) réalisés par l’ensemble des laboratoires de ville et établissements hospitaliers concernant le SARS-COV2, ainsi que les tests antigéniques réalisés par les laboratoires, pharmaciens, médecins et infirmiers.
+
+
+➡️ L'ensemble des tables et des variables qui les composent, ainsi que le descriptif des modifications sont consultables dans la note méthodologique datée du 12/05/2022 disponible **[ici](https://static.data.gouv.fr/resources/donnees-de-laboratoires-pour-le-depistage-a-compter-du-18-05-2022-si-dep/20220512-153419/2022-05-12-sidep-evol-open-data.pdf)**";"daily";"Licence Ouverte / Open Licence version 2.0";"";"";"fr:iris";"France";False;"2022-05-11T15:24:07.871000";"2023-07-04T15:09:01.834000";"covid19,laboratoires";False;62;61;"pdf,csv";583110;"";"";"";"";"";"0.78";8;3;3;30950;591740
+"61fb9de5d5e2522911033921";"Variants circulants - indicateurs issus du séquençage (EMERGEN)";"variants-circulants-indicateurs-issus-du-sequencage-emergen";"";"https://www.data.gouv.fr/fr/datasets/variants-circulants-indicateurs-issus-du-sequencage-emergen/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"Les **enquêtes Flash** consistent à sélectionner aléatoirement des prélèvements positifs pour le SARS-CoV-2 pour lesquels le génome viral est séquencé. Répétées à intervalles réguliers, elles ont pour objectif de dresser une cartographie des souches de SARS-CoV-2 circulant en France. Elles permettent aussi de détecter l’émergence de nouveaux variants.
+
+La fraction d’échantillonnage prescrite par Santé publique France pour chaque enquête Flash est déterminée chaque semaine en fonction de l’incidence de l’épidémie, afin d’une part de garantir une capacité de détection optimale des variants émergents (suivant en cela les recommandations de l’ECDC), et d’autre part de rester compatible avec les capacités de séquençage du consortium. 
+Le nombre de séquences obtenues au final dépend de plusieurs facteurs : la proportion des RT-PCR dans les diagnostics d’une infection à SARS-CoV-2, l’adhésion des laboratoires préleveurs au protocole, la proportion des prélèvements avec une charge virale (Ct) suffisante pour autoriser un séquençage, la qualité du séquençage en lui-même (parfois soumis à des aleas techniques).
+Les indicateurs sont mis à jour chaque semaine selon les remontées des laboratoires séquenceurs. Elles sont consolidées progressivement compte tenu des délais de séquençage qui peuvent varier dans le temps ou selon les laboratoires. 
+Pour des raisons de représentativité, les données présentées ici incluent uniquement les enquêtes Flash pour lesquelles les résultats d’au moins 500 séquences sont présents dans la base
+
+
+
+
+Les **variables présentes** dans ces jeux de données sont les suivantes :
+
+reg = Région de résidence du patient prélevé ou, si manquante, du laboratoire préleveur
+deb_periode = Date du début de la semaine de l’enquête Flash considérée
+flash_variants = Variant obtenu comme résultat de séquençage
+cage10 = Classe d’âge (tranches de 10)
+n = Nombre de prélèvements ayant pour résultat le variant considéré 
+n_tot = Nombre de prélèvements pour la date et la région ou la classe d’âge considérés 
+
+Les _classes d'âge_ utilisées sont les suivantes :
+•	0 = tous âges
+•	09 = 0-9 ans
+•	19 = 10-19 ans
+•	29 = 20-29 ans
+•	39 = 30-39 ans
+•	49 = 40-49 ans
+•	59 = 50-59 ans
+•	69 = 60-69 ans
+•	79 = 70- 79 ans
+•	89 = 80-89 ans
+•	90 = 90 ans et plus
+
+La _région_ (colonne « reg ») suit la codification du Code Officiel Géographique de l’INSEE, elle est codifiée de la manière suivante :
+•	01 : Guadeloupe
+•	02 : Martinique
+•	03 : Guyane
+•	04 : La Réunion
+•	05 : Saint-Pierre-et-Miquelon
+•	06 : Mayotte
+•	07 : Saint-Barthélemy
+•	08 : Saint-Martin
+•	11 : Ile-de-France
+•	24 : Centre-Val de Loire
+•	27 : Bourgogne-Franche-Comté
+•	28 : Normandie
+•	32 : Hauts-de-France
+•	44 : Grand Est
+•	52 : Pays de la Loire
+•	53 : Bretagne
+•	75 : Nouvelle-Aquitaine
+•	76 : Occitanie
+•	84 : Auvergne-Rhône-Alpes
+•	93 : Provence-Alpes-Côte d’Azur
+•	94 : Corse
+
+Les _variants_ représentés dans ces données sont les variants classifiés comme préoccupants (VOC) par l’OMS et les variants à suivre (VOI) circulant en France. 
+Les variants préoccupants (ou Variant Of Concern, VOC, en anglais) selon la classification OMS sont ceux ayant un impact sur la santé publique (que ce soit en termes de transmissibilité, de sévérité, ou encore de risque d'échappement à la réponse immunitaire) plus important que les variants circulant précédemment. Les variants à suivre (ou Variant Of Interest, VOI, en anglais) sont ceux dont l’impact en santé publique n’est pas formellement démontré, mais ayant des caractéristiques virologiques, cliniques et/ou épidémiologiques qui justifient leur classement en « variants à suivre ».
+Des information additionnelles à propos du classement des variants sont disponibles sur le site de Santé publique France : Coronavirus : circulation des variants du SARS-CoV-2 (https://www.santepubliquefrance.fr/dossiers/coronavirus-covid-19/coronavirus-circulation-des-variants-du-sars-cov-2).
+
+Les variants sont codifiés de la façon suivante dans les fichiers :
+•	1 = Alpha
+•	2 = B.1.640
+•	3 = Beta
+•	4 = Delta
+•	5 = Gamma
+•	6 = Omicron
+•	7 = Autres variants
+
+Le contenu de chacun des fichiers disponibles est listé ci-dessous :
+_Données globales_
+Fichiers avec le nombre de prélèvements séquencés pour chaque variant, par enquête Flash :
+•	flash-fra-YYYY-MM-DD-HHhmm.csv (échelle nationale)
+•	flash-reg-YYYY-MM-DD-HHhmm.csv (échelle régionale)
+
+_Données par classes d'âge_
+Fichiers avec le nombre de prélèvements séquencés pour chaque variant, par classes d’âge et par enquête Flash :
+•	 flash-cage10-fra-YYYY-MM-DD-HHhmm.csv (échelle nationale) 
+
+_Pour en savoir +_ : https://www.santepubliquefrance.fr/etudes-et-enquetes/enquetes-flash-evaluation-de-la-circulation-des-variants-du-sars-cov-2-en-france";"weekly";"License Not Specified";"";"";"";"";False;"2022-02-03T10:18:29.460000";"2024-10-16T16:00:27.958000";"";False;3;3;"csv";2258;"";"";"";"";"";"0.56";0;0;1;4900;2257
+"619f5f9c38e27e934733e60b";"Données de surveillance de la COVID-19 dans les Établissements Sociaux et Médico-Sociaux (ESMS)";"donnees-de-surveillance-de-la-covid-19-dans-les-etablissements-sociaux-et-medico-sociaux-esms";"SI-ESMS";"https://www.data.gouv.fr/fr/datasets/donnees-de-surveillance-de-la-covid-19-dans-les-etablissements-sociaux-et-medico-sociaux-esms/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"### INFORMATION 25/01/2023
+
+Suite à correction d’une erreur de saisie, le nombre de décès survenus en semaine 03 en ESMS a été revu à la baisse. Les corrections nécessaires ont été apportées et expliquent la diminution de la valeur de l’indicateur « nombre de décès total survenus depuis le début de l’épidémie » par rapport au cumul précédemment publié.    
+
+### Surveillance de la COVID-19 dans les ESMS
+
+Un dispositif de signalement et de surveillance des cas et des décès de COVID-19 dans les **établissements sociaux et médico-sociaux** (ESMS) proposant de l’hébergement a été mis en place par Santé publique France le 28 mars 2020 pour suivre de manière réactive les cas et décès de COVID-19 parmi les résidents et le personnel des ESMS. L'évolution des pratiques et le retour d'expérience des acteurs du dispositif de surveillance depuis le début de l'épidémie a conduit à proposer une nouvelle version de l'application en ligne COVID-19 EHPAD/ESMS à disposition depuis le 19 mars 2021, qui visait en particulier à : 
+- Améliorer l'ergonomie de l'application avec la proposition de plusieurs onglets thématiques ; 
+- Réduire les risques d'erreur à la saisie par des contrôles à la saisie plus nombreux ; 
+- Permettre l'accès à l'historique des déclarations, notamment pour effectuer des modifications, par la création de compte aux utilisateurs. 
+
+Un cas confirmé de COVID-19 est défini par une personne symptomatique ou asymptomatique présentant une confirmation biologique d’infection au SARS-CoV2 (résultat positif de RT-PCR ou test antigénique ou sérologie).
+Un décès de COVID-19 était soit le décès d’un cas confirmé, soit un décès attribué à la COVID--19 par le médecin dans le certificat médical de décès.
+
+### Description des données : 
+
+Fichier _nvx-cas-resi-prsnl-national_ : Données relatives aux nouveaux cas confirmés hebdomadaires en ESMS 
+- `iso_surv_epidemio2` : Semaine de surveillance
+- `diff_cas_conf_resident` : Nombre de nouveaux cas confirmés chez les résidents
+- `diff_cas_conf_personnel`: Nombre de nouveaux cas confirmés chez le personnel
+
+
+Fichier _deces-resid-etab-hospi_ : Données relatives aux nouveaux décès hebdomadaires des résidents en ESMS 
+- `iso_surv_epidemio2` : Semaine de surveillance
+- `diff_dc_hosp_resid` : Nombre de nouveaux décès à l’hôpital chez les résidents en ESMS
+- `diff_dc_etab_resid` : Nombre de nouveaux décès au sein de l’établissement chez les résidents en ESMS
+";"weekly";"Licence Ouverte / Open Licence version 2.0";"";"";"country";"France";True;"2021-11-25T11:04:12.159000";"2023-06-30T14:29:24.009000";"covid,covid-19,esms";False;2;2;"csv";1157;"";"";"";"";"";"0.78";2;1;0;6127;1157
+"60dd8e92b9d32e9afdc23491";"OLD Données de laboratoires pour le dépistage : Indicateurs sur les mutations";"old-donnees-de-laboratoires-pour-le-depistage-indicateurs-sur-les-mutations";"SI-DEP";"https://www.data.gouv.fr/fr/datasets/old-donnees-de-laboratoires-pour-le-depistage-indicateurs-sur-les-mutations/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"
+********************************************
+### ⚠️ Cette ressource n'est plus actualisée depuis le 18 mai 2022.
+
+Le format des ressources issues des données de laboratoires pour le dépistage (SI-DEP) évolue.
+L'ensemble des ressources au nouveau format sont centralisées dans le nouveau jeu de données dédié :
+➡️ https://www.data.gouv.fr/fr/datasets/donnees-de-laboratoires-pour-le-depistage-a-compter-du-18-05-2022-si-dep/
+Merci à nos utilisateurs pour leur compréhension
+********************************************
+
+### EVOLUTION DE LA STRATEGIE DE CRIBLAGE
+
+
+**6 janvier 2022 : Changement de méthodologie**
+**Une note méthodologique actualisée a était ajoutée ainsi que de nouvelles ressources de données.
+Les ressources sp-mutations-dep, reg, fra ne seront plus actualisées.**
+
+
+
+
+
+Les tests RT-PCR de criblage utilisés et dont les résultats sont remontés dans SI-DEP permettaient de suspecter la présence du variant préoccupant (VOC) Alpha (20I/501Y.V1) et de manière non distincte des VOC Bêta (20H/501Y.V2) ou Gamma (20J/501Y.V3). Cette stratégie de criblage ciblant les VOC Alpha, Beta et Gamma n’est plus adaptée à la diversité croissante des variants émergents du SARS-CoV-2.
+Depuis le 31/05/2021, la stratégie de criblage a évolué pour rechercher certaines mutations d’intérêt pouvant être retrouvées dans différents variants. Elle ne permet donc plus d’assigner l’infection à un variant spécifique mais permet de suivre l’évolution dans le temps et sur le territoire de la proportion des infections dues à un virus porteur de ces mutations.
+
+Pour la première phase de déploiement, les mutations E484K, E484Q et L452R ont été sélectionnées car elles sont potentiellement liées à un échappement immunitaire et/ou à une augmentation de transmissibilité et sont retrouvées dans la majorité des VOC à ce jour. Du fait du rendu du résultat de ces PCR dans des délais plus courts que le séquençage, des mesures spécifiques peuvent être mises en place dès la détection de cas porteurs de mutations d’intérêt dans le but de freiner leur diffusion (renforcement du contact tracing, campagne de dépistage ou de vaccination).
+
+L’émergence du variant B.1.1.529, dit Omicron, implique une évolution de la doctrine actuelle en ce qui concerne les mutations recherchées lors du criblage, ce variant ne présentant aucune des 3 mutations citées ci-dessus.
+Entre le 29/11 et le 19/12, trois cibles étaient recherchées par la nouvelle stratégie de criblage : la délétion 69/70 et les mutations N501Y et K417N, portées par le variant Omicron. Depuis le 20/12, la délétion 69/70 et les substitutions K417N, S371L-S373P et Q493R sont recherchées et les mutations E484Q et N501Y ne sont plus recherchées. La présence de la délétion 69/70 ou des substitutions K417N, S371L-S373P ou Q493R reste toutefois à interpréter avec précaution, la nouvelle stratégie de criblage, en cours de déploiement, plus spécifique permettra de suspecter le variant Omicron de manière plus précise
+
+
+REMONTEE DES RESULTATS DANS SI-DEP 
+
+Les résultats de criblage sont saisis en suivant une nomenclature sous la forme d’une succession de caractères alphabétiques représentant la ou les mutations recherchées et de chiffres représentant le résultat.
+Depuis le 29/11/2021, une nouvelle variable « D » a été créée afin de rapporter les résultats sur les mutations DEL69/70 ou N501Y ou K417N. Des tests rétrospectifs ont été réalisées sur des prélèvements depuis le 01/11/2021 pour la recherche de ces trois mutations. Puis, depuis le 20/12/2021, la variable « D » rapporte les résultats sur les mutations DEL69/70 et/ou K417N, et/ou S371L-S373P et/ou Q493R.
+
+Codes et mutations d’intérêt associées
+`A` = E484K
+`C` = L452R
+`D` = DEL69/70, K417N, S371L-S373P et/ou Q493R
+
+`1` = Présence de la mutation recherchée	
+`0` = Absence de la mutation recherchée	
+`8` = Ininterprétable	
+`9` = Non recherché	
+
+Pour les mutations associées au code D :
+
+-	Un résultat ""D1"" signifie qu'au moins une des mutations associées à ce code est positive ; 
+-	Un résultat ""D0"" signifie qu'au moins une des mutations associées à ce code est négative, et qu'aucune n'est positive
+
+ANALYSE DES DONNEES REMONTEES DANS SI-DEP
+
+Les données sont rapportées à l’ensemble des tests positifs réalisés (RT-PCR + TA), et non au nombre de personnes testées ou positives. En effet la définition des personnes pour le calcul des indicateurs ne retient qu’un seul test pour une personne dans une période donnée, alors que cette dernière peut s’être fait tester plusieurs fois (test antigénique, suivi par une PCR par exemple). Cette méthodologie pourrait amener à ne pas comptabiliser un test qui porte une information sur la présence d’une mutation, et donc sous-estimer leur représentation. 
+L’ensemble des tests positifs de la base SI-DEP font l’objet de recherche d’information sur une ou plusieurs mutations, avec l’application d’un nettoyage concernant les doublons stricts, basé sur une clé correspondant : 
+
+-	au pseudonyme de la personne (code anonymat individuel basé sur les traits identifiants de la personne)
+-	à la date et l’heure du prélèvement
+-	au type d’analyse 
+
+DONNEES DISPONIBLES
+
+Les données sont disponibles au niveau **département, région et France**.
+
+Les variables disponibles :
+
+`nb_pos` : Nombre de tests positifs
+`nb_crib` : Nombre de tests criblés
+`tx_crib` : Taux tests criblés
+`nb_A0` : Nombre des tests positifs pour lesquels la recherche de mutation A est négatif
+`nb_A1` : Nombre des tests positifs pour lesquels la recherche de mutation A est positif
+`tx_A1` : Proportion de présence mutation A
+`nb_C0` : Nombre des tests positifs pour lesquels la recherche de mutation C est négatif
+`nb_C1` : Nombre des tests positifs pour lesquels la recherche de mutation C est positif
+`tx_C1` : Proportion de présence mutation C
+`nb_D0` : Nombre des tests positifs pour lesquels l’une des mutations suivantes : DEL69/70, K417N, S371L-S373P ou Q493R est absente
+`nb_D1` :  Nombre des tests positifs pour lesquels l’une des mutations suivantes : DEL69/70, K417N, S371L-S373P ou Q493R est présente
+`tx_D1` : Proportion de tests avec présence de l’une ou plusieurs des mutations suivantes : DEL69/70, K417N, S371L-S373P ou Q493R
+`nb_A0C0` : Nombre de tests pour lesquels les mutations A et C sont absentes
+`nb_A01C01` : Nombre de tests pour lesquels les mutations A et C sont recherchées et interprétables
+`tx_A0C0` : Proportion de tests avec absence des deux mutations A et C
+
+La note méthodologique complète est disponible.";"daily";"Licence Ouverte / Open Licence version 2.0";"";"";"fr:departement";"France";True;"2021-07-01T11:44:50.540000";"2023-05-25T15:59:03.184000";"corona,coronavirus,covid,indicateurs,mutations,spf";False;8;4;"txt,pdf,csv";516466;"";"";"";"";"";"0.78";2;6;5;5844;386194
+"60cb52a2d6477a292b8cfbcd";"Données de vaccination relatives aux professionnels de santé libéraux";"donnees-de-vaccination-relatives-aux-professionnels-de-sante-liberaux";"VAC-SI";"https://www.data.gouv.fr/fr/datasets/donnees-de-vaccination-relatives-aux-professionnels-de-sante-liberaux/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"⚠️  Santé publique France met à jour les référentiels géographiques et de population, utilisés pour la production et la diffusion des indicateurs de suivi de l’épidémie de COVID-19. Cette actualisation sera effective le **7 juillet 2022** . Elle est amenée à être renouvelée chaque année.
+
+**INFORMATION** Santé publique France modifie les modalités de calcul de la couverture vaccinale contre la COVID-19 en France : à compter de la semaine 49, les indicateurs seront exprimés par lieu de résidence des personnes vaccinées (en remplacement du lieu de  vaccination). Cela va entrainer une interruption de quelques jours de l'actualisation des indicateurs aux niveaux départemental et régional, à compter du **02 Décembre 2021**. Les indicateurs nationaux sont consultables sur le site de Santé publique France.
+
+
+**MAJ 01/07/20021**
+- Ces ressources ne seront plus actualisées le week-end **à compter du 3 juillet**
+
+### **Vaccination contre la COVID-19**
+
+Dès le lancement de la campagne de vaccination, les autorités sanitaires ont disposé d’informations permettant un suivi quotidien de l’avancée et du déploiement de la campagne sur le territoire. Celles-ci, recueillies auprès des établissements pour personnes âgées et des centres de vaccination, étaient transmises par les Agences régionales de santé.
+
+Parallèlement, l’Assurance maladie a élaboré le système d’information Vaccin Covid (VAC-SI), qui est aujourd’hui pleinement opérationnel après un travail d’analyse de l’exhaustivité et de la complétude des données.
+
+Le système d’information Vaccin Covid est alimenté par les professionnels de santé réalisant les vaccinations.
+
+Sur la base de l’exploitation de ces données, Santé Publique France publie en open data les indicateurs de couverture vaccinale.
+
+### **Quelles données ?**
+
+**Couvertures vaccinales des professionnels soignants libéraux**  vaccinées contre la COVID-19 par au moins une dose ou complètement vaccinés par date d’injection.
+
+Les couvertures vaccinales sont estimées pour des professionnels soignants libéraux identifiés à priori par la Cnam dans la base Vaccin COVID. Ces soignants libéraux ont été ciblés par la Cnam sur les critères suivants : une inscription au FNPS (Fichier National des Professionnels de Santé), une catégorie correspondant à médecin, dentiste, sage-femme, infirmière, masseur kinésithérapeute, pédicure-podologue, orthophoniste, orthoptiste, en activité et dont l’activité libérale est principale.
+Les personnels soignants libéraux vaccinés sont les personnes ciblées et ayant reçu au moins une dose de vaccin ou complètement vaccinés contre la COVID-19.
+Les données sont disponibles par lieu de vaccination.
+
+Cette méthode d’estimation a été mise en place à compter du 17 juin 2021. 
+
+**Les données ne sont pas exhaustives :** la cohorte couvre plus de 300 000 professionnels libéraux.
+Avant cette date, les estimations de couverture vaccinale étaient produites pour les professionnels de santé. La population couverte était donc plus large (professionnels quel que soit le lieu d’exercice). La méthode d’estimation était différente : étaient définis comme professionnels de santé, les personnes qui ont été déclarées comme étant un professionnel de santé dans la base vaccin COVID (renseignement manuel lors de la saisie). Les couvertures vaccinales au moins une dose dans cette population ainsi définie étaient supérieures à 99% dans 9 régions ainsi que globalement en France métropolitaine. Cette surestimation était très certainement liée à l’enregistrement comme professionnels de santé dans Vaccin Covid de personnes qui ne l’étaient pas réellement ou ne correspondaient aux définitions retenues pour l’estimation des dénominateurs. Les dénominateurs utilisés s’appuyaient sur l’annuaire des professionnels de santé qui regroupe les répertoires RPPS et Adeli (extrait en janvier 2021) et pour le nombre d’aides-soignants et d’agents de service hospitaliers sur l’enquête SAE 2019. Il n’était par exemple pas pris en compte dans le dénominateur les agents travaillant en milieu hospitalier ou en ESMS non professionnels de santé ainsi que les professionnels retraités. Plus généralement, les personnes vaccinées avec un codage « professionnel de santé » correspondaient vraisemblablement d’avantage à des personnes exerçant dans le milieu de la santé qu’aux seuls professionnels de santé.
+
+
+
+### Liste des ressources
+Professionnels de santé libéraux :
+
+
+- vacsi-psl-fra-YYYY-MM-DD-HHhmm.csv 	=> Niveau national
+- vacsi-psl-a-fra-YYYY-MM-DD-HHhmm.csv 	=> Niveau national par âge
+- vacsi-psl-s-fra-YYYY-MM-DD-HHhmm.csv 	=> Niveau national par sexe
+- vacsi-psl-reg-YYYY-MM-DD-HHhmm.csv 	=> Niveau Régional
+
+
+Variables :
+- Territoire d'intérêt = dep ou reg ou fra
+- Date d'injection = jour
+- Couverture vaccinale 1 dose = psl_couv_dose1
+- Couverture vaccinale complète = psl_couv_complet
+- Couverture vaccinale au moins 1 dose de rappel = psl_couv_rappel
+- Couverture vaccinale au moins 2 dose de rappel = psl_couv_2_rappel
+- Couverture vaccinale au moins 3 dose de rappel = psl_couv_3_rappel
+- Couverture vaccinale adapté au variant Omicron des professionnels = psl_couv_biv
+- Classe d'âge d'intérêt = clage_vacsi
+- Sexe d'intérêt = sexe
+   
+
+### Nomenclatures
+Les classes d'âge utilisées sont les suivantes : 
+* 0 : Tous âges
+* 09 : 0-9
+* 17 : 10-17
+* 24 : 18-24
+* 29 : 25-29
+* 39 : 30-39
+* 49 : 40-49
+* 59 : 50-59
+* 69 : 60-69
+* 74 : 70-74
+* 79 : 75-79
+* 80 : 80 et +
+
+Le sexe est codifié de la façon suivante : 
+* 0 : hommes + femmes + Non renseigné
+* 1 : homme
+* 2 : femme
+
+La région (colonne « reg ») suit la codification du [Code Officiel Géographique de l’INSEE](https://www.insee.fr/fr/information/4316069), elle est codifiée de la manière suivante : 
+* 01 : Guadeloupe
+* 02 : Martinique
+* 03 : Guyane
+* 04 : La Réunion
+* 11 : Ile-de-France
+* 24 : Centre-Val de Loire
+* 27 : Bourgogne-Franche-Comté
+* 28 : Normandie
+* 32 : Hauts-de-France
+* 44 : Grand Est
+* 52 : Pays de la Loire
+* 53 : Bretagne
+* 75 : Nouvelle-Aquitaine
+* 76 : Occitanie
+* 84 : Auvergne-Rhône-Alpes
+* 93 : Provence-Alpes-Côte d’Azur
+* 94 : Corse
+
+
+
+
+";"weekly";"Licence Ouverte / Open Licence version 2.0";"";"";"fr:departement";"France";False;"2021-06-17T15:48:17.997000";"2023-07-13T13:52:04.332000";"coronavirus,covid,covid19,vac-si,vaccin,vaccination";False;4;4;"csv";149;"";"";"";"";"";"0.78";0;0;0;4083;148
+"60cb490e7cd6e42568ade04c";"Données de vaccination relatives aux professionnels et résident en Ehpad et USLD";"donnees-de-vaccination-relatives-aux-professionnels-et-resident-en-ehpad-et-usld";"VAC-SI";"https://www.data.gouv.fr/fr/datasets/donnees-de-vaccination-relatives-aux-professionnels-et-resident-en-ehpad-et-usld/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"⚠️  **12/09/2022**
+Suite à un incident technique rencontré ce week-end, les données de vaccination covid ne peuvent être publiées. Les équipes sont mobilisées pour résoudre cet incident au plus vite.
+
+**07/04/22**
+Ajout de la variable `res_cou_2_rappel` dans les fichiers `vacsi_resid`.
+Variable indiquant la couverture vaccinale des résidents vaccinées avec une 2e dose de rappel.
+
+**08/12/21** 
+A compter de ce jour, les indicateurs Vaccination publiés par Santé publique France sont exprimés par lieu de résidence des personnes vaccinées (en remplacement du lieu de  vaccination). L'historique des données a été repris selon ce mode de calcul. 
+
+**MAJ 01/07/20021**
+- Ces ressources ne seront plus actualisées le week-end **à compter du 3 juillet**
+
+### **Vaccination contre la COVID-19**
+
+Dès le lancement de la campagne de vaccination, les autorités sanitaires ont disposé d’informations permettant un suivi quotidien de l’avancée et du déploiement de la campagne sur le territoire. Celles-ci, recueillies auprès des établissements pour personnes âgées et des centres de vaccination, étaient transmises par les Agences régionales de santé.
+
+Parallèlement, l’Assurance maladie a élaboré le système d’information Vaccin Covid (VAC-SI), qui est aujourd’hui pleinement opérationnel après un travail d’analyse de l’exhaustivité et de la complétude des données.
+
+Le système d’information Vaccin Covid est alimenté par les professionnels de santé réalisant les vaccinations.
+
+Sur la base de l’exploitation de ces données, Santé Publique France publie en open data les indicateurs de couverture vaccinale.
+
+### **Quelles données ?**
+
+**- Les professionnels en Ephad et USLD :**
+
+Les couvertures vaccinales sont estimées pour des professionnels en Ehpad ou USLD identifiés à priori par la Cnam dans la base Vaccin COVID. Ces personnes ont été identifiées par recherche de l’employeur essentiellement via le versement d‘indemnités journalières au cours des 12 derniers mois. Les professionnels vaccinés sont les personnes identifiées à priori et ayant reçu au moins une dose de vaccin ou étant complètement vaccinées contre la COVID-19.
+
+Les données ne sont pas exhaustives : la cohorte couvre plus de 100 000 professionnels exerçant en Ehpad ou USLD, ce qui représenterait environ 26% des professionnels exerçant en Ehpad ou USLD en France (données sources des estimations nationales : enquêtes EHPA 2015, et SAE 2019). 
+
+Les estimations ainsi produites peuvent conduire à des sous-estimations des couvertures vaccinales. L’identification des professionnels par le biais d’existence de versement d’indemnités journalières au cours de la dernière année a pu conduire à inclure des professionnels qui ont fait une infection à SARS-CoV-2 et donc moins susceptibles d’être vaccinées (dans la mesure où il est recommandé de reporter la vaccination au moins 3 mois après l’infection) et ne requérant pas de seconde dose de vaccin. A contrario, ce mode d’identification a également pu conduire à inclure préférentiellement des professionnels présentant davantage de comorbidités et plus susceptibles d’avoir été vaccinés.
+Les données sont disponibles par lieu de vaccination.
+
+Cette méthode d’estimation a été mise en place à compter du 17 juin 2021. 
+
+
+**- Les résidents en Ephad et USLD :**
+
+Les couvertures vaccinales sont estimées pour des résidents en Ehpad ou USLD identifiés à priori par la Cnam (Nb résidents) dans Vaccin Covid. Les personnes ciblées sont issues de la base Residehpad tenant compte des personnes résidant en Ehpad ou USLD au 01 mars 2021. Les résidents vaccinés (Vacc résidents) sont les personnes identifiées à priori et ayant reçu au moins une dose de vaccin ou étant complètement vaccinées contre la COVID-19. 
+
+Les données ne sont pas exhaustives : la cohorte couvre plus de 300 000 résidents ce qui représente environ 53% des résidents des Ehpad ou USLD en France sur la base de l’estimation des nombres de résidents en France (Données source pour l’estimation des nombres de résidents en France : Ehpad : nombre de places installées (Finess 2021) et taux d'occupation moyen national en Ehpad (enquête EHPA 2015) ; USLD : nombre de lits (SAE 2019) et taux d'occupation moyen national (SAE 2019)). 
+Cette méthode d’estimation a été mise en place à compter du 17 juin 2021. 
+
+Avant cette date, les estimations de couverture vaccinale dans cette population utilisaient une méthode différente. Les résidents en Ehpad ou USLD n’étaient principalement définis comme des personnes vaccinées en « Ehpad » ou « USLD » et âgées de plus de 65 ans ou des personnes vaccinées et identifiées a priori par la Cnam comme étant un résident en Ehpad ou en USLD et dont le lieu de vaccination était un « Ehpad » ou « USLD ». Cette méthode d’estimation a cependant présenté des limites. Afin d’éviter des pertes de doses de vaccin, des personnes de plus de 65 ans ont pu être vaccinées en Ehpad ou en USLD sans être résidentes de ces structures. Les couvertures vaccinales ont dû être fiabilisées. L’estimation des couvertures vaccinales pour les résidents en Ehpad ou USLD a été suspendue du 18 avril 2021 au 17 juin 2021.
+
+### Liste des ressources
+Résidents Ehpad/USLD :
+- vacsi-resid-fra-YYYY-MM-DD-HHhmm.csv 	 => Niveau national
+- vacsi-resid-a-fra-YYYY-MM-DD-HHhmm.csv => Niveau national par âge
+- vacsi-resid-s-fra-YYYY-MM-DD-HHhmm.csv => Niveau national par sexe
+- vacsi-resid-reg-YYYY-MM-DD-HHhmm.csv	 => Niveau Régional
+- vacsi-resid-dep-YYYY-MM-DD-HHhmm.csv 	 => Niveau Départemental
+
+Professionnels Ehpad/USLD :
+- vacsi-prof-fra-YYYY-MM-DD-HHhmm.csv 	=> Niveau national
+- vacsi-prof-a-fra-YYYY-MM-DD-HHhmm.csv => Niveau national par âge
+- vacsi-prof-s-fra-YYYY-MM-DD-HHhmm.csv => Niveau national par sexe
+- vacsi-prof-reg-YYYY-MM-DD-HHhmm.csv 	=> Niveau Régional
+
+Variables :
+- Territoire d'intérêt = dep ou reg ou fra
+- Date d'injection = jour
+- Couverture vaccinale 1 dose = res_couv_dose1 ou pro_couv_dose1
+- Couverture vaccinale complète = res_couv_complet ou pro_couv_complet
+- Couverture vaccinale au moins 1 dose de rappel = res_couv_rappel ou pr_couv_rappel
+- Couverture vaccinale au moins 2 dose de rappel = res_couv_2_rappel ou pro_couv_2_rappel
+- Couverture vaccinale au moins 3 dose de rappel = pro_couv_3_rappel
+- Couverture vaccinale adapté au variant Omicron des professionnels = pro_couv_biv
+- Classe d'âge d'intérêt = clage_vacsi
+- Sexe d'intérêt = sexe
+
+### Nomenclatures
+Les classes d'âge utilisées sont les suivantes : 
+* 0 : Tous âges
+* 09 : 0-9
+* 17 : 10-17
+* 24 : 18-24
+* 29 : 25-29
+* 39 : 30-39
+* 49 : 40-49
+* 59 : 50-59
+* 69 : 60-69
+* 74 : 70-74
+* 79 : 75-79
+* 80 : 80 et +
+
+Le sexe est codifié de la façon suivante : 
+* 0 : hommes + femmes + Non renseigné
+* 1 : homme
+* 2 : femme
+
+La région (colonne « reg ») suit la codification du [Code Officiel Géographique de l’INSEE](https://www.insee.fr/fr/information/4316069), elle est codifiée de la manière suivante : 
+* 01 : Guadeloupe
+* 02 : Martinique
+* 03 : Guyane
+* 04 : La Réunion
+* 11 : Ile-de-France
+* 24 : Centre-Val de Loire
+* 27 : Bourgogne-Franche-Comté
+* 28 : Normandie
+* 32 : Hauts-de-France
+* 44 : Grand Est
+* 52 : Pays de la Loire
+* 53 : Bretagne
+* 75 : Nouvelle-Aquitaine
+* 76 : Occitanie
+* 84 : Auvergne-Rhône-Alpes
+* 93 : Provence-Alpes-Côte d’Azur
+* 94 : Corse
+
+";"weekly";"Licence Ouverte / Open Licence version 2.0";"";"";"fr:departement";"France";False;"2021-06-17T15:07:26.341000";"2023-07-13T13:51:52.127000";"coronavirus,covid,covid19,vac-si,vaccination,vaccins";False;10;10;"csv";45625;"";"";"";"";"";"0.78";0;0;0;4375;44740
+"608958c983b331618ffc97f9";"Données de laboratoires pour le dépistage, focus par niveau scolaire";"donnees-de-laboratoires-pour-le-depistage-focus-par-niveau-scolaire";"SI-DEP";"https://www.data.gouv.fr/fr/datasets/donnees-de-laboratoires-pour-le-depistage-focus-par-niveau-scolaire/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"⚠️  **15/11/2022** Suite à la suspension de l’activité par une partie des Laboratoires de biologie médicale privés depuis le 14 novembre, le nombre de « Nouveaux cas confirmés depuis la veille » est sous-estimé à compter du mardi 15/11. De même le taux d’incidence et le taux de dépistage seront sous-estimés à compter du jeudi 17/11. Les équipes de Santé publique France restent mobilisées pour assurer le suivi de l’épidémie qui repose sur une surveillance multi-sources. 
+
+Les indicateurs de surveillance virologique sont issus du système d’information de dépistage (SI-DEP), dont l’objectif est de remonter les données de tests (RT-PCR) réalisés par l’ensemble des laboratoires de ville et établissements hospitaliers concernant le SARS-COV2, ainsi que les tests antigéniques réalisés par les laboratoires, pharmaciens, médecins et infirmiers.
+
+**Précisions :**
+La sélection de la première date avec pcr positive si plusieurs prélèvements positifs pour un même patient.
+
+**Jeux de données disponibles**
+*sp_18ans_fra ; sp_18ans_reg : sp_18ans_dep* : Taux d'incidence, de positivité et de dépistage hebdomadaire, respectivement pour la France, par région et par département 
+
+*sp_ti_tp_7j_18ans_fra ; sp_ti_tp_7j_18ans_reg ; sp_ti_tp_7j_18ans_dep* : Taux d'incidence, de positivité et de dépistage sur 7 jours glissants, respectivement pour la France, par région et par département
+
+**Variables**
+Les classes d’âge ont été construites en fonction des niveaux scolaires, à savoir :
+[0]  Tous âges
+[02] Avant 3 ans - Petite enfance
+[05] De 3 à 5 ans - Maternelle
+[10] De 6 à 10 ans - Primaire
+[14] De 11 à 14 ans - Collège
+[17] De 15 à 17 ans - Lycée
+[18] 18 ans et plus
+
+Pour chaque catégorie, tous les enfants sont inclus jusqu’à l’âge révolu. Par exemple, pour le niveau maternel, les enfants de 3 ans jusqu’à 5 ans et 11 mois sont inclus. Par contre les enfants de 6 ans sont classés dans le niveau « primaire ».
+
+ti : Le taux d'incidence hebdomadaire rapporté à la population pour 100 000 habitants, par semaine calendaire.
+tp : Le taux de positivité hebdomadaire rapporté 100 tests réalisés, par semaine calendaire.
+td : Le taux de dépistage hebdomadaire rapporté à la population pour 100 000 habitants, par semaine calendaire.
+
+Données disponibles par départements, régions et France.
+
+**Limites :**
+- Seuls les tests biologiques des personnes pour lesquelles le département de résidence est disponible sont représentés sur les cartes. Les personnes dont le département n’est pas renseigné dans les données SI-DEP ne sont comptabilisées qu'au niveau France entière. De ce fait, la somme des nombres de tests indiqués dans les départements ou régions est inférieure au nombre total de tests indiqué pour la France entière.
+- Seuls les tests biologiques des personnes pour lesquelles l’âge est renseigné sont disponibles. Les personnes dont l’âge est manquant ne sont comptabilisées qu’au niveau de la France entière. De ce fait la somme des tests indiqués dans les départements ou régions est inférieure au nombre total de tests indiqué pour la France entière.
+";"daily";"Licence Ouverte / Open Licence version 2.0";"";"";"fr:departement";"France";False;"2021-04-28T14:44:57.225000";"2023-02-21T19:09:43.804000";"coronavirus,covid-19,covid19,depistage,scolaires,si-dep";False;6;6;"txt";3917;"";"";"";"";"";"0.78";1;1;2;3226;3720
+"6061d8c10f4e05b7186ff7fe";"OLD Données relatives aux personnes très vulnérables vaccinées contre la COVID-19 ";"old-donnees-relatives-aux-personnes-tres-vulnerables-vaccinees-contre-la-covid-19";"VAC-SI";"https://www.data.gouv.fr/fr/datasets/old-donnees-relatives-aux-personnes-tres-vulnerables-vaccinees-contre-la-covid-19/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"
+⚠️ Depuis le 2 avril, Santé Publique France ne produit plus d'indicateurs relatives aux personnes très vulnérables vaccinées contre la COVID-19 et ce, pour une durée encore indéterminée.
+
+### Vaccination contre la COVID-19 
+
+Dès le lancement de la campagne de vaccination, les autorités sanitaires ont disposé d’informations permettant un suivi quotidien de l’avancée et du déploiement de la campagne sur le territoire. Celles-ci, recueillies auprès des établissements pour personnes âgées et des centres de vaccination, étaient transmises par les Agences régionales de santé. 
+
+Parallèlement, l’Assurance maladie a élaboré le système d’information Vaccin Covid (VAC-SI), qui est aujourd’hui pleinement opérationnel après un travail d’analyse de l’exhaustivité et de la complétude des données.
+
+Le système d’information Vaccin Covid est alimenté par les professionnels de santé réalisant les vaccinations. 
+
+Sur la base de l’exploitation de ces données, Santé Publique France publie en open data les indicateurs de couverture vaccinale.
+
+#### Quelles données ? 
+
+Les données issues du système d’information Vaccin Covid permettent de dénombrer en temps quasi réel (J-1), le nombre de personnes ayant reçu une injection de vaccin anti-covid en tenant compte du nombre de doses reçues, du vaccin, de l’âge, du sexe ainsi que du niveau géographique (national, régional et départemental).
+
+Les indicateurs disponibles en accès libre sur ce jeu de données concernent le **nombre cumulé de personnes très vulnérables vaccinées par date d’injection ainsi que la couverture vaccinale (France entière uniquement)**
+
+**Ils sont déclinés à l’échelle : nationale, régionale et départemental.**
+
+Les personnes très vulnérables sont définies comme à très haut risque de forme grave ou de décès. Elles sont identifiées a priori par la Cnam sur la base des recommandations de la Haute Autorité de Santé (HAS) pour les personnes prioritaires pour la Vaccination contre la COVID-19.
+L’identification est notamment réalisée pour les personnes bénéficiant d’Affections de longue durée (ALD), ou par ciblage de codes CIM. Sont notamment ciblées les personnes atteintes de trisomie 21, transplantées d’organe solide ou de cellules souches hématopoïétiques, insuffisants rénaux (dialysés) et les personnes présentant des affections préexistantes rares et graves ou des handicaps graves.
+
+Seules les personnes pour lesquelles le département a pu être localisé sont représentées sur les cartes. Du fait du délai de saisie dans Vaccin Covid après vaccination dans certaines structures, un délai est nécessaire à la consolidation des données.
+
+**A compter du 07/04/2021, l’âge des personnes vaccinées sera calculé à partir de la date de naissance (et non plus de l’année de naissance uniquement). 
+Cela implique, au sein des Ehpad/USLS, une augmentation légère de la couverture vaccinale chez les professionnels qui s’accompagne par opposition d’une baisse légère de la couverture vaccinale chez les résidents. De manière globale, pour tous les indicateurs Vacsi, cela entraîne quelques variations sur les répartitions par tranche d’âge. 
+
+#### Précaution d’usage des données
+
+Si les nouvelles injections sont désormais saisies au fil de l’eau dans Vaccin Covid, en revanche certaines injections intervenues depuis fin décembre n’y ont pas encore été saisies a posteriori dans Vaccin Covid. Dans certaines régions, les données Vaccin Covid sont ainsi désormais plus complètes que la remontée effectuée par l’ARS, mais dans d’autres cela n’est pas encore le cas  - en particulier en Île de France, Provence Alpes Côte d’Azur et Auvergne Rhône Alpes. Les données qui seront désormais publiées chaque jour par Santé publique France en date d’injection permettront de rendre compte de ce rattrapage.
+
+Dans les fichiers départementaux, si une ligne pour un nombre de vaccinés à une date donnée est absente, c’est qu’il n’y a pas eu de vacciné ce jour-là dans le département.
+
+
+La région (colonne « reg ») suit la codification du [Code Officiel Géographique de l’INSEE](https://www.insee.fr/fr/information/4316069), elle est codifiée de la manière suivante : 
+* 01 : Guadeloupe
+* 02 : Martinique
+* 03 : Guyane
+* 04 : La Réunion
+* 11 : Ile-de-France
+* 24 : Centre-Val de Loire
+* 27 : Bourgogne-Franche-Comté
+* 28 : Normandie
+* 32 : Hauts-de-France
+* 44 : Grand Est
+* 52 : Pays de la Loire
+* 53 : Bretagne
+* 75 : Nouvelle-Aquitaine
+* 76 : Occitanie
+* 84 : Auvergne-Rhône-Alpes
+* 93 : Provence-Alpes-Côte d’Azur
+* 94 : Corse
+";"daily";"Licence Ouverte / Open Licence version 2.0";"";"";"other";"France";False;"2021-03-29T15:40:17.014000";"2022-11-15T17:23:05.312000";"coronavirus,covid,covid19,vaccin,vaccination,vacsi";False;3;3;"csv";197;"";"";"";"";"";"0.78";1;0;0;2449;170
+"6050926b8dfc22e6c2b78e27";"OLD Données relatives aux personnes présentant des comorbidités vaccinées contre la COVID-19 ";"old-donnees-relatives-aux-personnes-presentant-des-comorbidites-vaccinees-contre-la-covid-19";"VAC-SI";"https://www.data.gouv.fr/fr/datasets/old-donnees-relatives-aux-personnes-presentant-des-comorbidites-vaccinees-contre-la-covid-19/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"Depuis le 2 avril 2021, ces fichiers ne sont plus mis à jour. Leur communication va reprendre, mais nous ne sommes pas en mesure cependant de vous donner une date précise de reprise à ce jour. 
+
+### Vaccination contre la COVID-19 
+
+Dès le lancement de la campagne de vaccination, les autorités sanitaires ont disposé d’informations permettant un suivi quotidien de l’avancée et du déploiement de la campagne sur le territoire. Celles-ci, recueillies auprès des établissements pour personnes âgées et des centres de vaccination, étaient transmises par les Agences régionales de santé. 
+
+Parallèlement, l’Assurance maladie a élaboré le système d’information Vaccin Covid (VAC-SI), qui est aujourd’hui pleinement opérationnel après un travail d’analyse de l’exhaustivité et de la complétude des données.
+
+Le système d’information Vaccin Covid est alimenté par les professionnels de santé réalisant les vaccinations. 
+
+Sur la base de l’exploitation de ces données, Santé Publique France publie en open data les indicateurs de couverture vaccinale.
+
+#### Quelles données ? 
+
+Les données issues du système d’information Vaccin Covid permettent de dénombrer en temps quasi réel (J-1), le nombre de personnes ayant reçu une injection de vaccin anti-covid en tenant compte du nombre de doses reçues, du vaccin, de l’âge, du sexe ainsi que du niveau géographique (national, régional et départemental).
+
+Les indicateurs disponibles en accès libre sur ce jeu de données concernent le **nombre quotidien de personnes présentant des comorbidités vaccinées par date d’injection (ainsi que ce nombre cumulé), par tranche d'âge**
+
+**Ils sont déclinés à l’échelle : nationale, régionale et départemental.**
+
+Les personnes présentant des comorbidités sont identifiées a priori par la Cnam sur la base des recommandations de la Haute Autorité de Santé (HAS) pour les personnes prioritaires pour la Vaccination contre la COVID-19 car identifiées comme à risque confirmé de forme grave ou de décès. L’identification est notamment réalisée pour les personnes bénéficiant d’Affections de longue durée (ALD), ou par ciblage de codes CIM. Sont notamment ciblées les personnes avec : diabète, insuffisance rénale chronique, BPCO et insuffisance respiratoire, hypertension artérielle, insuffisance cardiaque, transplantation d’organe solide ou allogreffe de cellules souches hématopoïétiques, obésité, cancer et maladies hématologiques malignes en cours de traitement par chimiothérapie, certaines maladies rares (voire liste sur le site du ministère de la santé), trisomie 21.
+
+Seules les personnes pour lesquelles le département a pu être localisé sont représentées sur les cartes. Du fait du délai de saisie dans Vaccin Covid après vaccination dans certaines structures, un délai est nécessaire à la consolidation des données.
+
+**A compter du 07/04/2021, l’âge des personnes vaccinées sera calculé à partir de la date de naissance (et non plus de l’année de naissance uniquement). 
+Cela implique, au sein des Ehpad/USLS, une augmentation légère de la couverture vaccinale chez les professionnels qui s’accompagne par opposition d’une baisse légère de la couverture vaccinale chez les résidents. De manière globale, pour tous les indicateurs Vacsi, cela entraîne quelques variations sur les répartitions par tranche d’âge. 
+
+#### Précaution d’usage des données
+
+Si les nouvelles injections sont désormais saisies au fil de l’eau dans Vaccin Covid, en revanche certaines injections intervenues depuis fin décembre n’y ont pas encore été saisies a posteriori dans Vaccin Covid. Dans certaines régions, les données Vaccin Covid sont ainsi désormais plus complètes que la remontée effectuée par l’ARS, mais dans d’autres cela n’est pas encore le cas  - en particulier en Île de France, Provence Alpes Côte d’Azur et Auvergne Rhône Alpes. Les données qui seront désormais publiées chaque jour par Santé publique France en date d’injection permettront de rendre compte de ce rattrapage.
+
+Dans les fichiers départementaux, si une ligne pour un nombre de vaccinés à une date donnée est absente, c’est qu’il n’y a pas eu de vacciné ce jour-là dans le département.
+
+Les classes d'âge utilisées sont les suivantes : 
+* 0 : Tous âges
+* 24 : 18-24
+* 29 : 25-29
+* 39 : 30-39
+* 49 : 40-49
+* 59 : 50-59
+* 64 : 60-64
+
+
+La région (colonne « reg ») suit la codification du [Code Officiel Géographique de l’INSEE](https://www.insee.fr/fr/information/4316069), elle est codifiée de la manière suivante : 
+* 01 : Guadeloupe
+* 02 : Martinique
+* 03 : Guyane
+* 04 : La Réunion
+* 11 : Ile-de-France
+* 24 : Centre-Val de Loire
+* 27 : Bourgogne-Franche-Comté
+* 28 : Normandie
+* 32 : Hauts-de-France
+* 44 : Grand Est
+* 52 : Pays de la Loire
+* 53 : Bretagne
+* 75 : Nouvelle-Aquitaine
+* 76 : Occitanie
+* 84 : Auvergne-Rhône-Alpes
+* 93 : Provence-Alpes-Côte d’Azur
+* 94 : Corse";"daily";"Licence Ouverte / Open Licence version 2.0";"";"";"other";"France";False;"2021-03-16T12:11:39.631000";"2024-01-05T09:23:15.918000";"coronavirus,covid,covid19,vac-si,vaccin,vaccination";False;13;13;"csv,xlsx";721;"";"";"";"";"";"0.78";2;0;1;3583;665
+"6045e56d7a1eafe5448eaa62";"OLD Données de laboratoires pour le dépistage : Indicateurs sur les variants";"old-donnees-de-laboratoires-pour-le-depistage-indicateurs-sur-les-variants";"SI-DEP";"https://www.data.gouv.fr/fr/datasets/old-donnees-de-laboratoires-pour-le-depistage-indicateurs-sur-les-variants/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"**Arrêt de la mise à jour des données**
+Depuis le 09/06/2021, les données relatives aux variants ne sont plus mises à jour. 
+Les données de laboratoires pour le dépistage concernant les mutations sont disponibles sur le jeu de données dédié : https://www.data.gouv.fr/fr/datasets/donnees-de-laboratoires-pour-le-depistage-indicateurs-sur-les-mutations/
+
+**Information du 20 mai 2021**
+
+A compter de ce jour, les indicateurs seront corrigés afin de supprimer l’effet doublon, lors de la réalisation de plusieurs tests de dépistage par une même personne. 
+
+Depuis le début de la pandémie, la plateforme sécurisée Si-DEP enregistre tous les résultats des tests de dépistage. Afin de garantir la protection des données personnelles des personnes testées, chaque résultat était lié à l’émission d’un pseudo anonymisé. Cependant, avec l’apparition des variants sur le territoire, certaines personnes sont amenées à réaliser deux tests, jusqu’à présent comptabilisés deux fois. 
+
+L'algorithme  utilisé a donc récemment été mis à jour afin qu’il ne décompte qu’un seul patient lorsque celui-ci se fait tester plusieurs fois dans un intervalle de temps court, toujours en respectant l'anonymat. Grâce à cette nouvelle pseudonymisation, Santé publique France est capable de renforcer son efficacité et de produire des données encore plus précises, consultables chaque semaine dans son point épidémiologique.
+
+### Contexte
+
+
+Le SARS-Cov-2 circule aujourd’hui dans la population sous la forme de nombreux variants qui doivent impérativement faire l’objet d’un suivi particulier, tant sur le plan du contact tracing que sur le plan épidémiologique, pour permettre de contenir la progression de l’épidémie de Covid-19.
+Dans cet objectif, SI-DEP a évolué à partir du lundi 25 janvier 2021 pour assurer la prise en charge des informations relatives à ces variants.
+
+### Analyse de données
+
+Les analyses concernant les variants portent sur les données relatives aux suspicions ou aux résultats de criblage suite à une PCR ou un test antigénique (TA) positif. 
+
+**Les données sont rapportées à l’ensemble des tests positifs réalisés (RT-PCR + TA)**, et non à un nombre de personnes. En effet la définition des personnes pour le calcul des indicateurs ne retient qu’un seul test pour une personne dans une période donnée, alors que cette dernière peut s’être fait tester plusieurs fois (test TA, suivi par un PCR par exemple) . Cette méthodologie pourrait amener à ne pas comptabiliser un test qui porte une information sur la présence d’un variant, et donc sous-estimer leur représentation. 
+L’ensemble des tests positifs de la base SI-DEP font l’objet de la recherche d’information sur le variant, avec l’application d’un nettoyage concernant les doublons stricts, basé sur une clé correspondant : 
+
+-	au Pseudonyme de la personne (code anonymat individuel basé sur les traits identifiants de la personne)
+-	a la Date et l’heure du prélèvement
+-	au type d’analyse 
+
+La nomenclature des codes utilisés pour la remontée d’informations sur le lignage des variants est celle de la base internationale **_Nextstrain_**. Cette nomenclature sera probablement amenée à évoluer en fonction des souhaits d’harmonisation internationaux.
+
+L’objectif de l’analyse de ces données est de suivre la circulation sur le territoire des variants d’intérêt, qui concernent à ce jour les variants :
+
+- Royaume-Uni (UK): code Nexstrain= 20I/501Y.V1
+- Afrique du Sud (ZA) : code Nexstrain= 20H/501Y.V2
+- Brésil (BR) : code Nexstrain= 20J/501Y.V3
+
+**Données par semaine glissante diffusées par département, région et france.**
+
+### Les variables :
+
+Semaine = Semaine glissante
+cl_age90 = Classe d’âge
+Nb_tests_PCR_TA_crible = Nombre de tests PCR criblés parmi les PCR positives
+Prc_tests_PCR_TA_crible = % de tests PCR criblés parmi les PCR positives
+Nb_susp_501Y_V1 = Nombre de tests avec suspicion de variant 20I/501Y.V1 (UK)
+Prc_susp_501Y_V1 = % de tests avec suspicion de variant 20I/501Y.V1 (UK)
+Nb_susp_501Y_V2_3 = Nombre de tests avec suspicion de variant 20H/501Y.V2 (ZA) ou 20J/501Y.V3 (BR)
+Prc_susp_501Y_V2_3 = % de tests avec suspicion de variant 20H/501Y.V2 (ZA) ou 20J/501Y.V3 (BR)
+Nb_susp_IND = Nombre de tests avec une détection de variant mais non identifiable
+Prc_susp_IND = % de tests avec une détection de variant mais non identifiable
+Nb_susp_ABS = Nombre de tests avec une absence de détection de variant
+Prc_susp_ABS = % de tests avec une absence de détection de variant
+
+### Les classes d’âge :
+
+•	0	tous âges
+•	09	0-9 ans
+•	19	10-19 ans
+•	29	20-29 ans
+•	39	30-39 ans
+•	49	40-49 ans
+•	59	50-59 ans
+•	69	60-69 ans
+•	79	70- 79 ans
+•	89	80-89 ans
+•	90	90 ans et plus
+
+
+";"daily";"Licence Ouverte / Open Licence version 2.0";"";"";"fr:departement";"France";False;"2021-03-08T09:50:53.847000";"2022-11-15T17:19:41.662000";"corona,coronavirus,covid,covid19,indicateurs,spf,variant";False;3;3;"csv";213644;"";"";"";"";"";"0.78";5;4;0;3695;118382
+"60190d00a7273a8100dd4d38";"Synthèse des indicateurs de suivi de l’épidémie COVID-19";"synthese-des-indicateurs-de-suivi-de-lepidemie-covid-19";"";"https://www.data.gouv.fr/fr/datasets/synthese-des-indicateurs-de-suivi-de-lepidemie-covid-19/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"**Dans un contexte d’épidémie favorable, à compter du 1er juillet 2023, le cadre juridique actuellement en cours prévoit l’arrêt du traitement des données personnelles issues de SI-DEP. Par conséquent, après une période transitoire d’ajustement de deux semaines, les nouveaux indicateurs de surveillance virologique seront publiés aux niveaux national, régional et départemental) à une fréquence hebdomadaire. 
+Les consignes de saisie spécifiques dans SI-VIC seront levées à partir de cette date, les indicateurs hospitaliers ne seront plus disponibles. 
+Santé publique France maintient la surveillance de l’épidémie à travers son dispositif multi-sources. Les indicateurs relatifs à la surveillance génomique, aux recours aux associations SOS Médecins, aux urgences hospitalières et aux décès resteront disponibles.** 
+
+
+### INFORMATION 25/01/2023
+
+Suite à une erreur de saisie, le nombre de décès survenus en semaine 03 en ESMS a été revu à la baisse. Les corrections nécessaires ont été apportées et expliquent la baisse artificielle du nombre de décès total survenus depuis le début de l’épidémie.
+
+⚠️  **15/11/2022** Suite à la suspension de l’activité par une partie des Laboratoires de biologie médicale privés depuis le 14 novembre, le nombre de « Nouveaux cas confirmés depuis la veille » est sous-estimé à compter du mardi 15/11. De même le taux d’incidence et le taux de dépistage seront sous-estimés à compter du jeudi 17/11. Les équipes de Santé publique France restent mobilisées pour assurer le suivi de l’épidémie qui repose sur une surveillance multi-sources. 
+
+**08/06/2022**
+**Compte tenu de la tendance actuelle favorable et la baisse des principaux indicateurs, à partir du 11 juin 2022, les indicateurs COVID-19 produits par Santé publique France seront actualisés sur Géodes et data.gouv.fr tous les jours à l’exception des week-end et des jours fériés.**
+
+
+### Description du jeu de données
+
+**Ce jeu de données comprends l'essentiel des indicateurs de synthèse permettant le suivi de l'épidémie de COVID-19 en France.** Un inventaire des données relatives au COVID-19 sur data.gouv.fr est disponible [ici](https://www.data.gouv.fr/fr/pages/donnees_covid).
+
+Ces données sont notamment exposées sur l'onglet *vue d'ensemble* du [tableau de bord de suivi de l'épidémie disponible sur gouvernement.fr](https://www.gouvernement.fr/info-coronavirus/carte-et-donnees). Ce dernier présente depuis le 28 mars 2020 les données relatives à l’épidémie de COVID-19 en France. 
+
+Cet outil dont le [code source est libre](https://github.com/etalab/covid19-dashboard), a été développé sous l’impulsion d’Etalab et avec la collaboration de la société civile. Il propose une vision consolidée des données officielles disponibles. 
+
+## Description des données
+
+Les données contenues dans le jeu de données sont publiées quotidiennement. 
+
+### Données contextuelles : 
+- ```'date'``` = Date 
+
+- ```'dep'```= Département
+
+- ```'reg'```= Région
+
+- ```'lib_dep'```= libellé département 
+
+- ```'lib_reg'```= libellé région 
+
+### Données relatives à la situation hospitalière 
+- ```'hosp'```= Nombre de patients actuellement hospitalisés pour COVID-19.
+-  ```'incid_hosp'```= Nombre de nouveaux patients hospitalisés au cours des dernières 24h.
+
+- ```'rea'```= Nombre de patients actuellement en réanimation ou en soins intensifs.
+- ```'incid_rea'```= Nombre de nouveaux patients admis en réanimation au cours des dernières 24h.
+
+- ```'rad'```= Nombre cumulé de patients ayant été hospitalisés pour COVID-19 et de retour à domicile en raison de l'amélioration de leur état de santé.
+- ```'incid_rad'```= Nouveaux retours à domicile au cours des dernières 24h.
+
+### Données relatives au décès pour cause de COVID-19
+
+- ```'dchosp'```= Décès à l’hôpital
+-  ```'incid_dchosp'```= Nouveaux patients décédés à l’hôpital au cours des dernières 24h.
+
+- ```'esms_dc'```= Décès en ESMS
+
+- ```'dc_tot'```= Cumul des décès (cumul des décès constatés à l'hôpital et en EMS)
+
+### Données relatives aux tests
+- ```'conf'```= Nombre de cas confirmés
+- ```'conf_j1'```= Nombre de nouveaux cas confirmés (J-1 date de résultats)
+- ```'pos'```= Nombre de personnes déclarées positives (J-3 date de prélèvement)
+- ```'pos_7j'``` = Nombre de personnes déclarées positives sur une semaine (J-3 date de prélèvement)
+
+- ```'esms_cas'``` = Cas confirmés en ESMS
+
+### Données relatives aux indicateurs de suivi de l’épidémie de COVID-19
+
+- ```'tx_pos'```= **Taux de positivité** des tests virologiques (Le taux de positivité correspond au nombre de personnes testées positives (RT-PCR et test antigénique) pour la première fois depuis plus de 60 jours rapporté au nombre total de personnes testées positives ou négatives sur une période donnée ; et qui n‘ont jamais été testées positive dans les 60 jours précédents.)
+
+- ```'tx_incid'```= **Taux d'incidence** (activité épidémique : Le taux d'incidence correspond au nombre de personnes testées positives (RT-PCR et test antigénique) pour la première fois depuis plus de 60 jours rapporté à la taille de la population. Il est exprimé pour 100 000 habitants)
+
+- ```'TO'```= **Taux d'occupation** : tension hospitalière sur la capacité en réanimation (Proportion de patients atteints de COVID-19 actuellement en réanimation, en soins intensifs, ou en unité de surveillance continue rapportée au total des lits en capacité initiale, c’est-à-dire avant d’augmenter les capacités de lits de réanimation dans un hôpital).
+
+- ```'R'```= **Facteur de reproduction du virus** (évolution du R0 : Le nombre de reproduction du virus : c’est le nombre moyen de personnes qu’une personne infectée peut contaminer. Si le R effectif est supérieur à 1, l’épidémie se développe ; s’il est inférieur à 1, l’épidémie régresse) 
+
+
+---
+**Points d'attentions**  : 
+- Les méthodes de collecte des données ont évoluées dans le temps ; 
+- Au cours de l'été 2020, les données n'ont pas été publiées durant les week-end et jours fériés. 
+
+### **Ressources**
+- **[Consulter le tableau de bord](https://www.gouvernement.fr/info-coronavirus/carte-et-donnees)** 
+- **[Consulter l'inventaire des données relatives au COVID-19 sur data.gouv.fr](https://www.data.gouv.fr/fr/pages/donnees_covid)** 
+- **[Consulter les données de Santé publique France](https://www.data.gouv.fr/fr/organizations/sante-publique-france/)** 
+- **[Consulter les données du ministère des Solidarités et de la Santé](https://www.data.gouv.fr/fr/organizations/ministere-des-solidarites-et-de-la-sante/)** ";"daily";"Licence Ouverte / Open Licence version 2.0";"";"";"fr:departement";"France";True;"2021-02-02T09:27:44.214000";"2023-09-13T15:40:16.875000";"coronavirus,covid,covid19";False;2;2;"csv";1973267;"";"";"";"";"";"0.67";27;16;10;2441906;2002408
+"6010206e7aa742eb447930f7";"Données relatives aux personnes vaccinées contre la Covid-19";"donnees-relatives-aux-personnes-vaccinees-contre-la-covid-19-1";"VAC-SI";"https://www.data.gouv.fr/fr/datasets/donnees-relatives-aux-personnes-vaccinees-contre-la-covid-19-1/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"🆕**24/11/2022**
+Publication de nouveaux indicateurs à compter de ce jour :
+1. Couverture vaccinale du vaccin contre la COVID-19, personnes vaccinées avec trois doses de rappel (`n_3_rappel`, `couv_3_rappel`)
+2. Couverture vaccinale du vaccin contre la COVID-19, personnes vaccinées avec un rappel adapté aux variants Omicron (`n_rappel_biv`, `n_cum_rappel_biv`, `couv__rappel_biv`)  
+
+Santé publique France met à jour les référentiels géographiques et de population, utilisés pour la production et la diffusion des indicateurs de suivi de l’épidémie de COVID-19. Cette actualisation sera effective le **7 juillet 2022** . Elle est amenée à être renouvelée chaque année.
+
+**MAJ 01/07/2021**
+Ces ressources ne sont actualisées que les **jours ouvrés**.
+
+### Vaccination contre la COVID-19 
+
+Dès le lancement de la campagne de vaccination, les autorités sanitaires ont disposé d’informations permettant un suivi quotidien de l’avancée et du déploiement de la campagne sur le territoire. Celles-ci, recueillies auprès des établissements pour personnes âgées et des centres de vaccination, étaient transmises par les Agences régionales de santé. 
+
+Parallèlement, l’Assurance maladie a élaboré le système d’information Vaccin Covid (VAC-SI), qui est depuis pleinement opérationnel après un travail d’analyse de l’exhaustivité et de la complétude des données.
+
+Le système d’information Vaccin Covid est alimenté par les professionnels de santé réalisant les vaccinations. 
+
+Sur la base de l’exploitation de ces données, Santé Publique France publie en open data les indicateurs de couverture vaccinale sur data.gouv, sur [Geodes](https://geodes.santepubliquefrance.fr/#c=home) ainsi que sur un dashboard disponible sur le site de santé Publique France : [InfoCovidFrance](https://www.santepubliquefrance.fr/dossiers/coronavirus-covid-19/coronavirus-chiffres-cles-et-evolution-de-la-covid-19-en-france-et-dans-le-monde)
+
+#### Quelles données ? 
+
+Les données issues du système d’information Vaccin Covid permettent de dénombrer en temps quasi réel (J-1), le nombre de personnes ayant reçu une injection de vaccin anti-covid en tenant compte du nombre de doses reçues, du vaccin, de l’âge, du sexe ainsi que du niveau géographique (national, régional et départemental). Les données sont disponibles par lieu de résidence.
+
+#### Précaution d’usage des données
+Il existe des rattrapages de saisies dans Vaccin Covid et pour un jour donné, toutes les injections n’ont pas forcément été saisies en temps réel et peuvent être saisies dans les jours suivant. Les fichiers par date permettent de rendre compte de ce rattrapage. 
+
+Dans les fichiers départementaux, si une ligne pour un nombre de vaccinés à une date donnée est absente, c’est qu’il n’y a pas eu de vacciné ce jour-là dans le département.
+
+Les variables des différents jeux de données sont les suivantes :
+* `jour` : date de l’injection
+* `fra`, `dep`, `reg` : niveau géographique
+* `clage_vacsi` : classes d’âge
+* `vaccin` : type de vaccin
+* `sexe` : sexe
+* `n_dose1` : Nombre de personnes ayant reçu une 1ere injection de vaccin  
+* `n_dose2` : Nombre de personnes ayant reçu une 2e  injection de vaccin
+* `n_dose3` : Nombre de personnes ayant reçu une 3e injection de vaccin
+* `n_dose4` : Nombre de personnes ayant reçu une 4e injection de vaccin 
+* `n_complet` : Nombre de personnes ayant une primo-vaccination complète. Cette information est directement fournie par la base Vaccin Covid, à l’issue d’un algorithme propre à la Cnam ou par déclaration par le professionnel de santé injecteur. Les personnes avec une primo-vaccination complète sont notamment : personnes vaccinées par deux doses par les vaccins nécessitant deux doses (ex : vaccins Pfizer, Moderna ou Astra-Zeneca), personnes vaccinées par une dose par les vaccins nécessitant une seule dose (ex : vaccin Janssen), personnes vaccinées par une dose par les vaccins Pfizer, Moderna ou Astra-Zeneca en cas d’antécédent de COVID-19, personnes immunodéprimées pouvant recevoir 3 à 4 doses.
+* `n_rappel` : Nombre de personnes avec une primo-vaccination complète ayant reçu au moins une dose avec un motif de rappel défini par le professionnel de santé vaccinateur en population générale ou spécifique
+* `n_2_rappel` : Nombre de personnes avec une primo-vaccination complète et une première dose de rappel ayant reçu une seconde dose avec un motif rappel défini par le professionnel de santé vaccinateur
+* `n_3_rappel` : Nombre de personnes avec une primo-vaccination complète et deux doses de rappel ayant reçu une troisième dose avec un motif rappel défini par le professionnel de santé vaccinateur
+* `n_rappel_biv` : Nombre de personnes vaccinées avec rappel adapté aux variants Omicron.
+* `n_cum_dose1` : Nombre cumulé de personnes ayant reçu 1 injection de vaccin
+* `n_cum_dose2` : Nombre cumulé de personnes ayant reçu 2 injections de vaccin
+* `n_cum_dose3` :  Nombre cumulé de personnes ayant reçu 3 injections de vaccin
+* `n_cum_dose4` :  Nombre cumulé de personnes ayant reçu 4 injections de vaccin
+* `n_cum_complet` : Nombre cumulé de personnes ayant une primovaccination complète schéma vaccinal complet. Cette information est directement fournie par la base Vaccin Covid, à l’issue d’un algorithme propre à la Cnam ou par déclaration par le professionnel de santé injecteur. Les personnes avec une primo-vaccination complète sont notamment : personnes vaccinées par deux doses par les vaccins nécessitant deux doses (ex : vaccins Pfizer, Moderna ou Astra-Zeneca), personnes vaccinées par une dose par les vaccins nécessitant une seule dose (ex : vaccin Janssen), personnes vaccinées par une dose par les vaccins Pfizer, Moderna ou Astra-Zeneca en cas d’antécédent de COVID-19, personnes immunodéprimées pouvant recevoir 3 à 4 doses.
+* `n_cum_rappel` : Nombre cumulé de personnes avec une primo-vaccination complète ayant reçu au moins une dose avec un motif de rappel défini par le professionnel de santé vaccinateur en population générale ou spécifique
+* `n_cum_rappel_biv` : Nombre cumulé de personnes vaccinées avec rappel adapté aux variants Omicron.
+* `couv_dose1` : Couverture vaccinale dans la population de la première dose de  vaccin contre la COVID-19 (= couverture vaccinale au  moins une dose = n_cum_dose1/pop).
+* `couv_complet` : Couverture vaccinale dans la population de la primovaccination complète du  vaccin contre la COVID-19 (ie nombre de personnes complètement primovaccinées / population  = n_cum_complet/pop). Les personnes avec une primo-vaccination complète sont notamment : personnes vaccinées par deux doses par les vaccins nécessitant deux doses (ex : vaccins Pfizer, Moderna ou Astra-Zeneca), personnes vaccinées par une dose par les vaccins nécessitant une seule dose (ex : vaccin Janssen), personnes vaccinées par une dose par les vaccins Pfizer, Moderna ou Astra-Zeneca en cas d’antécédent de COVID-19, personnes immunodéprimées pouvant recevoir 3 à 4 doses.
+* `couv_rappel` : Couverture vaccinale dans la population du 1er rappel du vaccin contre la COVID-19, (ie couverture primo-vaccination COVID19 complète et avec une dose de rappel = n_cum_rappel/pop)
+* `couv_2_rappel` : Couverture vaccinale dans la population du second rappel du vaccin contre la COVID-19, (ie couverture primo-vaccination COVID19 complète et deux doses de rappel = n_cum_2_ rappel/pop)
+* `couv_3_rappel` : Couverture vaccinale dans la population du troisième rappel du vaccin contre la COVID-19
+* `couv__rappel_biv` : Couverture vaccinale du vaccin contre la COVID-19, personnes vaccinées avec un rappel adapté aux variants Omicron
+
+La population de référence utilisée est issue de l’Insee : Estimations localisées de population, données Insee du 1er janvier 2020  pour les données de 2020, données Insee du 1er janvier 2021 pour les données de 2021, données Insee du 1er janvier 2022 pour les données de 2022.
+
+Les classes d'âge utilisées sont les suivantes : 
+* `0` : Tous âges
+* `04` : 0-4
+* `09` : 5-9
+* `11` : 10-11
+* `17` : 12-17
+* `24` : 18-24
+* `29` : 25-29
+* `39` : 30-39
+* `49` : 40-49
+* `59` : 50-59
+* `64` : 60-64
+* `69` : 65-69
+* `74` : 70-74
+* `79` : 75-79
+* `80` : 80 et +
+
+
+Le sexe est codifié de la façon suivante : 
+* `0` : hommes + femmes + Non renseigné
+* `1` : homme
+* `2` : femme
+
+La région (colonne « reg ») suit la codification du [Code Officiel Géographique de l’INSEE](https://www.insee.fr/fr/information/4316069), elle est codifiée de la manière suivante : 
+* `01` : Guadeloupe
+* `02` : Martinique
+* `03` : Guyane
+* `04` : La Réunion
+* `11` : Ile-de-France
+* `24` : Centre-Val de Loire
+* `27` : Bourgogne-Franche-Comté
+* `28` : Normandie
+* `32` : Hauts-de-France
+* `44` : Grand Est
+* `52` : Pays de la Loire
+* `53` : Bretagne
+* `75` : Nouvelle-Aquitaine
+* `76` : Occitanie
+* `84` : Auvergne-Rhône-Alpes
+* `93` : Provence-Alpes-Côte d’Azur
+* `94` : Corse
+* `05` : Saint-Pierre-et-Miquelon
+* `06` : Mayotte
+* `07` : Saint-Barthélemy
+* `08` : Saint-Martin
+
+
+Les vaccins sont codifiés de la façon suivante : 
+* `0` : Tous vaccins
+* `1` : COMIRNATY-30-adulte (Pfizer/BioNTech)
+* `2` : Spikevax (Moderna)
+* `3` : Vaxzevria (AstraZeneca)
+* `4` : Janssen (Johnson&Johnson)
+* `5` : COMIRNATY-10-enfant (Pfizer/BioNTech)
+* `6` : NUVAXOVID (Novavax)
+* `9` : Spikevax Bivalent (Moderna)
+* `10` : Sanofi VidPrevtyn Beta
+* `11` : COMIRNATY-3 pédiatrique 6 m-4a (Pfizer/BioNTech)
+* `12` : Spikevax Bivalent Ori/Omi BA.5 (Moderna)
+
+
+Un certain nombre de ressources sont disponibles sur ce jeu de données. Il est listé ci-dessous le contenu de chacun d’entre eux : 
+
+#### Données globales
+
+Fichiers avec le nombre de personnes ayant reçu au moins une dose, 2 doses, 3 doses, 4 doses, une dose de rappel ou complètement vaccinées, arrêté à la dernière date disponible  :
+- vacsi-tot-fra-YYYY-MM-DD-HHhmm.csv (échelle nationale)
+- vacsi-tot-reg-YYYY-MM-DD-HHhmm.csv (échelle régionale)
+- vacsi-tot-dep-YYYY-MM-DD-HHhmm.csv (échelle départementale)
+
+Fichiers avec le nombre quotidien de personnes ayant reçu au moins une dose, 2 doses, 3 doses, 4 doses, une dose de rappel ou par date d’injection :
+- vacsi-fra-YYYY-MM-DD-HHhmm.csv (échelle nationale)
+- vacsi-reg-YYYY-MM-DD-HHhmm.csv (échelle régionale)
+- vacsi-dep-YYYY-MM-DD-HHhmm.csv (échelle départementale).
+
+#### Données par âge et sexe
+Fichiers avec la couverture vaccinale et le nombre (journalier et cumulé) de personnes ayant reçu au moins une dose, une dose de rappel, une deuxième dose de rappel ou complètement vaccinées, par sexe (Hommes = _h ; Femmes = _f ; Tous sexes confondus = _e) et par classes d’âge, arrêté à la dernière date disponible :
+- vacsi-s-a-fra-YYYY-MM-DD-HHhmm.csv (échelle nationale)
+- vacsi-s-a-reg-YYYY-MM-DD-HHhmm.csv (échelle régionale)
+- vacsi-s-a-dep-YYYY-MM-DD-HHhmm.csv (échelle départementale)
+
+
+#### Données par sexe
+Fichiers avec le nombre de personnes ayant reçu au moins une dose, 2 doses, 3 doses, 4 doses, une dose de rappel ou complètement vaccinées, par sexe, arrêté à la dernière date disponible :
+- vacsi-tot-s-fra-YYYY-MM-DD-HHhmm.csv (échelle nationale)
+- vacsi-tot-s-reg-YYYY-MM-DD-HHhmm.csv (échelle régionale)
+- vacsi-tot-s-dep-YYYY-MM-DD-HHhmm.csv (échelle départementale)
+
+Fichiers avec le nombre quotidien de personnes ayant reçu au moins une dose, 2 doses, 3 doses, 4 doses, une dose de rappel ou complétement vaccinés par sexe, et par date d’injection :
+- vacsi-s-fra-YYYY-MM-DD-HHhmm.csv (échelle nationale)
+- vacsi-s-reg-YYYY-MM-DD-HHhmm.csv (échelle régionale)
+- vacsi-s-dep-YYYY-MM-DD-HHhmm.csv (échelle départementale).
+
+#### Données par classes d'âge
+
+Fichiers avec le nombre de personnes ayant reçu au moins une dose, 2 doses, 3 doses, 4 doses, une dose de rappel ou complètement vaccinées, par classes d’âge, arrêté à la dernière date disponible :
+- vacsi-tot-a-fra-YYYY-MM-DD-HHhmm.csv (échelle nationale)
+- vacsi-tot-a-reg-YYYY-MM-DD-HHhmm.csv (échelle régionale)
+- vacsi-tot-a-dep-YYYY-MM-DD-HHhmm.csv (échelle départementale)
+
+Fichiers avec le nombre de personnes ayant reçu au moins une dose, 2 doses, 3 doses, 4 doses, une dose de rappel ou complètement vaccinées, par classes d’âge, et par date d’injection :
+- vacsi-a-fra-YYYY-MM-DD-HHhmm.csv (échelle nationale)
+- vacsi-a-reg-YYYY-MM-DD-HHhmm.csv (échelle régionale)
+- vacsi-a-dep-YYYY-MM-DD-HHhmm.csv (échelle départementale).
+
+#### Données par vaccin
+
+Fichiers avec le nombre de personnes ayant reçu au moins une dose, ou deux doses, ou trois doses par vaccin, arrêté à la dernière date disponible :
+- vacsi-tot-v-fra-YYYY-MM-DD-HHhmm.csv (échelle nationale)
+- vacsi-tot-v-reg-YYYY-MM-DD-HHhmm.csv (échelle régionale)
+- vacsi-tot-v-dep-YYYY-MM-DD-HHhmm.csv (échelle départementale)
+
+Fichiers avec le nombre quotidien de personnes ayant reçu au moins une dose, 2 doses, 3 doses ou 4 doses par vaccin, et par date d’injection :
+- vacsi-v-fra-YYYY-MM-DD-HHhmm.csv (échelle nationale)
+- vacsi-v-reg-YYYY-MM-DD-HHhmm.csv (échelle régionale)
+- vacsi-v-dep-YYYY-MM-DD-HHhmm.csv (échelle départementale).
+
+
+Remarques :
+* Des troisièmes doses de vaccin sont saisies dans vaccin COVID à une date antérieure à la recommandation de vaccination des personnes immunodéprimées. II ne peut être déterminé si les données ainsi saisies correspondent à des erreurs de saisie ou à de véritables injections de vaccin en troisième dose.
+* L’analyse des données issues de vaccin COVID rapporte des seconde ou troisième doses de vaccin comme ayant été réalisées avec un vaccin Janssen. Pour les personnes concernées, le vaccin administré en première dose était un vaccin autre que Janssen (AstraZeneca, Pfizer ou Moderna). Le vaccin Janssen est un vaccin monodose. Il ne peut être déterminé si les données ainsi saisies correspondent à des erreurs de saisie ou à de véritables injections de vaccin Janssen en seconde dose.
+* Les vaccinations observées chez les enfants de moins de 5 ans correspondent probablement à des enfants à très haut risque de forme grave de COVID. Il ne peut cependant être exclu des erreurs de saisies sur certains dossiers.
+
+Santé publique France ne réalise aucun retraitement de données issues de la base Vaccin Covid :  les informations disponibles dans la base ne permettent pas de connaitre les différentes situations personnelles des personnes recevant des injections, ni les raisons de ces dernières (personnes immunodéprimées, personnes ayant eu la covid…).
+";"weekly";"Licence Ouverte / Open Licence version 2.0";"";"";"fr:departement";"France";True;"2021-01-26T15:00:14.172000";"2023-07-13T13:52:25.102000";"coronavirus,covid,covid19,vac-si,vaccination,vaccins";False;30;27;"csv";1343785;"";"";"";"";"";"0.78";110;45;28;90919;1355789
+"5f8fe1290de5138270132602";"OLD Données de laboratoires infra-départementales durant l'épidémie COVID-19";"old-donnees-de-laboratoires-infra-departementales-durant-lepidemie-covid-19";"SI-DEP";"https://www.data.gouv.fr/fr/datasets/old-donnees-de-laboratoires-infra-departementales-durant-lepidemie-covid-19/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"********************************************
+### ⚠️ Cette ressource n'est plus actualisée depuis le 18 mai 2022.
+
+Le format des ressources issues des données de laboratoires pour le dépistage (SI-DEP) évolue.
+L'ensemble des ressources au nouveau format sont centralisées dans le nouveau jeu de données dédié :
+➡️ https://www.data.gouv.fr/fr/datasets/donnees-de-laboratoires-pour-le-depistage-a-compter-du-18-05-2022-si-dep/
+Merci à nos utilisateurs pour leur compréhension
+********************************************
+
+
+
+**Information du 7 juin 2021**
+
+sg_epci_opendata.csv : Le nom de la colonne EPCI2020 laisse penser à tord que le millésime utilisé est 2020. Pour éviter la confusion la colonne est renommée EPCI2019.
+
+**Information du 20 mai 2021**
+
+A compter de ce jour, les indicateurs seront corrigés afin de supprimer l’effet doublon, lors de la réalisation de plusieurs tests de dépistage par une même personne. 
+
+Depuis le début de la pandémie, la plateforme sécurisée Si-DEP enregistre tous les résultats des tests de dépistage. Afin de garantir la protection des données personnelles des personnes testées, chaque résultat était lié à l’émission d’un pseudo anonymisé. Cependant, avec l’apparition des variants sur le territoire, certaines personnes sont amenées à réaliser deux tests, jusqu’à présent comptabilisés deux fois. 
+
+L'algorithme  utilisé a donc récemment été mis à jour afin qu’il ne décompte qu’un seul patient lorsque celui-ci se fait tester plusieurs fois dans un intervalle de temps court, toujours en respectant l'anonymat. Grâce à cette nouvelle pseudonymisation, Santé publique France est capable de renforcer son efficacité et de produire des données encore plus précises, consultables chaque semaine dans son point épidémiologique.
+
+### Les actions de Santé publique France
+
+Santé publique France a pour mission d'améliorer et de protéger la santé des populations. Durant la crise sanitaire liée à l'épidémie du COVID-19, Santé publique France se charge de surveiller et comprendre la dynamique de l'épidémie, d'anticiper les différents scénarii et de mettre en place des actions pour prévenir et limiter la transmission de ce virus sur le territoire national.
+
+### Le Système d’Informations de DEPistage (SI-DEP)
+
+Les indicateurs de surveillance virologique sont issus du système d’information de dépistage (SI-DEP), dont l’objectif est de remonter les données de tests (RT-PCR) réalisés par l’ensemble des laboratoires de ville et établissements hospitaliers concernant le SARS-COV2.
+
+Le taux d'incidence sur 7 jours glissants correspond, au jour J, au nombre total de personnes testées positives dans l'intervalle de temps [J-9; J-3], divisé par le nombre d'habitants.
+
+### Description des données 
+
+Le présent jeu de données renseigne :
+- la classe du taux d'incidence tous âges sur 7 jours glissants ;
+- la classe du taux d'incidence pour les personnes âgées de plus de 65 ans sur 7 jours glissants ;
+- la classe du taux de dépistage tous âges sur 7 jours glissants ;
+- la classe du taux de dépistage pour les personnes âgées de plus de 65 ans sur 7 jours glissants ;
+- la classe du taux de positivité tous âges sur 7 jours glissants ;
+- la classe du taux de positivité pour les personnes âgées de plus de 65 ans sur 7 jours glissants.
+
+Les taux exacts ne sont pas affichés afin d’éviter l’identification des personnes testées, notamment celles qui présentent un test positif.
+
+Les données sont fournies à l'échelle :
+- EPCI ;
+- Commune ;
+- IRIS.
+
+Le taux d'incidence correspond au nombre de tests positifs pour 100.000 habitants. Il est calculé de la manière suivante : 
+(100000 * nombre de cas positif) / Population.
+
+Le taux de dépistage, aussi appelé capacité analytique, correspond au nombre de tests réalisés, qu'il soient positifs ou négatifs, pour 100.000 habitants. Il est calculé de la manière suivante :
+(100000 * nombre de test réalisés) / Population.
+
+Le taux de positivité correspond au nombre de tests positifs rapportés au nombre de tests réalisés. Il est calculé de la manière suivante : (100 * nombre de test positifs) / nombre de tests réalisés.
+
+
+**Précision** : 
+- Le taux d'incidence est calculé un jour J à partir des tests réalisés entre 3 et 9 jours précédemment. Pour les jours plus récents (J, J-1, J-2), un grand nombre de tests n'est pas encore rapporté (délai de collecte et de centralisation) ; 
+- Si un patient a réalisé plusieurs tests positifs, la date de son premier test PCR est sélectionnée ; 
+- À compter du 29/08, les indicateurs issus des données de laboratoires (SI-DEP) présentent des taux d’incidence, de positivité et de dépistage corrigés en fonction des dépistages réalisés dans les aéroports à l’arrivée des vols internationaux ;
+- Pour en savoir plus consultez la note méthodologique disponible dans les ressources.
+
+**Limites** : 
+- Seuls les tests biologiques des personnes pour lesquelles le département de résidence a pu être localisé sont identifiés. Les personnes dont le département n’a pas pu être remonté dans les données SIDEP ne sont comptabilisées qu'au niveau France entière. De ce fait la somme des tests indiqués dans les départements ou régions est inférieure au nombre de tests indiqué en France.
+- Le délai de remontée des tests peut excéder 9 jours dans certains cas. Les indicateurs sont ajustés quotidiennement selon la réception des résultats.";"daily";"Licence Ouverte / Open Licence version 2.0";"";"";"fr:iris";"France";True;"2020-10-21T09:20:09.639000";"2022-11-15T17:20:14.867000";"coronavirus,covid-19,covid19,depistage,epci,iris";False;1432;13;"txt,pdf,csv";861200;"";"";"";"";"";"0.78";16;8;5;6600;863371
+"5f733777722fc12a413290eb";"OLD Indicateurs de l’activité épidémique: taux d'incidence de l'épidémie de COVID-19 par métropole";"old-indicateurs-de-lactivite-epidemique-taux-dincidence-de-lepidemie-de-covid-19-par-metropole";"SI-DEP";"https://www.data.gouv.fr/fr/datasets/old-indicateurs-de-lactivite-epidemique-taux-dincidence-de-lepidemie-de-covid-19-par-metropole/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"**Information du 20 mai 2021**
+
+A compter de ce jour, les indicateurs seront corrigés afin de supprimer l’effet doublon, lors de la réalisation de plusieurs tests de dépistage par une même personne. 
+
+Depuis le début de la pandémie, la plateforme sécurisée Si-DEP enregistre tous les résultats des tests de dépistage. Afin de garantir la protection des données personnelles des personnes testées, chaque résultat était lié à l’émission d’un pseudo anonymisé. Cependant, avec l’apparition des variants sur le territoire, certaines personnes sont amenées à réaliser deux tests, jusqu’à présent comptabilisés deux fois. 
+
+L'algorithme  utilisé a donc récemment été mis à jour afin qu’il ne décompte qu’un seul patient lorsque celui-ci se fait tester plusieurs fois dans un intervalle de temps court, toujours en respectant l'anonymat. Grâce à cette nouvelle pseudonymisation, Santé publique France est capable de renforcer son efficacité et de produire des données encore plus précises, consultables chaque semaine dans son point épidémiologique.
+
+### Les actions de Santé publique France
+
+Santé publique France a pour mission d'améliorer et de protéger la santé des populations. Durant la crise sanitaire liée à l'épidémie du COVID-19, Santé publique France se charge de surveiller et comprendre la dynamique de l'épidémie, d'anticiper les différents scénarii et de mettre en place des actions pour prévenir et limiter la transmission de ce virus sur le territoire national.
+
+### Le Système d’Informations de DEPistage (SI-DEP)
+
+Le nouveau système d’information de dépistage (SI-DEP), en déploiement depuis le 13 mai 2020, est une plateforme sécurisée où sont systématiquement enregistrés les résultats des laboratoires des tests (RT-PCR) réalisés par l’ensemble des laboratoires de ville et établissements hospitaliers concernant le SARS-COV2.
+
+### Description des données 
+
+Le présent jeu de données contient un fichier avec :
+
+- Le taux d'incidence toute classe d'âge pour chaque métropole ;
+- Le taux d'incidence pour les personnes âgées de plus de 65 ans pour chaque métropole ;
+
+Le taux d'incidence correspond au nombre de tests positifs pour 100 000 habitants sur 7 jours glissants. Il est calculé de la manière suivante : 
+(100000 * nombre de cas positif) / Population.
+
+Fréquence de mise à jour des données quotidienne.";"daily";"Licence Ouverte / Open Licence version 2.0";"";"";"fr:epci";"France";True;"2020-09-29T15:32:39.020000";"2023-02-21T19:09:20.178000";"corona,coronavirus,covid,covid19,incidence,indicateurs,spf,taux-dincidence,virus";False;502;5;"txt,pdf,csv";25153037;"";"";"";"";"";"0.78";5;2;3;48495;21414555
+"5ed117db6c161bd5baf070be";"OLD Données relatives aux résultats des tests virologiques COVID-19";"old-donnees-relatives-aux-resultats-des-tests-virologiques-covid-19";"SI-DEP";"https://www.data.gouv.fr/fr/datasets/old-donnees-relatives-aux-resultats-des-tests-virologiques-covid-19/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"**********************
+### ⚠️ Cette ressource n'est plus actualisée depuis le 18 mai 2022.
+
+Le format des ressources issues des données de laboratoires pour le dépistage (SI-DEP) évolue.
+L'ensemble des ressources au nouveau format sont centralisées dans le nouveau jeu de données dédié :
+➡️ https://www.data.gouv.fr/fr/datasets/donnees-de-laboratoires-pour-le-depistage-a-compter-du-18-05-2022-si-dep/
+Merci à nos utilisateurs pour leur compréhension
+**********************
+
+**Information du 20 mai 2021**
+
+A compter de ce jour, les indicateurs seront corrigés afin de supprimer l’effet doublon, lors de la réalisation de plusieurs tests de dépistage par une même personne. 
+
+Depuis le début de la pandémie, la plateforme sécurisée Si-DEP enregistre tous les résultats des tests de dépistage. Afin de garantir la protection des données personnelles des personnes testées, chaque résultat était lié à l’émission d’un pseudo anonymisé. Cependant, avec l’apparition des variants sur le territoire, certaines personnes sont amenées à réaliser deux tests, jusqu’à présent comptabilisés deux fois. 
+
+L'algorithme  utilisé a donc récemment été mis à jour afin qu’il ne décompte qu’un seul patient lorsque celui-ci se fait tester plusieurs fois dans un intervalle de temps court, toujours en respectant l'anonymat. Grâce à cette nouvelle pseudonymisation, Santé publique France est capable de renforcer son efficacité et de produire des données encore plus précises, consultables chaque semaine dans son point épidémiologique.
+
+### Les actions de Santé publique France
+
+Santé publique France a pour mission d'améliorer et de protéger la santé des populations. Durant la crise sanitaire liée à l'épidémie du COVID-19, Santé publique France se charge de surveiller et comprendre la dynamique de l'épidémie, d'anticiper les différents scénarii et de mettre en place des actions pour prévenir et limiter la transmission de ce virus sur le territoire national.
+
+### Le Système d’Informations de DEPistage (SI-DEP)
+
+Le nouveau système d’information de dépistage (SI-DEP), en déploiement depuis le 13 mai 2020, est une plateforme sécurisée où sont systématiquement enregistrés les résultats des laboratoires des testsréalisés par l’ensemble des laboratoires de ville et établissements hospitaliers concernant le SARS-COV2.
+
+La création de ce système d'information est autorisée pour une durée de 6 mois à compter de la fin de l'état d'urgence sanitaire par application du [décret n° 2020-551 du 12 mai 2020](https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000041869923) relatif aux systèmes d’information mentionnés à l’article 11 de la loi n° 2020-546 du 11 mai 2020 prorogeant l’état d’urgence sanitaire et complétant ses dispositions.
+
+### Description des données 
+
+Le présent jeu de données renseigne à l'échelle départementale et régionale : 
+- le nombre de personnes testées et le nombre de personnes déclarées positives par classe d'âge (quotidien et hebdomadaire) ;
+- le nombre de personnes positives sur 7 jours glissants.
+
+Le présent jeu de données renseigne à l'échelle nationale : 
+- le nombre de personnes testées et le nombre de personnes déclarées positives par sexe et classe d'âge (quotidien et hebdomadaire).
+
+Le taux de positivité correspond au nombre de tests positifs rapportés au nombre de tests réalisés. Il est calculé de la manière suivante : 100*nombre de test positif/ nombre de tests réalisés
+
+**Précisions** : Si plusieurs prélèvements sont rapportés pour un même patient:
+- A compter du 29/08, les indicateurs issus des données de laboratoires (SI-DEP) présentent des taux d’incidence, de positivité et de dépistage corrigés en fonction des dépistages réalisés dans les aéroports à l’arrivée des vols internationaux.
+
+La correction s’applique sur l’ensemble des données postérieures à la date du 12 août.
+
+**Limites** : 
+- Seuls les tests biologiques des personnes pour lesquelles le département de résidence a pu être localisé sont représentés sur les cartes. Les personnes dont le département n’a pas pu être remonté dans les données SIDEP ne sont comptabilisées qu'au niveau France entière. De ce fait la somme des tests indiqués dans les départements ou régions est inférieure au nombre de tests indiqué en France.
+- Le délai de remontée des tests peut excéder 9 jours dans certains cas. Les indicateurs sont ajustés quotidiennement selon la réception des résultats.
+
+Pour en savoir plus consultez la note méthodologique disponible dans les ressources.
+
+### Changements notables 
+
+Depuis le 8 décembre, après avoir vérifié la qualité des données remontées, tous les résultats de tests RT-PCR ou Antigéniques, entrent dans la production des indicateurs épidémiologiques nationaux et territoriaux (taux d’incidence, taux de positivité et taux de dépistage) utiles au suivi de l’épidémie de COVID-19. Par ailleurs, l’épidémie se prolonge dans le temps et les capacités de dépistage ont augmenté, ce qui conduit à une fréquence croissante de personnes testées plusieurs fois. Ainsi, un ajustement des méthodes de dédoublonnage pour les patients bénéficiant de tests répétés et donc de la définition des personnes testées étaient nécessaires. Santé publique France, dans son approche épidémiologique centrée sur les patients, a donc adapté ses méthodes pour que ces indicateurs reflètent notamment au mieux la proportion de personnes infectées parmi la population testée. Ces évolutions n’ont pas d’impact sur les tendances et l’interprétation de la dynamique de l’épidémie, qui restent identiques. Des données plus précises relatives aux tests (incidence et positivité) sont également publiées par [Santé publique France](https://www.data.gouv.fr/fr/organizations/sante-publique-france/) (données SI-DEP).";"daily";"Licence Ouverte / Open Licence version 2.0";"";"";"other";"France";True;"2020-05-29T16:10:35.407000";"2022-11-15T17:23:36.725000";"coronavirus,covid-19,covid19,depistage,si-dep";False;15;12;"txt,pdf,csv,xlsx";909001;"";"";"";"";"";"0.78";61;45;17;28495;834815
+"5ed1175ca00bbe1e4941a46a";"OLD Taux d'incidence de l'épidémie de COVID-19";"old-taux-dincidence-de-lepidemie-de-covid-19";"SI-DEP";"https://www.data.gouv.fr/fr/datasets/old-taux-dincidence-de-lepidemie-de-covid-19/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"### Les actions de Santé publique France
+
+Santé publique France a pour mission d'améliorer et de protéger la santé des populations. Durant la crise sanitaire liée à l'épidémie du COVID-19, Santé publique France se charge de surveiller et comprendre la dynamique de l'épidémie, d'anticiper les différents scénarii et de mettre en place des actions pour prévenir et limiter la transmission de ce virus sur le territoire national.
+
+### Le Système d’Informations de DEPistage (SI-DEP)
+
+Le nouveau système d’information de dépistage (SI-DEP), en déploiement depuis le 13 mai 2020, est une plateforme sécurisée où sont systématiquement enregistrés les résultats des laboratoires des tests réalisés par l’ensemble des laboratoires de ville et établissements hospitaliers concernant le SARS-COV2.
+
+La création de ce système d'information est autorisée pour une durée de 6 mois à compter de la fin de l'état d'urgence sanitaire par application du [décret n° 2020-551 du 12 mai 2020](https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000041869923) relatif aux systèmes d’information mentionnés à l’article 11 de la loi n° 2020-546 du 11 mai 2020 prorogeant l’état d’urgence sanitaire et complétant ses dispositions.
+
+### Description des données 
+
+Le présent jeu de données renseigne à l'échelle départementale et régionale : 
+- le taux d'incidence quotidien et hebdomadaire par classe d'âge ;
+- le taux d’incidence standardisé quotidien et hebdomadaire ; 
+- le taux d'incidence standardisé glissant.
+
+Le présent jeu de données renseigne à l'échelle nationale :
+- le taux d'incidence quotidien et hebdomadaire par classe d'âge et sexe ;
+- le taux d’incidence standardisé quotidien et hebdomadaire ; 
+- le taux d'incidence standardisé glissant.
+
+Le taux d'incidence correspond au nombre de tests positifs pour 100.000 habitants. Il est calculé de la manière suivante : 
+(100000 * nombre de cas positif) / Population
+
+**Précision** : 
+- A compter du 29/08, les indicateurs issus des données de laboratoires (SI-DEP) présentent des taux d’incidence, de positivité et de dépistage corrigés en fonction des dépistages réalisés dans les aéroports à l’arrivée des vols internationaux.
+- Pour en savoir plus consultez la note méthodologique disponible dans les ressources.
+**Limites** : 
+- Seuls les tests biologiques des personnes pour lesquelles le département de résidence a pu être localisé sont représentés sur les cartes. Les personnes dont le département n’a pas pu être remonté dans les données SIDEP ne sont comptabilisées qu'au niveau France entière. De ce fait la somme des tests indiqués dans les départements ou régions est inférieure au nombre de tests indiqué en France.
+- Le délai de remontée des tests peut excéder 9 jours dans certains cas. Les indicateurs sont ajustés quotidiennement selon la réception des résultats.
+
+### Changements notables 
+
+Depuis le 8 décembre, après avoir vérifié la qualité des données remontées, tous les résultats de tests RT-PCR ou Antigéniques, entrent dans la production des indicateurs épidémiologiques nationaux et territoriaux (taux d’incidence, taux de positivité et taux de dépistage) utiles au suivi de l’épidémie de COVID-19. Par ailleurs, l’épidémie se prolonge dans le temps et les capacités de dépistage ont augmenté, ce qui conduit à une fréquence croissante de personnes testées plusieurs fois. Ainsi, un ajustement des méthodes de dédoublonnage pour les patients bénéficiant de tests répétés et donc de la définition des personnes testées étaient nécessaires. Santé publique France, dans son approche épidémiologique centrée sur les patients, a donc adapté ses méthodes pour que ces indicateurs reflètent notamment au mieux la proportion de personnes infectées parmi la population testée. Ces évolutions n’ont pas d’impact sur les tendances et l’interprétation de la dynamique de l’épidémie, qui restent identiques. Des données plus précises relatives aux tests (incidence et positivité) sont également publiées par [Santé publique France](https://www.data.gouv.fr/fr/organizations/sante-publique-france/) (données SI-DEP).";"unknown";"Licence Ouverte / Open Licence version 2.0";"";"";"";"";True;"2020-05-29T16:08:28.707000";"2023-02-21T19:09:17.573000";"coronavius,covid-19,covid19";False;23;20;"txt,pdf,xlsx";194219;"";"";"";"";"";"0.56";22;11;9;60196;159454
+"5ed11705afd28672e40fbc2f";"OLD Capacité analytique de tests virologiques dans le cadre de l'épidémie COVID-19";"old-capacite-analytique-de-tests-virologiques-dans-le-cadre-de-lepidemie-covid-19";"SI-DEP";"https://www.data.gouv.fr/fr/datasets/old-capacite-analytique-de-tests-virologiques-dans-le-cadre-de-lepidemie-covid-19/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"**Information du 20 mai 2021**
+
+A compter de ce jour, les indicateurs seront corrigés afin de supprimer l’effet doublon, lors de la réalisation de plusieurs tests de dépistage par une même personne. 
+
+Depuis le début de la pandémie, la plateforme sécurisée Si-DEP enregistre tous les résultats des tests de dépistage. Afin de garantir la protection des données personnelles des personnes testées, chaque résultat était lié à l’émission d’un pseudo anonymisé. Cependant, avec l’apparition des variants sur le territoire, certaines personnes sont amenées à réaliser deux tests, jusqu’à présent comptabilisés deux fois. 
+
+L'algorithme  utilisé a donc récemment été mis à jour afin qu’il ne décompte qu’un seul patient lorsque celui-ci se fait tester plusieurs fois dans un intervalle de temps court, toujours en respectant l'anonymat. Grâce à cette nouvelle pseudonymisation, Santé publique France est capable de renforcer son efficacité et de produire des données encore plus précises, consultables chaque semaine dans son point épidémiologique.
+
+### Les actions de Santé publique France
+
+Santé publique France a pour mission d'améliorer et de protéger la santé des populations. Durant la crise sanitaire liée à l'épidémie du COVID-19, Santé publique France se charge de surveiller et comprendre la dynamique de l'épidémie, d'anticiper les différents scénarii et de mettre en place des actions pour prévenir et limiter la transmission de ce virus sur le territoire national.
+
+### Le Système d’Informations de DEPistage (SI-DEP)
+
+Le nouveau système d’information de dépistage (SI-DEP), en déploiement depuis le 13 mai 2020, est une plateforme sécurisée où sont systématiquement enregistrés les résultats des laboratoires des tests réalisés par l’ensemble des laboratoires de ville et établissements hospitaliers concernant le SARS-COV2.
+
+La création de ce système d'information est autorisée pour une durée de 6 mois à compter de la fin de l'état d'urgence sanitaire par application du [décret n° 2020-551 du 12 mai 2020](https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000041869923) relatif aux systèmes d’information mentionnés à l’article 11 de la loi n° 2020-546 du 11 mai 2020 prorogeant l’état d’urgence sanitaire et complétant ses dispositions.
+
+### Description des données 
+
+Le présent jeu de données renseigne à l'échelle départementale, régionale et nationale : 
+- le nombre de test réalisés par jour et par semaine ; 
+- le nombre d’établissements (hôpitaux ou laboratoires) ayant remonté la réalisation de tests de dépistage.
+
+La capacité analytique correspond au nombre de tests réalisés, qu'il soient  positifs ou négatifs, pour 100.000 habitants. Elle est calculé de la manière suivante : 
+(100000*nombre de test réalisés)/ Population
+
+Précisions : 
+- A compter du 29/08, les indicateurs issus des données de laboratoires (SI-DEP) présentent des taux d’incidence, de positivité et de dépistage corrigés en fonction des dépistages réalisés dans les aéroports à l’arrivée des vols internationaux.
+- Pour en savoir plus consultez la note méthodologique disponible dans les ressources.
+
+**Attention** : La capacité analytique ne correspond pas au nombre de tests disponibles.
+
+**Fréquence de mise à jour** 
+Les tendances épidémiologiques, les estimations d’incidence et les taux de positivité des tests seront produits de façon hebdomadaire.
+
+### Changements notables 
+
+Depuis le 8 décembre, après avoir vérifié la qualité des données remontées, tous les résultats de tests RT-PCR ou Antigéniques, entrent dans la production des indicateurs épidémiologiques nationaux et territoriaux (taux d’incidence, taux de positivité et taux de dépistage) utiles au suivi de l’épidémie de COVID-19. Par ailleurs, l’épidémie se prolonge dans le temps et les capacités de dépistage ont augmenté, ce qui conduit à une fréquence croissante de personnes testées plusieurs fois. Ainsi, un ajustement des méthodes de dédoublonnage pour les patients bénéficiant de tests répétés et donc de la définition des personnes testées étaient nécessaires. Santé publique France, dans son approche épidémiologique centrée sur les patients, a donc adapté ses méthodes pour que ces indicateurs reflètent notamment au mieux la proportion de personnes infectées parmi la population testée. Ces évolutions n’ont pas d’impact sur les tendances et l’interprétation de la dynamique de l’épidémie, qui restent identiques.";"unknown";"Licence Ouverte / Open Licence version 2.0";"";"";"";"";True;"2020-05-29T16:07:01.749000";"2023-05-23T15:58:59.846000";"coronavius,covid-19,covid19,tests";False;15;12;"txt,pdf,csv,xlsx";3021;"";"";"";"";"";"0.56";3;4;0;4010;2048
+"5ec29690e2e5bc38ffc5aae7";"Données de certification électronique des décès associés au COVID-19 (CEPIDC)";"donnees-de-certification-electronique-des-deces-associes-au-covid-19-cepidc";"";"https://www.data.gouv.fr/fr/datasets/donnees-de-certification-electronique-des-deces-associes-au-covid-19-cepidc/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"### Les actions de Santé publique France
+
+Santé publique France a pour mission d'améliorer et de protéger la santé des populations. Durant la crise sanitaire liée à l'épidémie du COVID-19, Santé publique France se charge de surveiller et comprendre la dynamique de l'épidémie, d'anticiper les différents scénarii et de mettre en place des actions pour prévenir et limiter la transmission de ce virus sur le territoire national.
+
+### La certification électronique des décès
+
+Le Centre d'épidémiologie sur les causes médicales de Décès (CépiDc) est le laboratoire de l’[Inserm](https://www.inserm.fr/) (Institut national de la santé et de la recherche médicale) en charge de la production de la statistique sur les causes médicales de décès.
+
+Les données sont issues de la partie médicale du certificat de décès certifié par voie électronique. Les décès peuvent être enregistrés dans tous les types de lieu de décès (établissements publics ou privés de santé, EHPAD/maison de retraite, domicile, ou dans autres lieux non précisés). Toutefois, un établissement de santé n'utilise pas forcément la certification électronique de décès dans l'ensemble de ces services
+
+Les décès associés au Covid-19 sont identifiés à partir des mentions exprimées par les médecins dans les causes médicales de décès. L'infection au Covid-19 peut être une suspicion ou avoir été confirmée biologiquement.
+
+### Description des données 
+
+Le présent jeu de données renseigne : 
+- Le nombre cumulé de décès associés au Covid-19 par sexe et par département ;
+- Le nombre cumulé de décès associés au Covid-19 par classe d'âge et par région ;
+- Le nombre cumulé d'établissements ou médecins non affiliés ayant certifié au moins 1 décès associé au Covid-19 par région.
+
+
+**Avertissement méthodologique :**
+Les données sont cumulées depuis le 1er mars 2020.
+
+Début 2020, environ 20% des décès en France étaient certifiés par voie électronique, avec une hétérogénéité allant de 0% à 28% selon les régions. Une montée en charge est observée depuis début avril 2020, en particulier par des établissements privés et des EHPAD, sans qu'il soit aujourd'hui possible d'évaluer la proportion de décès supplémentaires enregistrés par cette montée en charge. 
+
+";"unknown";"Licence Ouverte / Open Licence version 2.0";"";"";"fr:region";"France";True;"2020-05-18T16:07:12.113000";"2020-05-18T19:01:48.694000";"corona,coronavirus,covid,covid19,deces,inserm,medecins,sante";False;5;3;"csv";5258;"";"";"";"";"";"0.67";4;2;1;6203;5243
+"5ec29500b15b283d178d21a4";"Données d’enquête relatives à l’évolution des comportements et de la santé mentale pendant l’épidémie de COVID-19 (COVIPREV)";"donnees-denquete-relatives-a-levolution-des-comportements-et-de-la-sante-mentale-pendant-lepidemie-de-covid-19-coviprev";"";"https://www.data.gouv.fr/fr/datasets/donnees-denquete-relatives-a-levolution-des-comportements-et-de-la-sante-mentale-pendant-lepidemie-de-covid-19-coviprev/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"### Les actions de Santé publique France
+
+Santé publique France a pour mission d'améliorer et de protéger la santé des populations. Durant la crise sanitaire liée à l'épidémie du COVID-19, Santé publique France se charge de surveiller et comprendre la dynamique de l'épidémie, d'anticiper les différents scénarii et de mettre en place des actions pour prévenir et limiter la transmission de ce virus sur le territoire national.
+
+### L'enquête CoviPrev
+
+Depuis le 23 mars 2020, Santé publique France a lancé avec la société d'étude et de conseil BVA, l'enquête CoviPrev. 
+
+
+Celle-ci a pour objectif  de suivre l’évolution des comportements et de la santé mentale ainsi que leurs principaux déterminants face à l’épidémie de Covid-19 et depuis les mesures gouvernementales de confinement du 16 mars 2020. 
+
+[En savoir sur l’étude, sa méthodologie et ses résultats](https://www.santepubliquefrance.fr/etudes-et-enquetes/covid-19-une-enquete-pour-suivre-l-evolution-des-comportements-et-de-la-sante-mentale-pendant-le-confinement) 
+
+### Description des données 
+Les données mises à disposition ici décrivent pour l’échelle régionale et nationale: 
+- Les prévalences de l'anxiété dans le contexte de l’épidémie de Covid-19 ;
+- Les prévalences des problèmes de sommeil dans le contexte de l’épidémie de Covid-19 ;
+- Les prévalences de la dépression dans le contexte de l’épidémie de Covid-19 ;
+- Les prévalences de l'adoption systématique des 3 mesures de distanciation physique ;
+- La prévalence de l'adoption systématique des 4 mesures d’hygiène ;
+- La prévalences de l'adoption systématique du port du masque en public pendant l’épidémie de Covid-19 ;
+- La prévalence de l'adoption systématique de la distance d’un mètre ;
+- Le nombre moyen de mesures de prévention adoptées systématiquement (sur 7 mesures) ;
+- Le nombre moyen de mesures d’hygiène adoptées systématiquement (sur 4 mesures).
+
+
+Un fichier de métadonnées accompagne le fichier principal. 
+
+**Précisions méthodologiques**
+- L’anxiété et la dépression ont été mesurées par l’échelle HAD (Hospitality Anxiety and Depression scale ; score > 10).
+- En ce qui concerne le sommeil,  La question posée était « Diriez-vous qu’au cours des 8 derniers jours, vous avez eu des problèmes de sommeil… ? » Les personnes ayant répondu ""un peu"" ou ""beaucoup"" à la question ont été considérées comme ayant des problèmes de sommeil.
+- En ce qui concerne la distance d'un mètre, la question posée était : « Au cours des derniers jours, avez-vous adopté la mesure ‘Garder une distance d’au moins un mètre avec les autres personnes dans les magasins, les marchés, les lieux publics ou dehors’ ? ». N’ont été retenues que les personnes ayant déclaré adopter « systématiquement » cette mesure.
+- En ce qui concerne le port du masque, la question posée était : « Au cours des derniers jours, avez-vous adopté la mesure ‘Porter un masque en public’ ? ». N’ont été retenues que les personnes ayant déclaré adopter « systématiquement » cette mesure.
+- Les 3 mesures de distanciation physique étaient : Rester confiné à la maison ; Limiter toutes formes d'interactions ; Garder une distance d'au moins un mètre. N’ont été retenues que les personnes ayant déclaré adopter « systématiquement » ces mesures.
+- Les 4 mesures d'hygiène étaient : Se laver régulièrement les mains ; Saluer sans serrer la main et arrêter les embrassades ; Tousser dans son coude ; Utiliser un mouchoir à usage unique. N’ont été retenues que les personnes ayant déclaré adopter « systématiquement » ces mesures.
+- Les 7 mesures de protection adoptées systématiquement : Se laver régulièrement les mains ; Saluer sans serrer la main ; Tousser dans son coude ; Utiliser un mouchoir à usage unique ; Rester confiné à la maison ; Limiter toutes formes d'interactions ; Garder une distance d'au moins un mètre.
+
+Pour tous les indicateurs, un intervalle de confiance à 95% est indiqué. Les classes ont été calculées avec la méthode des quantiles.
+
+**Avertissement méthodologique**
+Ces données sont sujettes à un biais de déclaration. De plus, pour certaines régions, les effectifs peuvent être assez faibles (~100 répondants), conduisant à une incertitude dans les estimations produites.
+
+**Mise à jour**
+Les données seront mises à jour de façon régulière selon les vagues d’interrogation de l’enquête. ";"punctual";"Licence Ouverte / Open Licence version 2.0";"";"";"fr:region";"France";True;"2020-05-18T16:00:32.166000";"2021-10-29T09:28:10.188000";"anxiete,comportement-social,corona,coronavirus,covid,covid19,depression,distanciation,hygiene,sante-mentale";False;4;2;"csv,xlsx";2002;"";"";"";"";"";"0.89";2;3;2;7863;2009
+"5ea7eaf11739179063ca0847";"Niveaux d'excès de mortalité standardisé durant l'épidémie de COVID-19";"niveaux-dexces-de-mortalite-standardise-durant-lepidemie-de-covid-19";"";"https://www.data.gouv.fr/fr/datasets/niveaux-dexces-de-mortalite-standardise-durant-lepidemie-de-covid-19/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"###  Les actions de Santé publique France
+
+Santé publique France a pour mission d'améliorer et de protéger la santé des populations. Durant la crise sanitaire liée à l'épidémie du COVID-19, Santé publique France se charge de surveiller et comprendre la dynamique de l'épidémie, d'anticiper les différents scénarii et de mettre en place des actions pour prévenir et limiter la transmission de ce virus sur le territoire national.
+
+### Description du jeu de données 
+
+Le présent jeu de données décrit **le niveau d'excès de mortalité standardisé durant l'épidémie de COVID-19**, à l'échelle départementale et régionale. 
+
+Le niveau d'excès de mortalité est décrit pour **deux catégories d'âge** : 
+- pour tous les âges ;
+- pour les personnes âgées de plus de 65 ans. 
+
+#### Méthode de calcul des niveaux 
+
+Les données sont issues de la partie administrative du certificat de décès, collectées par les bureaux d’état-civil des communes ayant une transmission dématérialisée avec l’Insee. Le nombre observé de décès est comparé à un nombre attendu, estimé à partir d'un modèle statistique établi par [le consortium EuroMomo](https://www.euromomo.eu/) et utilisé par 24 pays ou région en Europe.
+
+L'estimation des excès de décès s'appuie sur le calcul d'un indicateur standardisé (Z-score), qui permet de comparer les excès entre différents niveaux géographiques ou classes d’âges. 
+
+Le Z-score est calculé par la formule : (nombre observé – nombre attendu)/ écart-type du nombre attendu.
+
+Les cinq catégories d'excès sont définies de la façon suivante :
+- Pas d’excès : indicateur standardisé de décès (Z-score) <2
+- Excès modéré de décès : indicateur standardisé de décès (Z-score) compris entre 2 et 4,99
+- Excès élevé de décès : indicateur standardisé de décès (Z-score) compris entre 5 et 6,99 :
+- Excès très élevé de décès : indicateur standardisé de décès (Z-score) compris entre 7 et 11,99 : Excès exceptionnel de décès indicateur standardisé de décès (Z-score) supérieur à 12
+
+#### Limites de la méthode de calcul
+
+Les excès estimés sont établis sur un ensemble de 3000 communes pour lesquelles Santé publique France dispose d'un historique long de données. Ces 3000 communes enregistrent 77% de la mortalité nationale, variant (de 63% à 96% selon les régions et de 42% à 98% selon les départements.
+
+Compte tenu des délais légaux de déclaration d’un décès à l’état-civil et du délai pris par le bureau d’état-civil pour saisir les informations, un délai entre la survenue du décès et l’arrivée des informations à Santé publique France est observé. Ce délai peut être allongé ponctuellement (jours fériés, week-end allongés, ponts, vacances scolaires, très forte période épidémique, confinement). Les données de mortalité sont considérés consolidées dans un délai de 30 jours.";"daily";"Licence Ouverte / Open Licence version 2.0";"";"";"";"";True;"2020-04-28T10:36:01.449000";"2021-04-29T10:43:39.624000";"coronavius,covid-19,covid19";False;4;2;"csv";3287;"";"";"";"";"";"0.67";2;2;2;5290;3271
+"5e7e104ace2080d9162b61d8";"Données hospitalières relatives à l'épidémie de COVID-19";"donnees-hospitalieres-relatives-a-lepidemie-de-covid-19";"SIVIC";"https://www.data.gouv.fr/fr/datasets/donnees-hospitalieres-relatives-a-lepidemie-de-covid-19/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"**Dans un contexte d’épidémie favorable, à compter du 1er juillet 2023, le cadre juridique actuellement en cours prévoit l’arrêt du traitement des données personnelles issues de SI-DEP. Par conséquent, après une période transitoire d’ajustement de deux semaines, les nouveaux indicateurs de surveillance virologique seront publiés aux niveaux national, régional et départemental) à une fréquence hebdomadaire. 
+Les consignes de saisie spécifiques dans SI-VIC seront levées à partir de cette date, les indicateurs hospitaliers ne seront plus disponibles. 
+Santé publique France maintient la surveillance de l’épidémie à travers son dispositif multi-sources. Les indicateurs relatifs à la surveillance génomique, aux recours aux associations SOS Médecins, aux urgences hospitalières et aux décès resteront disponibles.**
+
+**04/04/2023**
+Suite aux adaptations des consignes de saisie des données observées par les établissements de santé, Santé publique France publie fait évoluer sa restitution des indicateurs de la surveillance hospitalière de COVID-19 issus de SIVIC tel que : 
+-	sont suspendus les indicateurs calculés par date de déclaration 
+-	sont maintenus les indicateurs calculés par date d’admission à un rythme bihebdomadaire, les mardi et vendredi.
+
+Les ressources toujours actualisées :
+- covid_hosp_txad_fra
+- covid_hosp_ad_age
+- covid_hosp_txad_reg
+- covid_hosp_txad_age_fra
+
+
+**08/06/2022** Compte tenu de la tendance actuelle favorable et la baisse des principaux indicateurs, à partir du 11 juin 2022, les indicateurs COVID-19 produits par Santé publique France seront actualisés sur Géodes et data.gouv.fr tous les jours à l’exception des week-end et des jours fériés. 
+
+**Information 11/03/2022**
+Le **nom de fichiers** a été modifié, suite à la mise à jour du système informatique :
+ _donnees-hospitalieres-covid19_ devient covid_hospit
+ _donnees-hospitalieres-etablissements-covid19_ devient covid_hospit_etab
+ _donnees-hospitalieres-nouveaux-covid19_ devient covid_hospit_incid
+ _donnees-hospitalieres-classe-age-covid19_ devient covid_hospit_clage10
+ _donnees-hospitalieres-classe-age-hebdo-covid19_ devient covid_hosp_ad_age
+
+**Information 04/02/2022**
+Depuis mardi 1er février, les formats des fichiers décès dans SIVIC ont été modifiés en amont de Santé publique France. Certaines données n’ont pas été dans nos indicateurs, entrainant une sous-estimation des indicateurs hospitaliers les 2 et 3 février. 
+
+Les nombres de nouvelles hospitalisations, admissions en soins critiques et décès déclarés le 4 Février 2022 intègrent un rattrapage de données et sont donc surestimés.
+
+**Information 31/01/2022**
+Ajout de la variable `pouravec` dans les fichiers _covid-hosp-txad-fra.csv_, _covid-hosp-txad-reg.csv_ et _covid-hosp-txad-age-fra.csv_
+Cette variable permet une sélection selon le lien de l'hospitalisation avec la COVID-19 :
+
+`0` =	Hospitalisations avec infection SARS-CoV-2 (quelque soit le motif de l'hospitalisation)
+`1` =	Hospitalisations pour COVID-19
+`2` =	Hospitalisations pour autre motif, avec infection SARS-CoV-2
+
+(la modalité ""0"" est la somme des modalités ""1"" et ""2"")
+
+_SI-VIC est un outil administratif de gestion hospitalière et ne contient aucune information médicale. Les **décès** notifiés dans SI-VIC ne comprennent donc aucune information concernant l'imputabilité de la Covid-19 au décès. La distinction des patients décédés au cours d'une hospitalisation pour COVID-19 de ceux décédés au cours d'une hospitalisation pour un autre motif mais avec une infection SARS-CoV-2 ne peut donc être faite en se basant sur les données SI-VIC_
+
+**Information 26/11/2021**
+Ajout de ressources donnant accès aux données hebdomadaires régionales et nationales d'hospitalisation et en fonction de **la date d'admission.**
+
+Les variables pour _covid-hosp-txad-fra.csv_ et _covid-hosp-txad-reg.csv_ 
+`tx_indic_7J_DC` = Taux de personnes décédées durant les 7 derniers jours  (pour 100 000 hab.) 
+`tx_indic_7J_hosp` = Taux de nouvelles hospitalisation lors des 7 derniers jours  (pour 100 000 hab.) 
+`tx_indic_7J_SC` = Taux de nouvelles hospitalisation en soins critiques lors des 7 derniers jours  (pour 100 000 hab.) 
+`tx_prev_hosp` = Taux personnes hospitalisées  (pour 100 000 hab.) 
+`tx_prev_SC` = Taux de personnes en soins critiques  (pour 100 000 hab.) 
+
+En plus pour _covid-hosp-txad-age-fra.csv_ :
+`cl_age90` = Classe d'âge
+
+### Les actions de Santé publique France
+
+Santé publique France a pour mission d'améliorer et de protéger la santé des populations. Durant la crise sanitaire liée à l'épidémie du COVID-19, Santé publique France se charge de surveiller et comprendre la dynamique de l'épidémie, d'anticiper les différents scénarii et de mettre en place des actions pour prévenir et limiter la transmission de ce virus sur le territoire national.
+
+### Description du jeu de données
+
+Le présent jeu de données renseigne sur la situation hospitalières concernant l'épidémie de COVID-19.
+
+Cinq fichiers sont proposés : 
+
+- **Les données hospitalières relatives à l'épidémie du COVID-19 par département et sexe du patient** : nombre de patients hospitalisés, nombre de personnes actuellement en réanimation ou soins intensifs, nombre de personnes actuellement en Soins de Suite et de Réadaptation (SSR) ou Unités de Soins de Longue Durée(USLD), nombre de personnes actuellement en hospitalisation conventionnelle, nombre actuellement de personnes hospitalisées dans un autre type de service ou nombre cumulé de personnes retournées à domicile, nombre cumulé de personnes décédées.
+
+- **Les données hospitalières relatives à l'épidémie du COVID-19 par région, et classe d'âge du patient** : nombre de patients hospitalisés, nombre de personnes actuellement en réanimation ou soins intensifs, nombre de personnes actuellement en Soins de Suite et de Réadaptation (SSR) ou Unités de Soins de Longue Durée(USLD), nombre de personnes actuellement en hospitalisation conventionnelle, nombre actuellement de personnes hospitalisées dans un autre type de service, nombre cumulé de personnes retournées à domicile, nombre cumulé de personnes décédées.
+Le codage des classes d'âges est le suivant :
+0	= tous âges
+09	= 0-9 ans
+19	= 10-19 ans
+29	= 20-29 ans
+39	= 30-39 ans
+49	= 40-49 ans
+59	= 50-59 ans
+69	= 60-69 ans
+79	= 70- 79 ans
+89	= 80-89 ans
+90	= 90 ans et plus
+
+- **Les données hospitalières quotidiennes relatives à l'épidémie du COVID-19 par département** : nombre quotidien de personnes nouvellement hospitalisées, nombre quotidien de nouvelles admissions en réanimation, nombre quotidien de personnes nouvellement décédées, nombre quotidien de nouveaux retours à domicile.
+
+- **Les données relatives aux établissements hospitaliers par département** : nombre cumulé de services ayant déclaré au moins un cas.
+
+- **Les données relatives à les nouvelles admissions en réanimation par région** : nombre de nouveaux patients admis en réanimation dans les 24 dernières heures.
+
+
+### Anomalies détectées dans les fichiers
+
+Attention, certains fichiers peuvent comporter des anomalies du fait des difficultés de collecte des données.
+
+Des rapports d'erreurs sont publiés tous les jours par Etalab dans la rubrique ressources communautaires :
+- [Rapport d'erreurs pour les données hospitalières](https://www.data.gouv.fr/fr/datasets/r/f19775db-15c0-4261-a8a6-255034e94dbf) ;
+- [Rapport d'erreurs pour les établissements hospitaliers](https://www.data.gouv.fr/fr/datasets/r/8b55024d-6128-4fef-ae03-08692597dd94).
+
+À noter que : 
+- Le système de déclaration des cas n'est pas exhaustif et le nombre d'établissements déclarant varie au cours du temps ;
+- Certains patients, présents dans la base de données hospitalières à un moment donné, sont retirés de la base de données par les établissements de santé lorsque le résultat biologique du patient est négatif par rapport au COVID-19 ; 
+- Pour certains patients, la classe d'âge n'a pas été identifiée dans la base de données. Ce qui peut induire un décalage entre la somme de toutes les classes d'âge d'un indicateur et le nombre total de cet indicateur ; 
+- Pour certains patients, le sexe n'a pas été identifié dans la base de données. Ce qui peut induire un décalage entre la somme H/F  d'un indicateur et le nombre total de cet indicateur. 
+
+N’hésitez pas à signaler d'autres anomalies en commentaire. Ces remarques seront communiquées à l'équipe en charge de la collecte et diffusion des données. 
+
+### Autres données disponibles
+
+[Santé publique France](https://www.data.gouv.fr/fr/organizations/sante-publique-france/) publie également les [données des urgences hospitalières et de SOS médecins relatives à l'épidémie de COVID-19](https://www.data.gouv.fr/fr/datasets/donnees-des-urgences-hospitalieres-et-de-sos-medecins-relatives-a-lepidemie-de-covid-19/) et les données relatives aux [tests de dépistage de COVID-19 réalisés en laboratoire de ville](https://www.data.gouv.fr/fr/datasets/donnees-relatives-aux-tests-de-depistage-de-covid-19-realises-en-laboratoire-de-ville/).";"fourTimesAWeek";"Licence Ouverte / Open Licence version 2.0";"";"";"fr:departement";"France";True;"2020-03-27T15:40:10.048000";"2023-07-04T15:11:16.551000";"coronavius,covid-19,covid19,covid19france";False;15;9;"csv";1167021;"";"";"";"";"";"0.78";331;142;67;297540;1177739
+"5e7de8cf4663c08d4f74ba01";"OLD Données relatives aux tests de dépistage de COVID-19 réalisés en laboratoire de ville";"old-donnees-relatives-aux-tests-de-depistage-de-covid-19-realises-en-laboratoire-de-ville";"";"https://www.data.gouv.fr/fr/datasets/old-donnees-relatives-aux-tests-de-depistage-de-covid-19-realises-en-laboratoire-de-ville/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"## Point d'attention 
+
+Depuis le 29 mai 2020, ce jeu de données n'est plus mis à jour. Le système d’information national (SIDEP) de dépistage du Covid-19 est désormais le système qui fait référence. Vous pouvez retrouver les données de résultats de tests sur le jeu de données ""[Données relatives aux résultats des tests virologiques COVID-19](https://www.data.gouv.fr/fr/datasets/donnees-relatives-aux-resultats-des-tests-virologiques-covid-19/)"".
+
+### Les actions de Santé publique France
+
+Santé publique France a pour mission d'améliorer et de protéger la santé des populations. Durant la crise sanitaire liée à l'épidémie du COVID-19, Santé publique France se charge de surveiller et comprendre la dynamique de l'épidémie, d'anticiper les différents scénarii et de mettre en place des actions pour prévenir et limiter la transmission de ce virus sur le territoire national.
+
+### Description du jeu de données
+
+Le présent jeu de données renseigne sur le nombre de tests de dépistage du COVID-19 réalisés par les laboratoires de villes, par département et par sexe  : 
+- Nombre de tests réalisés ;
+- Nombre de tests positifs. 
+
+Un fichier quotidien et un fichier hebdomadaire sont proposés. 
+
+### Mode de production des données
+
+Le système de surveillance, appelé 3labos, repose sur la remontée automatisée des données individuelles de trois laboratoires centralisateurs de prélèvements (France métropolitaine et DOM) : Eurofins Biomnis et Cerba. Les objectifs de ce système de surveillance sont le suivi des tendances temporo-spatiales de maladies infectieuses ciblées, la contribution à l’investigation d’épidémies et l’apport de données complémentaires aux systèmes de surveillance existants.
+
+Dans le cadre de l'épidémie de COVID-19, des données sont transmises quotidiennement et incluent le résultat biologique (réalisé par PCR), l’âge, le sexe et le département du patient ou du laboratoire préleveur.
+
+Les données sont transmises quotidiennement à Santé publique France, avec un certain délai entre la date de prélèvement et la réalisation du test. Ces délais comprennent le temps d’acheminement de l’échantillon, la réalisation du test, le traitement administratif du dossier et son enregistrement dans le système d’information.
+
+### Éléments d'attention
+
+ **Le fichier mis à disposition contient uniquement les tests réalisés par les laboratoires de ville. Il ne recense pas l’ensemble des tests réalisés en France**.
+
+**Certains fichiers peuvent comporter des anomalies du fait des difficultés de collecte des données. Des rapports d'erreurs sont publiés tous les jours par Etalab dans la rubrique ressources communautaires** :
+- [Rapport d'erreurs pour le fichier quotidien](https://www.data.gouv.fr/fr/datasets/r/59e82d52-e07a-4ae8-9a49-2d1fd2d2ec21) ;
+- [Rapport d'erreurs pour le fichier hebdomadaire](https://www.data.gouv.fr/fr/datasets/r/59fee2aa-97c3-49b2-a2bf-019238b26077).
+
+N’hésitez pas à signaler d'autres anomalies en commentaire. Ces remarques seront communiquées à l'équipe en charge de la collecte et diffusion des données. 
+
+";"unknown";"Licence Ouverte / Open Licence version 2.0";"";"";"";"";True;"2020-03-27T12:51:43.505000";"2022-11-15T17:25:03.781000";"coronavirus,covid-19,covid19,covid19france";False;4;2;"csv";46493;"";"";"";"";"";"0.56";20;8;4;8345;8664
+"5e74ecf52eb7514f2d3b8845";"Données des urgences hospitalières et de SOS médecins relatives à l'épidémie de COVID-19 ";"donnees-des-urgences-hospitalieres-et-de-sos-medecins-relatives-a-lepidemie-de-covid-19";"";"https://www.data.gouv.fr/fr/datasets/donnees-des-urgences-hospitalieres-et-de-sos-medecins-relatives-a-lepidemie-de-covid-19/";"Santé publique France";"5e721a395d57f93d0bed451f";"";"";"### INFORMATION IMPORTANTE
+
+**Ce jeudi 4 Novembre 2021**, le format de la variable **sursaud_cl_age_corona** sera modifié :
+
+**Nouveau codage :**
+0 = ""Tous âges""
+1 = ""0-4 ans"" 
+2 = ""5-14 ans""
+3 = ""15-44 ans""
+4 = ""45-64 ans""
+5 = ""65-74 ans""
+6 = ""75 ans ou plus""
+
+**Ancien actuel :**
+0 = ""Tous âges""
+A = ""moins de 15ans"" 
+B = ""15-44 ans""
+C = ""45-64 ans""
+D = ""65-74 ans""
+E = ""75 ans ou plus""
+
+
+### Les actions de Santé publique France
+
+Santé publique France a pour mission d'améliorer et de protéger la santé des populations. Durant la crise sanitaire liée à l'épidémie du COVID-19, Santé publique France se charge de surveiller et comprendre la dynamique de l'épidémie, d'anticiper les différents scénarii et de mettre en place des actions pour prévenir et limiter la transmission de ce virus sur le territoire national.
+
+### Description du jeu de données
+
+Deux fichiers sont proposés :
+
+- **Les données quotidiennes de SOS médecins et des urgences hospitalières par département, sexe et tranche d’âge des patients** : nombre de passages aux urgences pour suspicion de COVID-19, nombre total de passages aux urgences avec un diagnostic médical renseigné, nombre d’hospitalisations parmi les passages aux urgences pour suspicion de COVID-19, nombre total d’actes médicaux SOS Médecins pour suspicion de COVID-19, nombre total d’actes médicaux SOS Médecins avec un diagnostic médical renseigné.
+
+- **Les données quotidiennes de SOS médecins et des urgences hospitalières par région, sexe et tranches d’âge des patients** : nombre de passages aux urgences pour suspicion de COVID-19, nombre total de passages aux urgences avec un diagnostic médical renseigné, nombre d’hospitalisations parmi les passages aux urgences pour suspicion de COVID-19, nombre d’actes médicaux SOS Médecins pour suspicion de COVID-19, nombre total d’actes médicaux SOS Médecins avec un diagnostic médical renseigné. Le code région correspond au [code INSEE](https://fr.wikipedia.org/wiki/Région_française#Niveau_national) publié par l’INSEE sur [www.data.gouv.fr](https://www.data.gouv.fr/fr/datasets/code-officiel-geographique-cog/#resource-c2a54903-513e-41b9-a108-3d9cb2104217).
+
+### Anomalies détectées dans les fichiers
+
+Attention, certains fichiers peuvent comporter des anomalies du fait des difficultés de collecte des données.
+
+Des rapports d'erreurs sont publiés tous les jours par Etalab dans la rubrique ressources communautaires :
+- [Rapport d'erreurs pour le fichier quotidien](https://static.data.gouv.fr/resources/donnees-des-urgences-hospitalieres-et-de-sos-medecins-relatives-a-lepidemie-de-covid-19/20200402-160328/sursaud-covid19-quotidien-incoherence-01042020.xlsx) ;
+- [Rapport d'erreurs pour le fichier hebdomadaire](https://static.data.gouv.fr/resources/donnees-des-urgences-hospitalieres-et-de-sos-medecins-relatives-a-lepidemie-de-covid-19/20200402-160350/sursaud-covid19-hebdomadaire-incoherence-01042020.xlsx).
+
+À noter que : 
+- Pour certains patients, la classe d’âge n’a pas été identifiée dans la base de données. Ce qui peut induire un décalage entre la somme de toutes les classes d’âge d’un indicateur et le nombre total de cet indicateur ;
+- Pour certains patients, le sexe n’a pas été identifié dans la base de données. Ce qui peut induire un décalage entre la somme H/F d’un indicateur et le nombre total de cet indicateur.
+
+
+N’hésitez pas à signaler d'autres anomalies en commentaire. Ces remarques seront communiquées à l'équipe en charge de la collecte et diffusion des données. 
+
+### Autres données disponibles
+
+[Santé publique France](https://www.data.gouv.fr/fr/organizations/sante-publique-france/) publie également les [données hospitalières relatives à l’épidémie de COVID-19](https://www.data.gouv.fr/fr/datasets/donnees-hospitalieres-relatives-a-lepidemie-de-covid-19/).
+";"unknown";"Licence Ouverte / Open Licence version 2.0";"";"";"fr:departement";"";True;"2020-03-20T17:19:01.201000";"2024-11-06T17:00:15.898000";"coronavirus,covid-19,covid19";False;7;2;"csv";91176;"";"";"";"";"";"0.67";62;50;31;37502;91953
