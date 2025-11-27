@@ -17,6 +17,7 @@ exp=(2*x+3)**4
 exp_dev=sp.expand(exp)
 print(exp_dev)
 
+
 # # 3  
 intgrale_calculer=sp.integrate(sp.sin(x)*sp.cos(x),(x,0,sp.pi/2))
 

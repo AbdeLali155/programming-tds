@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: 'Times New Roman', serif;
+      margin: 40px;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1 {
+      color: #1e40af;
+      text-align: center;
+      border-bottom: 3px solid #3b82f6;
+      padding-bottom: 10px;
+    }
+    h2 {
+      color: #1e40af;
+      margin-top: 30px;
+      border-bottom: 2px solid #93c5fd;
+      padding-bottom: 5px;
+    }
+    h3 {
+      color: #1e3a8a;
+      margin-top: 20px;
+    }
+    .header {
+      background: #dbeafe;
+      padding: 15px;
+      border-left: 4px solid #3b82f6;
+      margin-bottom: 20px;
+    }
+    .solution-box {
+      background: #f0f9ff;
+      border: 2px solid #bfdbfe;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 5px;
+    }
+    .result-box {
+      background: #d1fae5;
+      border: 2px solid #34d399;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .formula {
+      background: #fffbeb;
+      border-left: 4px solid #fbbf24;
+      padding: 10px;
+      margin: 10px 0;
+      font-family: 'Courier New', monospace;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    th, td {
+      border: 1px solid #9ca3af;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background: #e5e7eb;
+      font-weight: bold;
+    }
+    .page-break {
+      page-break-before: always;
+    }
+    .footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 2px solid #d1d5db;
+      text-align: center;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <h1>Solutions Complètes - Exercices 5 & 6</h1>
+  
+  <div class="header">
+    <strong>Module:</strong> Probabilité - TD 2<br>
+    <strong>Filière:</strong> CCN1/GLSID1_S1<br>
+    <strong>Année:</strong> 2024/2025<br>
+    <strong>École:</strong> École Normale Supérieure de l'Enseignement Technique de Mohammedia
+  </div>
+
+  <!-- EXERCICE 5 -->
+  <h2>Exercice 5</h2>
+  
+  <div class="solution-box">
+    <h3>📋 Énoncé</h3>
+    <p>Soit (Ω, B, P) un espace probabilisé. X est une v.a.d définie sur B dont la loi de probabilité est définie par:</p>
+    <div class="formula">
+      P(X = 1) = p,&nbsp;&nbsp;&nbsp;P(X = -1) = q,&nbsp;&nbsp;&nbsp;P(X = 0) = 1 - p - q
+    </div>
+    <p>Soit Y une v.a.d définie sur B, de même loi que X, telles que X et Y soient indépendantes.</p>
+    <p>On pose Z = X + Y</p>
+  </div>
+
+  <h3>Question 1: Calculer l'espérance et la variance de la variable Z</h3>
+  
+  <div class="solution-box">
+    <h4>Étape 1: Calculer E(X)</h4>
+    <p>E(X) = Σ x<sub>i</sub> × P(X = x<sub>i</sub>)</p>
+    <p>E(X) = 1 × p + (-1) × q + 0 × (1-p-q)</p>
+    <div class="result-box">E(X) = p - q</div>
+  </div>
+
+  <div class="solution-box">
+    <h4>Étape 2: Calculer E(Y)</h4>
+    <p>Y a la même loi que X, donc:</p>
+    <div class="result-box">E(Y) = p - q</div>
+  </div>
+
+  <div class="result-box">
+    <h4>✓ Résultat E(Z):</h4>
+    <p>Z = X + Y</p>
+    <p>E(Z) = E(X + Y) = E(X) + E(Y) &nbsp;&nbsp;(car X et Y indépendantes)</p>
+    <h3 style="color: #059669;">E(Z) = 2(p - q)</h3>
+  </div>
+
+  <div class="solution-box">
+    <h4>Étape 3: Calculer V(X)</h4>
+    <p>V(X) = E(X²) - [E(X)]²</p>
+    <p>E(X²) = 1² × p + (-1)² × q + 0² × (1-p-q) = p + q</p>
+    <p>V(X) = (p + q) - (p - q)²</p>
+    <p>V(X) = p + q - (p² - 2pq + q²)</p>
+    <div class="result-box">V(X) = p + q - p² - q² + 2pq</div>
+  </div>
+
+  <div class="solution-box">
+    <h4>Étape 4: Calculer V(Y)</h4>
+    <p>Y a la même loi que X, donc:</p>
+    <div class="result-box">V(Y) = p + q - p² - q² + 2pq</div>
+  </div>
+
+  <div class="result-box">
+    <h4>✓ Résultat V(Z):</h4>
+    <p>Z = X + Y</p>
+    <p>V(Z) = V(X + Y) = V(X) + V(Y) &nbsp;&nbsp;(car X et Y indépendantes)</p>
+    <h3 style="color: #059669;">V(Z) = 2(p + q - p² - q² + 2pq)</h3>
+  </div>
+
+  <h3>Question 2: Quelle la loi de Z?</h3>
+  
+  <div class="solution-box">
+    <p>Z = X + Y, où X, Y ∈ {-1, 0, 1}</p>
+    <p><strong>Valeurs possibles de Z:</strong> {-2, -1, 0, 1, 2}</p>
+    
+    <h4>Calcul des probabilités:</h4>
+    
+    <p><strong>P(Z = -2):</strong> X = -1 et Y = -1</p>
+    <p>P(Z = -2) = P(X=-1) × P(Y=-1) = q × q = <strong>q²</strong></p>
+    
+    <p><strong>P(Z = -1):</strong> (X=-1, Y=0) ou (X=0, Y=-1)</p>
+    <p>P(Z = -1) = q(1-p-q) + (1-p-q)q = <strong>2q(1-p-q)</strong></p>
+    
+    <p><strong>P(Z = 0):</strong> (X=-1, Y=1) ou (X=0, Y=0) ou (X=1, Y=-1)</p>
+    <p>P(Z = 0) = pq + (1-p-q)² + qp = <strong>2pq + (1-p-q)²</strong></p>
+    
+    <p><strong>P(Z = 1):</strong> (X=1, Y=0) ou (X=0, Y=1)</p>
+    <p>P(Z = 1) = p(1-p-q) + (1-p-q)p = <strong>2p(1-p-q)</strong></p>
+    
+    <p><strong>P(Z = 2):</strong> X = 1 et Y = 1</p>
+    <p>P(Z = 2) = p × p = <strong>p²</strong></p>
+  </div>
+
+  <div class="result-box">
+    <h4>✓ Loi de Z:</h4>
+    <table>
+      <tr>
+        <th>Z</th>
+        <th>-2</th>
+        <th>-1</th>
+        <th>0</th>
+        <th>1</th>
+        <th>2</th>
+      </tr>
+      <tr>
+        <td><strong>P(Z)</strong></td>
+        <td>q²</td>
+        <td>2q(1-p-q)</td>
+        <td>2pq+(1-p-q)²</td>
+        <td>2p(1-p-q)</td>
+        <td>p²</td>
+      </tr>
+    </table>
+  </div>
+
+  <h3>Question 3: Calculer P(Z > 0), P(Z = 0), et P(Z < 0)</h3>
+  
+  <div class="solution-box">
+    <h4>P(Z > 0):</h4>
+    <p>P(Z > 0) = P(Z=1) + P(Z=2)</p>
+    <p>P(Z > 0) = 2p(1-p-q) + p²</p>
+    <div class="result-box">P(Z > 0) = p(2 - p - 2q)</div>
+  </div>
+
+  <div class="solution-box">
+    <h4>P(Z = 0):</h4>
+    <div class="result-box">P(Z = 0) = 2pq + (1-p-q)²</div>
+  </div>
+
+  <div class="solution-box">
+    <h4>P(Z < 0):</h4>
+    <p>P(Z < 0) = P(Z=-2) + P(Z=-1)</p>
+    <p>P(Z < 0) = q² + 2q(1-p-q)</p>
+    <div class="result-box">P(Z < 0) = q(2 - q - 2p)</div>
+  </div>
+
+  <div class="result-box">
+    <p><strong>✓ Vérification:</strong> P(Z<0) + P(Z=0) + P(Z>0) = 1 ✓</p>
+  </div>
+
+  <!-- EXERCICE 6 -->
+  <div class="page-break"></div>
+  
+  <h2>Exercice 6</h2>
+  
+  <div class="solution-box">
+    <h3>📋 Énoncé</h3>
+    <p>Démontrer les propriétés suivantes pour différentes lois de probabilité:</p>
+  </div>
+
+  <h3>Question 1: Si X ↪ B(n,p) montrer que: E(X) = np et V(X) = npq</h3>
+  
+  <div class="solution-box">
+    <h4>Rappel: Loi Binomiale</h4>
+    <p>X ~ B(n,p) signifie qu'on répète n fois une expérience de Bernoulli avec probabilité de succès p</p>
+    <p>X = nombre de succès sur n essais</p>
+    <p>q = 1 - p (probabilité d'échec)</p>
+  </div>
+
+  <div class="solution-box">
+    <h4>Démonstration de E(X) = np:</h4>
+    <p>On peut écrire X = X₁ + X₂ + ... + Xₙ</p>
+    <p>où chaque X<sub>i</sub> ~ B(1,p) (Bernoulli)</p>
+    <p>Pour une Bernoulli: E(X<sub>i</sub>) = 0×(1-p) + 1×p = p</p>
+    <p>Par linéarité de l'espérance:</p>
+    <p>E(X) = E(X₁ + X₂ + ... + Xₙ)</p>
+    <p>E(X) = E(X₁) + E(X₂) + ... + E(Xₙ)</p>
+    <div class="result-box">E(X) = n × p = np ✓</div>
+  </div>
+
+  <div class="solution-box">
+    <h4>Démonstration de V(X) = npq:</h4>
+    <p>Pour une Bernoulli X<sub>i</sub>:</p>
+    <p>E(X<sub>i</sub>²) = 0²×(1-p) + 1²×p = p</p>
+    <p>V(X<sub>i</sub>) = E(X<sub>i</sub>²) - [E(X<sub>i</sub>)]² = p - p² = p(1-p) = pq</p>
+    <p>Comme X₁, X₂, ..., Xₙ sont indépendantes:</p>
+    <p>V(X) = V(X₁ + X₂ + ... + Xₙ)</p>
+    <p>V(X) = V(X₁) + V(X₂) + ... + V(Xₙ)</p>
+    <div class="result-box">V(X) = n × pq = npq ✓</div>
+  </div>
+
+  <h3>Question 2: Si X ↪ P(λ) montrer que: E(X) = λ et V(X) = λ</h3>
+  
+  <div class="solution-box">
+    <h4>Rappel: Loi de Poisson</h4>
+    <p>X ~ P(λ) avec P(X = k) = (λ<sup>k</sup> × e<sup>-λ</sup>) / k!</p>
+    <p>où λ > 0 est le paramètre d'intensité</p>
+  </div>
+
+  <div class="solution-box">
+    <h4>Démonstration de E(X) = λ:</h4>
+    <p>E(X) = Σ k × P(X=k) = Σ k × (λ<sup>k</sup>e<sup>-λ</sup>)/k!</p>
+    <p>E(X) = Σ<sub>(k=1 à ∞)</sub> k × (λ<sup>k</sup>e<sup>-λ</sup>)/k!</p>
+    <p>E(X) = Σ<sub>(k=1 à ∞)</sub> (λ<sup>k</sup>e<sup>-λ</sup>)/(k-1)!</p>
+    <p>E(X) = λe<sup>-λ</sup> × Σ<sub>(k=1 à ∞)</sub> λ<sup>k-1</sup>/(k-1)!</p>
+    <p>En posant j = k-1:</p>
+    <p>E(X) = λe<sup>-λ</sup> × Σ<sub>(j=0 à ∞)</sub> λ<sup>j</sup>/j!</p>
+    <p>E(X) = λe<sup>-λ</sup> × e<sup>λ</sup></p>
+    <div class="result-box">E(X) = λ ✓</div>
+  </div>
+
+  <div class="solution-box">
+    <h4>Démonstration de V(X) = λ:</h4>
+    <p>V(X) = E(X²) - [E(X)]²</p>
+    <p>Calculons E(X²) = E[X(X-1)] + E(X):</p>
+    <p>E[X(X-1)] = Σ k(k-1) × (λ<sup>k</sup>e<sup>-λ</sup>)/k!</p>
+    <p>E[X(X-1)] = Σ<sub>(k=2 à ∞)</sub> (λ<sup>k</sup>e<sup>-λ</sup>)/(k-2)!</p>
+    <p>E[X(X-1)] = λ²e<sup>-λ</sup> × e<sup>λ</sup> = λ²</p>
+    <p>Donc: E(X²) = λ² + λ</p>
+    <p>V(X) = (λ² + λ) - λ²</p>
+    <div class="result-box">V(X) = λ ✓</div>
+  </div>
+
+  <div class="result-box">
+    <h4>✓ Propriété remarquable de Poisson:</h4>
+    <p>Pour la loi de Poisson, l'espérance égale la variance!</p>
+  </div>
+
+  <h3>Question 3: Si X ↪ G(p) montrer que: E(X) = 1/p et V(X) = (1-p)/p²</h3>
+  
+  <div class="solution-box">
+    <h4>Rappel: Loi Géométrique</h4>
+    <p>X ~ G(p) représente le nombre d'essais avant le premier succès</p>
+    <p>P(X = k) = (1-p)<sup>k-1</sup> × p pour k ≥ 1</p>
+    <p>q = 1 - p</p>
+  </div>
+
+  <div class="solution-box">
+    <h4>Démonstration de E(X) = 1/p:</h4>
+    <p>E(X) = Σ<sub>(k=1 à ∞)</sub> k × q<sup>k-1</sup> × p</p>
+    <p>E(X) = p × Σ<sub>(k=1 à ∞)</sub> k × q<sup>k-1</sup></p>
+    <p>On sait que: Σ<sub>(k=1 à ∞)</sub> k × x<sup>k-1</sup> = 1/(1-x)² pour |x| < 1</p>
+    <p>E(X) = p × 1/(1-q)²</p>
+    <p>E(X) = p × 1/p²</p>
+    <div class="result-box">E(X) = 1/p ✓</div>
+  </div>
+
+  <div class="solution-box">
+    <h4>Démonstration de V(X) = (1-p)/p²:</h4>
+    <p>V(X) = E(X²) - [E(X)]²</p>
+    <p>Calculons E(X²):</p>
+    <p>E(X²) = Σ<sub>(k=1 à ∞)</sub> k² × q<sup>k-1</sup> × p</p>
+    <p>E(X²) = p × Σ<sub>(k=1 à ∞)</sub> k² × q<sup>k-1</sup></p>
+    <p>En utilisant: Σ k²x<sup>k-1</sup> = (1+x)/(1-x)³</p>
+    <p>E(X²) = p × (1+q)/(1-q)³ = p × (1+q)/p³ = (1+q)/p²</p>
+    <p>V(X) = (1+q)/p² - 1/p²</p>
+    <p>V(X) = q/p²</p>
+    <div class="result-box">V(X) = (1-p)/p² ✓</div>
+  </div>
+
+  <div class="footer">
+    <p><strong>Solutions complètes - TD 2 Probabilité</strong></p>
+    <p>ENSAM Mohammedia - Année 2024/2025</p>
+  </div>
+</body>
+</html>
+    

@@ -3,7 +3,6 @@
 #include <time.h>
 #include <string.h>
 
-// Function prototypes
 void bubbleSort(int arr[], int n);
 void insertionSort(int arr[], int n);
 void selectionSort(int arr[], int n);
@@ -15,7 +14,6 @@ void generateRandomArray(int arr[], int n);
 double measureTime(void (*sortFunc)(int[], int), int arr[], int n);
 double measureTimeQuick(int arr[], int n);
 
-// Bubble Sort
 void bubbleSort(int arr[], int n) {
     for (int i = 0; i < n - 1; i++) {
         for (int j = 0; j < n - i - 1; j++) {
@@ -28,7 +26,6 @@ void bubbleSort(int arr[], int n) {
     }
 }
 
-// Insertion Sort
 void insertionSort(int arr[], int n) {
     for (int i = 1; i < n; i++) {
         int key = arr[i];
@@ -41,7 +38,6 @@ void insertionSort(int arr[], int n) {
     }
 }
 
-// Selection Sort
 void selectionSort(int arr[], int n) {
     for (int i = 0; i < n - 1; i++) {
         int minIdx = i;
@@ -56,7 +52,6 @@ void selectionSort(int arr[], int n) {
     }
 }
 
-// Quick Sort helper functions
 int partition(int arr[], int low, int high) {
     int pivot = arr[high];
     int i = low - 1;
@@ -83,7 +78,6 @@ void quickSort(int arr[], int low, int high) {
     }
 }
 
-// Merge Sort helper functions
 void merge(int arr[], int left, int mid, int right) {
     int n1 = mid - left + 1;
     int n2 = right - mid;
@@ -133,7 +127,6 @@ void mergeSort(int arr[], int left, int right) {
     }
 }
 
-// Shell Sort
 void shellSort(int arr[], int n) {
     for (int gap = n / 2; gap > 0; gap /= 2) {
         for (int i = gap; i < n; i++) {
@@ -147,7 +140,6 @@ void shellSort(int arr[], int n) {
     }
 }
 
-// TimSort - simplified version using insertion sort for runs
 #define MIN_MERGE 32
 
 void insertionSortRange(int arr[], int left, int right) {
@@ -163,13 +155,11 @@ void insertionSortRange(int arr[], int left, int right) {
 }
 
 void timSort(int arr[], int n) {
-    // Sort individual runs
     for (int i = 0; i < n; i += MIN_MERGE) {
         int right = (i + MIN_MERGE - 1 < n - 1) ? (i + MIN_MERGE - 1) : (n - 1);
         insertionSortRange(arr, i, right);
     }
     
-    // Merge sorted runs
     for (int size = MIN_MERGE; size < n; size = 2 * size) {
         for (int left = 0; left < n; left += 2 * size) {
             int mid = left + size - 1;
@@ -182,14 +172,12 @@ void timSort(int arr[], int n) {
     }
 }
 
-// Generate random array
 void generateRandomArray(int arr[], int n) {
     for (int i = 0; i < n; i++) {
         arr[i] = rand() % 1000000;
     }
 }
 
-// Measure execution time
 double measureTime(void (*sortFunc)(int[], int), int arr[], int n) {
     int *temp = (int*)malloc(n * sizeof(int));
     memcpy(temp, arr, n * sizeof(int));
@@ -227,19 +215,19 @@ double measureTimeMerge(int arr[], int n) {
 }
 
 int main() {
-    srand(time(NULL)); // Initialize random seed
+    srand(time(NULL)); 
     
-    // Open file for results
+    
     FILE *fp = fopen("results.dat", "w");
     if (fp == NULL) {
         printf("Error opening file!\n");
         return 1;
     }
     
-    // Write header
+   
     fprintf(fp, "# Size Bubble Insertion Selection Quick Merge Shell TimSort\n");
     
-    // Test sizes: 1000, 2000, 4000, 8000, ..., up to 1000000
+ 
     int sizes[] = {1000, 2000, 4000, 8000, 16000, 32000, 64000, 128000, 256000, 512000, 1000000};
     int numSizes = sizeof(sizes) / sizeof(sizes[0]);
     
@@ -250,15 +238,13 @@ int main() {
         int n = sizes[i];
         printf("Testing size: %d\n", n);
         
-        // Generate random array
         int *arr = (int*)malloc(n * sizeof(int));
         generateRandomArray(arr, n);
         
-        // Measure times for each algorithm
+      
         double timeBubble = 0, timeInsertion = 0, timeSelection = 0;
         double timeQuick = 0, timeMerge = 0, timeShell = 0, timeTimSort = 0;
-        
-        // Skip slow algorithms for large arrays
+     
         if (n <= 16000) {
             timeBubble = measureTime(bubbleSort, arr, n);
             timeInsertion = measureTime(insertionSort, arr, n);
@@ -270,7 +256,6 @@ int main() {
         timeShell = measureTime(shellSort, arr, n);
         timeTimSort = measureTime(timSort, arr, n);
         
-        // Write results
         fprintf(fp, "%d %.6f %.6f %.6f %.6f %.6f %.6f %.6f\n",
                 n, timeBubble, timeInsertion, timeSelection,
                 timeQuick, timeMerge, timeShell, timeTimSort);
@@ -285,7 +270,6 @@ int main() {
     
     fclose(fp);
     
-    // Create GNUPLOT script
     FILE *gnuplot = fopen("plot.gnu", "w");
     fprintf(gnuplot, "set terminal png size 1200,800\n");
     fprintf(gnuplot, "set output 'sorting_comparison.png'\n");

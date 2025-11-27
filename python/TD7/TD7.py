@@ -8,16 +8,10 @@ import matplotlib.pyplot as plt
 
 covid = pd.read_csv('D:/prog/programming-tds/python/TD7/covid-hospit-2023-03-31-18h01.csv')
 
-
-print("\ Dernières lignes du tableau:")
 print(covid.tail())
 
-
-print(" Premieres lignes du tableau:")
 print(covid.head())
 
-
-print(" Types de données de chaque colonne:")
 print(covid.dtypes)
 
 
@@ -52,8 +46,7 @@ plt.show()
 VOTRE_SEXE = 1  # 1 = homme, 2 = femme
 
 sexe_label = "Homme" if VOTRE_SEXE == 1 else "Femme"
-print(f"\n👤 Analyse pour: {sexe_label} (sexe={VOTRE_SEXE})")
-
+print(f"Analyse pour: {sexe_label} (sexe={VOTRE_SEXE})")
 
 covid_filtre = covid[covid['sexe'] == VOTRE_SEXE].copy()
 covid_sexe_agg = covid_filtre.drop(['dep', 'sexe'], axis=1)
