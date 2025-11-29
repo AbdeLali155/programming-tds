@@ -3,6 +3,9 @@
 #include <time.h>
 #include <string.h>
 
+// ============================================
+// DÉCLARATIONS DES FONCTIONS
+// ============================================
 void bubbleSort(int arr[], int n);
 void insertionSort(int arr[], int n);
 void selectionSort(int arr[], int n);
@@ -13,6 +16,11 @@ void timSort(int arr[], int n);
 void generateRandomArray(int arr[], int n);
 double measureTime(void (*sortFunc)(int[], int), int arr[], int n);
 double measureTimeQuick(int arr[], int n);
+double measureTimeMerge(int arr[], int n);  // AJOUT : déclaration manquante
+
+// ============================================
+// ALGORITHMES DE TRI
+// ============================================
 
 void bubbleSort(int arr[], int n) {
     for (int i = 0; i < n - 1; i++) {
@@ -85,6 +93,11 @@ void merge(int arr[], int left, int mid, int right) {
     int *L = (int*)malloc(n1 * sizeof(int));
     int *R = (int*)malloc(n2 * sizeof(int));
     
+    if (L == NULL || R == NULL) {
+        printf("Memory allocation failed in merge!\n");
+        exit(1);
+    }
+    
     for (int i = 0; i < n1; i++)
         L[i] = arr[left + i];
     for (int j = 0; j < n2; j++)
@@ -155,11 +168,13 @@ void insertionSortRange(int arr[], int left, int right) {
 }
 
 void timSort(int arr[], int n) {
+    // Phase 1: Tri par insertion sur des petits blocs
     for (int i = 0; i < n; i += MIN_MERGE) {
         int right = (i + MIN_MERGE - 1 < n - 1) ? (i + MIN_MERGE - 1) : (n - 1);
         insertionSortRange(arr, i, right);
     }
     
+    // Phase 2: Fusion des blocs
     for (int size = MIN_MERGE; size < n; size = 2 * size) {
         for (int left = 0; left < n; left += 2 * size) {
             int mid = left + size - 1;
@@ -172,6 +187,10 @@ void timSort(int arr[], int n) {
     }
 }
 
+// ============================================
+// FONCTIONS UTILITAIRES
+// ============================================
+
 void generateRandomArray(int arr[], int n) {
     for (int i = 0; i < n; i++) {
         arr[i] = rand() % 1000000;
@@ -180,6 +199,11 @@ void generateRandomArray(int arr[], int n) {
 
 double measureTime(void (*sortFunc)(int[], int), int arr[], int n) {
     int *temp = (int*)malloc(n * sizeof(int));
+    if (temp == NULL) {
+        printf("Memory allocation failed!\n");
+        return -1.0;
+    }
+    
     memcpy(temp, arr, n * sizeof(int));
     
     clock_t start = clock();
@@ -192,6 +216,11 @@ double measureTime(void (*sortFunc)(int[], int), int arr[], int n) {
 
 double measureTimeQuick(int arr[], int n) {
     int *temp = (int*)malloc(n * sizeof(int));
+    if (temp == NULL) {
+        printf("Memory allocation failed!\n");
+        return -1.0;
+    }
+    
     memcpy(temp, arr, n * sizeof(int));
     
     clock_t start = clock();
@@ -204,6 +233,11 @@ double measureTimeQuick(int arr[], int n) {
 
 double measureTimeMerge(int arr[], int n) {
     int *temp = (int*)malloc(n * sizeof(int));
+    if (temp == NULL) {
+        printf("Memory allocation failed!\n");
+        return -1.0;
+    }
+    
     memcpy(temp, arr, n * sizeof(int));
     
     clock_t start = clock();
@@ -214,9 +248,12 @@ double measureTimeMerge(int arr[], int n) {
     return ((double)(end - start)) / CLOCKS_PER_SEC;
 }
 
+// ============================================
+// FONCTION PRINCIPALE
+// ============================================
+
 int main() {
     srand(time(NULL)); 
-    
     
     FILE *fp = fopen("results.dat", "w");
     if (fp == NULL) {
@@ -224,73 +261,133 @@ int main() {
         return 1;
     }
     
-   
+    // En-tête du fichier
     fprintf(fp, "# Size Bubble Insertion Selection Quick Merge Shell TimSort\n");
     
- 
+    // Tailles à tester
     int sizes[] = {1000, 2000, 4000, 8000, 16000, 32000, 64000, 128000, 256000, 512000, 1000000};
     int numSizes = sizeof(sizes) / sizeof(sizes[0]);
     
-    printf("Starting comparative study of sorting algorithms...\n");
+    printf("=== COMPARATIVE STUDY OF SORTING ALGORITHMS ===\n");
     printf("This may take several minutes...\n\n");
+    printf("%-10s %-12s %-12s %-12s %-12s %-12s %-12s %-12s\n",
+           "Size", "Bubble(s)", "Insertion(s)", "Selection(s)", 
+           "Quick(s)", "Merge(s)", "Shell(s)", "TimSort(s)");
+    printf("--------------------------------------------------------------------------------------------\n");
     
     for (int i = 0; i < numSizes; i++) {
         int n = sizes[i];
-        printf("Testing size: %d\n", n);
         
         int *arr = (int*)malloc(n * sizeof(int));
+        if (arr == NULL) {
+            printf("Memory allocation failed for size %d!\n", n);
+            continue;
+        }
+        
         generateRandomArray(arr, n);
         
-      
-        double timeBubble = 0, timeInsertion = 0, timeSelection = 0;
+        double timeBubble = -1, timeInsertion = -1, timeSelection = -1;
         double timeQuick = 0, timeMerge = 0, timeShell = 0, timeTimSort = 0;
-     
+        
+        // CORRECTION : Mesurer les algorithmes O(n²) seulement pour petites tailles
         if (n <= 16000) {
             timeBubble = measureTime(bubbleSort, arr, n);
             timeInsertion = measureTime(insertionSort, arr, n);
             timeSelection = measureTime(selectionSort, arr, n);
         }
         
+        // Algorithmes efficaces
         timeQuick = measureTimeQuick(arr, n);
         timeMerge = measureTimeMerge(arr, n);
         timeShell = measureTime(shellSort, arr, n);
         timeTimSort = measureTime(timSort, arr, n);
         
-        fprintf(fp, "%d %.6f %.6f %.6f %.6f %.6f %.6f %.6f\n",
-                n, timeBubble, timeInsertion, timeSelection,
-                timeQuick, timeMerge, timeShell, timeTimSort);
-        
-        printf("  Bubble: %.6fs, Insertion: %.6fs, Selection: %.6fs\n",
-               timeBubble, timeInsertion, timeSelection);
-        printf("  Quick: %.6fs, Merge: %.6fs, Shell: %.6fs, TimSort: %.6fs\n\n",
+        // Affichage console
+        printf("%-10d ", n);
+        printf("%-12.6f %-12.6f %-12.6f ", 
+               (timeBubble >= 0) ? timeBubble : 0.0,
+               (timeInsertion >= 0) ? timeInsertion : 0.0,
+               (timeSelection >= 0) ? timeSelection : 0.0);
+        printf("%-12.6f %-12.6f %-12.6f %-12.6f\n",
                timeQuick, timeMerge, timeShell, timeTimSort);
+        
+        // CORRECTION : Écrire -1 au lieu de 0 pour les algorithmes non testés
+        // Cela permet de les filtrer dans GNUPlot
+        fprintf(fp, "%d %.6f %.6f %.6f %.6f %.6f %.6f %.6f\n",
+                n, 
+                (timeBubble >= 0) ? timeBubble : -1.0,
+                (timeInsertion >= 0) ? timeInsertion : -1.0,
+                (timeSelection >= 0) ? timeSelection : -1.0,
+                timeQuick, timeMerge, timeShell, timeTimSort);
         
         free(arr);
     }
     
     fclose(fp);
     
+    // ============================================
+    // GÉNÉRATION AUTOMATIQUE DES SCRIPTS GNUPLOT
+    // ============================================
+    
+    // Script 1: Comparaison générale
     FILE *gnuplot = fopen("plot.gnu", "w");
-    fprintf(gnuplot, "set terminal png size 1200,800\n");
+    fprintf(gnuplot, "set terminal png size 1400,900 font 'Arial,12'\n");
     fprintf(gnuplot, "set output 'sorting_comparison.png'\n");
-    fprintf(gnuplot, "set title 'Comparative Study of Sorting Algorithms'\n");
-    fprintf(gnuplot, "set xlabel 'Array Size (elements)'\n");
-    fprintf(gnuplot, "set ylabel 'Time (seconds)'\n");
+    fprintf(gnuplot, "set title 'Comparative Study of Sorting Algorithms' font 'Arial,16'\n");
+    fprintf(gnuplot, "set xlabel 'Array Size (elements)' font 'Arial,14'\n");
+    fprintf(gnuplot, "set ylabel 'Time (seconds)' font 'Arial,14'\n");
     fprintf(gnuplot, "set logscale xy\n");
     fprintf(gnuplot, "set grid\n");
     fprintf(gnuplot, "set key left top\n");
-    fprintf(gnuplot, "plot 'results.dat' using 1:2 with linespoints title 'Bubble Sort', \\\n");
-    fprintf(gnuplot, "     'results.dat' using 1:3 with linespoints title 'Insertion Sort', \\\n");
-    fprintf(gnuplot, "     'results.dat' using 1:4 with linespoints title 'Selection Sort', \\\n");
-    fprintf(gnuplot, "     'results.dat' using 1:5 with linespoints title 'Quick Sort', \\\n");
-    fprintf(gnuplot, "     'results.dat' using 1:6 with linespoints title 'Merge Sort', \\\n");
-    fprintf(gnuplot, "     'results.dat' using 1:7 with linespoints title 'Shell Sort', \\\n");
-    fprintf(gnuplot, "     'results.dat' using 1:8 with linespoints title 'TimSort'\n");
+    fprintf(gnuplot, "plot 'results.dat' using 1:($2>0?$2:1/0) with linespoints lw 2 title 'Bubble Sort', \\\n");
+    fprintf(gnuplot, "     'results.dat' using 1:($3>0?$3:1/0) with linespoints lw 2 title 'Insertion Sort', \\\n");
+    fprintf(gnuplot, "     'results.dat' using 1:($4>0?$4:1/0) with linespoints lw 2 title 'Selection Sort', \\\n");
+    fprintf(gnuplot, "     'results.dat' using 1:5 with linespoints lw 2 title 'Quick Sort', \\\n");
+    fprintf(gnuplot, "     'results.dat' using 1:6 with linespoints lw 2 title 'Merge Sort', \\\n");
+    fprintf(gnuplot, "     'results.dat' using 1:7 with linespoints lw 2 title 'Shell Sort', \\\n");
+    fprintf(gnuplot, "     'results.dat' using 1:8 with linespoints lw 2 title 'TimSort'\n");
     fclose(gnuplot);
     
+    // Script 2: Algorithmes efficaces uniquement
+    FILE *gnuplot2 = fopen("plot_efficient.gnu", "w");
+    fprintf(gnuplot2, "set terminal png size 1400,900 font 'Arial,12'\n");
+    fprintf(gnuplot2, "set output 'efficient_algorithms.png'\n");
+    fprintf(gnuplot2, "set title 'Efficient Algorithms O(n log n)' font 'Arial,16'\n");
+    fprintf(gnuplot2, "set xlabel 'Array Size (elements)' font 'Arial,14'\n");
+    fprintf(gnuplot2, "set ylabel 'Time (seconds)' font 'Arial,14'\n");
+    fprintf(gnuplot2, "set logscale x\n");
+    fprintf(gnuplot2, "set grid\n");
+    fprintf(gnuplot2, "set key left top\n");
+    fprintf(gnuplot2, "plot 'results.dat' using 1:5 with linespoints lw 2 title 'Quick Sort', \\\n");
+    fprintf(gnuplot2, "     'results.dat' using 1:6 with linespoints lw 2 title 'Merge Sort', \\\n");
+    fprintf(gnuplot2, "     'results.dat' using 1:7 with linespoints lw 2 title 'Shell Sort', \\\n");
+    fprintf(gnuplot2, "     'results.dat' using 1:8 with linespoints lw 2 title 'TimSort'\n");
+    fclose(gnuplot2);
+    
+    // Script 3: Comparaison O(n²) vs O(n log n)
+    FILE *gnuplot3 = fopen("plot_complexity.gnu", "w");
+    fprintf(gnuplot3, "set terminal png size 1400,900 font 'Arial,12'\n");
+    fprintf(gnuplot3, "set output 'complexity_comparison.png'\n");
+    fprintf(gnuplot3, "set title 'O(n²) vs O(n log n) Complexity' font 'Arial,16'\n");
+    fprintf(gnuplot3, "set xlabel 'Array Size (elements)' font 'Arial,14'\n");
+    fprintf(gnuplot3, "set ylabel 'Time (seconds)' font 'Arial,14'\n");
+    fprintf(gnuplot3, "set grid\n");
+    fprintf(gnuplot3, "set key left top\n");
+    fprintf(gnuplot3, "plot 'results.dat' using 1:($2>0?$2:1/0) with linespoints lw 2 title 'Bubble O(n²)', \\\n");
+    fprintf(gnuplot3, "     'results.dat' using 1:5 with linespoints lw 2 title 'Quick O(n log n)', \\\n");
+    fprintf(gnuplot3, "     'results.dat' using 1:6 with linespoints lw 2 title 'Merge O(n log n)'\n");
+    fclose(gnuplot3);
+    
+    printf("\n=== ANALYSIS COMPLETE ===\n");
     printf("Results saved to 'results.dat'\n");
-    printf("GNUPLOT script saved to 'plot.gnu'\n");
-    printf("Run 'gnuplot plot.gnu' to generate the graph\n");
+    printf("GNUPlot scripts generated:\n");
+    printf("  1. plot.gnu              -> sorting_comparison.png\n");
+    printf("  2. plot_efficient.gnu    -> efficient_algorithms.png\n");
+    printf("  3. plot_complexity.gnu   -> complexity_comparison.png\n\n");
+    printf("To generate graphs, run:\n");
+    printf("  gnuplot plot.gnu\n");
+    printf("  gnuplot plot_efficient.gnu\n");
+    printf("  gnuplot plot_complexity.gnu\n");
     
     return 0;
 }
